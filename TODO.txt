@@ -1,6 +1,6 @@
 - request: anti-alias user picture in menu bar (similar to iChat, which appears to use high interpolation)
 
-- request: ability to set a hot key to bring up the login window (would require background daemon app to listen for hot keys)
+- request: ability to set a hot key to bring up the login window (would require background daemon app to listen for hot keys, or registration of Carbon Event Handler; not sure if this can be done from an NSMenuExtra)
 
 - request: offer a greyscale version of the user icon
 
@@ -8,4 +8,4 @@
 
 - request: option to show "first name only" (long username truncated at first space)
 
-- bugfix: repair the to two casualties in the move to Subversion: the custom icon on the MenuCrack.menu bundle, and the custom icon on the activate-winswitch.command (the resource fork and the metadata, respectively, stripped by the move); partial solution may be /Developer/Tools/DeRez and /Developer/Tools/Rez
+- request: option to show "initials only"

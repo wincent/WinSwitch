@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleVersion</key>
-	<string>1.4.1</string>
+	<string>1.5</string>
 	<key>NSMenuExtraWidth</key>
 	<integer>19</integer>
 	<key>NSPrincipalClass</key>

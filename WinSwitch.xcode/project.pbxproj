@@ -57,6 +57,7 @@
 				Italian,
 				Swedish,
 				Danish,
+				Dutch,
 			);
 			mainGroup = 089C166AFE841209C02AAC07;
 			projectDirPath = "";
@@ -453,6 +454,14 @@
 //BC2
 //BC3
 //BC4
+		BC21955806D76F0C00E6DDD8 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.rez;
+			path = "activate-winswitch-command-icon.r";
+			refType = 4;
+			sourceTree = "<group>";
+		};
 		BC31BEDD05AA5070003881B1 = {
 			children = (
 				BC31BEDE05AA5070003881B1,
@@ -463,6 +472,7 @@
 				BC56E8210652BF2500D9027E,
 				BCA21F3E0684F79D00F97840,
 				BCC0E3D706B44D3B0020437A,
+				BCC0EB0406B532750020437A,
 			);
 			isa = PBXVariantGroup;
 			name = Localizable.strings;
@@ -528,7 +538,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\n. ${SRCROOT}/SetFolderIcon ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME} WinSwitch.icns";
+			shellScript = "#!/bin/sh\n\n# set custom icon on WinSwitch.menu bundle folder\n\n. ${SRCROOT}/SetFolderIcon ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME} WinSwitch.icns\n\n# set custom icon on activate-winswitch.command (Subversion strips resource forks)\n\n/Developer/Tools/SetFile -a C ${SRCROOT}/activate-winswitch.command\n\n/Developer/Tools/Rez \t${SRCROOT}/activate-winswitch-command-icon.r \\\n\t\t\t\t\t-o ${SRCROOT}/activate-winswitch.command/..namedfork/rsrc";
 		};
 		BC31BFF605AB16BF003881B1 = {
 			isa = PBXFileReference;
@@ -720,6 +730,22 @@
 			refType = 4;
 			sourceTree = "<group>";
 		};
+		BCC0EB0406B532750020437A = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = Dutch;
+			path = Dutch.lproj/Localizable.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BCC0EB0506B532750020437A = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = Dutch;
+			path = Dutch.lproj/InfoPlist.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
 		BCE03878061A55C300238E7E = {
 			isa = PBXFileReference;
 			lastKnownFileType = "compiled.mach-o.executable";
@@ -735,6 +761,7 @@
 		};
 		BCE05355061B95F300238E7E = {
 			children = (
+				BC21955806D76F0C00E6DDD8,
 				BCE05358061B961500238E7E,
 				BCE05359061B961500238E7E,
 				BCE0535A061B961500238E7E,
@@ -799,6 +826,7 @@
 				BC56E8200652BF2500D9027E,
 				BCA21F3F0684F79D00F97840,
 				BCC0E3D806B44D3B0020437A,
+				BCC0EB0506B532750020437A,
 			);
 			isa = PBXVariantGroup;
 			name = InfoPlist.strings;
