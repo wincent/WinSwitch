@@ -95,6 +95,7 @@
 		};
 		089C167CFE841241C02AAC07 = {
 			children = (
+				BCA3D59907638FD4005B39A3,
 				BCA80B040618E96300B62BEA,
 				BCE03878061A55C300238E7E,
 				BC31BFF605AB16BF003881B1,
@@ -398,6 +399,7 @@
 				BCA80B38061903FB00B62BEA,
 				BC9A57BB0619CB94004314F6,
 				BCE03879061A55C300238E7E,
+				BCA3D59A07638FD4005B39A3,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -747,6 +749,19 @@
 			path = Japanese.lproj/InfoPlist.strings;
 			refType = 4;
 			sourceTree = "<group>";
+		};
+		BCA3D59907638FD4005B39A3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.application;
+			path = WinSwitchHelper.app;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BCA3D59A07638FD4005B39A3 = {
+			fileRef = BCA3D59907638FD4005B39A3;
+			isa = PBXBuildFile;
+			settings = {
+			};
 		};
 		BCA80A1106173E5B00B62BEA = {
 			fileRef = BC31BFF605AB16BF003881B1;

@@ -11,6 +11,4 @@ $Id$
 
 - try to log out current user if holding down option key (do this only once the notification of switch out has been received)
 
-- request: "You should disable the main user switch menu, whenever the accounts preference pane is opened, it puts the original one back"; note this is not possible without entering a race
-
-- need to update installer to add background app to login items, remove it from login items on uninstall, update login items on upgrade
+- request: "You should disable the main user switch menu, whenever the accounts preference pane is opened, it puts the original one back"; note this is not possible without entering a race, so WinSwitchHelper throws up a notification bezel instead

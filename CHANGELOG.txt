@@ -1,9 +1,10 @@
 CHANGELOG for WinSwitch
 $Id$
 
-Version 3.0b release ( November 2004):
+Version 3.0b release (6 December 2004):
   - adjustable user icon size inside the body of the menu itself (not just in the menu bar)
   - Norwegian localization by Sjur N¿rsteb¿ Moshagen
+  - Finnish localization by Lauri Vanajas  
   - changes to "Activate WinSwitch" script to make it more tolerant of errors reported by the system
   - work around bug in the Apple frameworks that could cause WinSwitch to die if any user pictures had multiple (NSImageRep) representations
   - minor optimizations in bundle- and notification-handling code
@@ -14,7 +15,7 @@ Version 3.0b release ( November 2004):
   - WinSwitchHelper: new bundled background helper application efficiently monitors for addition of Apple version of Fast User Switching menu and displays a notification bezel telling the user of how to remove it
   - WinSwitchHelper: basic hot-key support: Control-Alt-Delete takes user to loginwindow (note that it is Delete and not Backspace)
   - WinSwitchHelper: preferences window provides quick access to all WinSwitch options, a help button, and buttons to access the "Switch-In Items" and "Switch-Out Items" in the Finder
-  - Finnish localization by Lauri Vanajas
+  - WinSwitchHelper: uses WODebug framework to provide crash-catching and diagnostic capabilities
 
 Version 2.0 release (7 September 2004):
   - bugfix: root user, if logged in, would appear in menu regardless of preferences

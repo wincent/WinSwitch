@@ -1,0 +1,31 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = WOBezelButton; LANGUAGE = ObjC; SUPERCLASS = NSButton; }, 
+        {CLASS = WOBezelView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {CLASS = WOBezelWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindow; }, 
+        {CLASS = WOHotKeyCaptureTextField; LANGUAGE = ObjC; SUPERCLASS = NSTextField; }, 
+        {CLASS = WSBezelButtonCell; LANGUAGE = ObjC; SUPERCLASS = NSButtonCell; }, 
+        {
+            ACTIONS = {
+                goToSwitchInItemsFolder = id; 
+                goToSwitchOutItemsFolder = id; 
+                goToWinSwitchHelp = id; 
+            }; 
+            CLASS = WSHelper; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                loginwindowHotKey = WOHotKeyCaptureTextField; 
+                notificationWindow = WOBezelWindow; 
+                prefsWindow = NSWindow; 
+                tempButton = WOBezelButton; 
+                tempCloseButton = NSButton; 
+                tempField1 = NSTextField; 
+                tempField2 = NSTextField; 
+                tempField3 = NSTextField; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}
