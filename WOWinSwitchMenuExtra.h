@@ -42,6 +42,7 @@ typedef enum WOSwitchMenuStyle {
     WOSwitchMenuStyle           menuStyle;      // icon, picture, full, short
     BOOL                        showRootUser; 
     float                       userPictureSize;    // 5.0 to 19.0 pixels
+    float                       menuPictureSize;    // 16.0, 32.0 or 48.0 pixels
     
     // convenience pointers to items in the "Show" submenu
     NSMenu                      *showSubmenu;

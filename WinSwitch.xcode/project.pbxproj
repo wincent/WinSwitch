@@ -58,6 +58,7 @@
 				Swedish,
 				Danish,
 				Dutch,
+				no,
 			);
 			mainGroup = 089C166AFE841209C02AAC07;
 			projectDirPath = "";
@@ -135,6 +136,7 @@
 			children = (
 				31408C28055C079E000B2096,
 				31264968055C054C00DA5F94,
+				BCD6902606F4A58E00E651A6,
 				1058C7ADFEA557BF11CA2CBB,
 			);
 			isa = PBXGroup;
@@ -411,6 +413,7 @@
 			files = (
 				8D5B49B4048680CD000E48DA,
 				31264969055C054C00DA5F94,
+				BCD6902706F4A58E00E651A6,
 			);
 			isa = PBXFrameworksBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +476,7 @@
 				BCA21F3E0684F79D00F97840,
 				BCC0E3D706B44D3B0020437A,
 				BCC0EB0406B532750020437A,
+				BC3E773806EEF36C00FA0245,
 			);
 			isa = PBXVariantGroup;
 			name = Localizable.strings;
@@ -544,6 +548,22 @@
 			isa = PBXFileReference;
 			lastKnownFileType = image.tiff;
 			path = tick.tiff;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BC3E773706EEF36C00FA0245 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = no;
+			path = no.lproj/InfoPlist.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BC3E773806EEF36C00FA0245 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = no;
+			path = no.lproj/Localizable.strings;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -746,6 +766,20 @@
 			refType = 4;
 			sourceTree = "<group>";
 		};
+		BCD6902606F4A58E00E651A6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = ApplicationServices.framework;
+			path = /System/Library/Frameworks/ApplicationServices.framework;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		BCD6902706F4A58E00E651A6 = {
+			fileRef = BCD6902606F4A58E00E651A6;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		BCE03878061A55C300238E7E = {
 			isa = PBXFileReference;
 			lastKnownFileType = "compiled.mach-o.executable";
@@ -827,6 +861,7 @@
 				BCA21F3F0684F79D00F97840,
 				BCC0E3D806B44D3B0020437A,
 				BCC0EB0506B532750020437A,
+				BC3E773706EEF36C00FA0245,
 			);
 			isa = PBXVariantGroup;
 			name = InfoPlist.strings;

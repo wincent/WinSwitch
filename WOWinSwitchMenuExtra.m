@@ -41,6 +41,8 @@
 #define WO_PREF_MENU_STYLE          @"Menu bar style"
 #define WO_PREF_SHOW_ROOT_USER      @"Show root user"
 #define WO_PREF_USER_PICTURE_SIZE   @"User picture size"
+#define WO_PREF_MENU_PICTURE_SIZE   @"User picture size in menu"
+#define WO_PREF_HOT_KEY_SUSPENDS    @"Hot key suspends session"
 
 // these notification names taken from output of the "strings" utility run on:
 //  /System/Library/PreferencePanes/Accounts.prefPane/Contents/MacOS/Accounts
@@ -51,6 +53,10 @@
 #define WO_USER_NAME            @"com.apple.FullUserNameDidChangeNotification"
 #define WO_USER_ADDED           @"com.apple.UserWasAddedNotification"
 #define WO_USER_ENABLED         @"com.apple.UserWasEnabledNotification"
+
+#define WS_UNLOAD_NOTIFICATION          @"WSWinSwitchUnloadNotification"
+#define WS_HELPER_CHANGED_NOTIFICATION  @"WSHelperChangedNotification"
+#define WS_PREF_CHANGED_NOTIFICATION    @"WSPreferencesChangedNotification"
 
 @interface WOWinSwitchMenuExtra (Private)
 
@@ -100,6 +106,9 @@
 
 // returns a "dimmed" version of an image
 - (NSImage *)_dimmedImage:(NSImage *)image;
+
+// returns a "padded" version of an image (2 pixel transparent border)
+- (NSImage *)_paddedImage:(NSImage *)image;
 
 // convenience method to make NSAttributedStrings for the menu
 - (NSAttributedString *)_menuString:(NSString *)aString 
@@ -152,6 +161,7 @@
     WO_ADD_OBSERVER(WO_USER_NAME);
     WO_ADD_OBSERVER(WO_USER_ADDED);
     WO_ADD_OBSERVER(WO_USER_ENABLED);
+    WO_ADD_OBSERVER(WS_HELPER_CHANGED_NOTIFICATION);
     
     // other notifications (NSWorkspace)
     NSNotificationCenter *workspaceCenter = 
@@ -173,6 +183,18 @@
     
     // menu style defaults to 0 (Standard Icon), even if preference not set
     menuStyle = [[preferences objectForKey:WO_PREF_MENU_STYLE] intValue];
+
+    menuPictureSize = 
+        [[preferences objectForKey:WO_PREF_MENU_PICTURE_SIZE] floatValue];
+    
+    if (menuPictureSize == 0)
+        menuPictureSize = 32.0;         // if size is unset, use default size
+    else if (menuPictureSize < 24.0)
+        menuPictureSize = 16.0;         // in other cases force size to 16.0...
+    else if (menuPictureSize > 42.0)
+        menuPictureSize = 48.0;         // 48.0...
+    else
+        menuPictureSize = 32.0;         // or 32.0...
     
     showRootUser = 
         [[preferences objectForKey:WO_PREF_SHOW_ROOT_USER] boolValue];
@@ -194,7 +216,16 @@
         [self _showFirstNameInMenuBar];
     else if (menuStyle == WOSwitchMenuInitials)
         [self _showInitialsInMenuBar];    
+
+    // launch WinSwitchHelper, if present
+    NSString *helper = [[self bundle] pathForResource:@"WinSwitchHelper" 
+                                               ofType:@"app"];
     
+    if (helper && [[NSWorkspace sharedWorkspace] openFile:helper])
+        NSLog(@"WinSwitchHelper launched");
+    else
+        NSLog(@"Error trying to launch WinSwitchHelper");        
+        
     NSLog(@"WinSwitch.menu loaded.");
     return self;
 }
@@ -216,8 +247,12 @@
     WO_REMOVE_OBSERVER(WO_USER_PICTURE);
     WO_REMOVE_OBSERVER(WO_USER_NAME);
     WO_REMOVE_OBSERVER(WO_USER_ADDED);
-    WO_REMOVE_OBSERVER(WO_USER_ENABLED);
-        
+    WO_REMOVE_OBSERVER(WO_USER_ENABLED);    
+    WO_REMOVE_OBSERVER(WS_HELPER_CHANGED_NOTIFICATION);
+
+    // try to terminate WinSwitchHelper
+    [distributedCenter postNotificationName:WS_UNLOAD_NOTIFICATION object:nil];
+    
     [super willUnload];
 }
 
@@ -246,49 +281,88 @@
         [name isEqualToString:WO_USER_DISABLED] ||
         [name isEqualToString:WO_USER_ADDED]    ||
         [name isEqualToString:WO_USER_ENABLED])
+    {
         // force rebuild of cache next time user clicks on the menu
         _refreshAllUsersCache = YES;
-    
-    if ([name isEqualToString:WO_USER_NAME])
+    }
+    else if ([name isEqualToString:WO_USER_NAME])
     {
         _refreshAllUsersCache = YES;                // force cache rebuild
         if (menuStyle == WOSwitchMenuFullUsername)  // update title in menubar
             [self _showFullUsernameInMenuBar];
     }
-    
-    if ([name isEqualToString:WO_USER_PICTURE])
+    else if ([name isEqualToString:WO_USER_PICTURE])
     {
         [self _updateUserImage:[self _iconPathForUID:getuid()]];
         [theView setNeedsDisplay:YES];              	
         _refreshAllUsersCache = YES;
     }
-
-    if ([name isEqualToString:NSWorkspaceSessionDidBecomeActiveNotification])
+    else if ([name isEqualToString:NSWorkspaceSessionDidBecomeActiveNotification])
     {
        // force rebuild of "logged in users" cache next time menu is clicked
         _refreshLoggedInUsers = YES;
         [self _processSwitchItems:@"Switch-In Items"];
     }
-    
-    if ([name isEqualToString:NSWorkspaceSessionDidResignActiveNotification])
+    else if ([name isEqualToString:NSWorkspaceSessionDidResignActiveNotification])
     {
         // force rebuild of "logged in users" cache next time menu is clicked
         _refreshLoggedInUsers = YES;
         [self _processSwitchItems:@"Switch-Out Items"];
+    }
+    else if ([name isEqualToString:WS_HELPER_CHANGED_NOTIFICATION])
+    {
+        NSDictionary *userInfo = [aNotification userInfo];
+        if (userInfo)
+        {
+            id object = nil;
+            if ((object = [userInfo objectForKey:WO_PREF_MENU_STYLE]))
+            {
+            
+            }
+            if ((object = [userInfo objectForKey:WO_PREF_SHOW_ROOT_USER]))
+            {
+            
+            }
+            if ((object = [userInfo objectForKey:WO_PREF_HOT_KEY_SUSPENDS]))
+            {
+            
+            }
+            if ((object = [userInfo objectForKey:WO_PREF_MENU_PICTURE_SIZE]))
+            {   
+                if ([object floatValue] != menuPictureSize)
+                {
+                    menuPictureSize = [object floatValue];
+                    if (menuPictureSize < 24.0)
+                        menuPictureSize = 16.0;         // force size to 16.0...
+                    else if (menuPictureSize > 42.0)
+                        menuPictureSize = 48.0;         // 48.0...
+                    else
+                        menuPictureSize = 32.0;         // or 32.0 (the default)
+                    [self _flushPrefsToDisk];
+                    _refreshAllUsersCache = YES;
+                }
+            }
+            if ((object = [userInfo objectForKey:WO_PREF_USER_PICTURE_SIZE]))
+            {
+                if ([object floatValue] != userPictureSize)
+                {
+                    userPictureSize = [object floatValue];
+                    if ((userPictureSize < 5.0) || (userPictureSize > 19.0))
+                        userPictureSize = 19.0;
+                    [self _updateUserImage:[self _iconPathForUID:getuid()]];
+                    [self _flushPrefsToDisk];
+                    [theView setNeedsDisplay:YES];
+                }
+            }
+        }
     }
 }
 
 // drop back to login window
 - (void)suspend:(id)sender
 {
-    NSTask          *aTask  = [[NSTask alloc] init];
-    NSMutableArray  *args   = [[NSMutableArray alloc] init];
-    [args   addObject:@"-suspend"];
-    [aTask  setLaunchPath:WO_CGSESSION];
-    [aTask  setArguments:args];
-    [aTask  launch];
-    [aTask  release];
-    [args   release];
+    [NSTask launchedTaskWithLaunchPath:WO_CGSESSION 
+                             arguments:[NSArray arrayWithObject:@"-suspend"]];
 }
 
 // open Accounts.prefPane
@@ -302,20 +376,16 @@
 
 - (void)switchToUser:(id)sender
 {
-    NSTask          *aTask  = [[NSTask alloc] init];
-    NSMutableArray  *args   = [[NSMutableArray alloc] init];
-    NSNumber        *UID    = [[sender representedObject] objectForKey:@"UID"];
-    [args   addObject:@"-switchToUserID"];
-    [args   addObject:[UID stringValue]];
-    [aTask  setLaunchPath:WO_CGSESSION];
-    [aTask  setArguments:args];
-    [aTask  launch];
-    [aTask  release];
-    [args   release];
+    NSString *UID = 
+        [[[sender representedObject] objectForKey:@"UID"] stringValue];
+    NSArray *args = [NSArray arrayWithObjects:@"-switchToUserID", UID, nil];
+    [NSTask launchedTaskWithLaunchPath:WO_CGSESSION arguments:args];
 }
 
 - (void)_showSubmenuItemSelected:(id)sender
 {
+    NSDictionary *userInfo = nil;
+    
     // Use performSelector:WithObject:AfterDelay: to give Cocoa time to 
     // unhighlight the menu title before actually performing the action
     // (changing the view size while the item is still highlighted can result in
@@ -325,24 +395,48 @@
     // glitches, but they'll be cosmetic only
     if ((sender == showIconMenuItem) && 
         (menuStyle != WOSwitchMenuIcon))
+    {
+        userInfo = 
+            [NSDictionary dictionaryWithObject:
+                [NSNumber numberWithInt:WOSwitchMenuIcon]
+                                        forKey:WO_PREF_MENU_STYLE];
         [self performSelector:@selector(_showIconInMenuBar) 
                    withObject:nil 
                    afterDelay:0.5];
+    }
     else if ((sender == showUserPictureMenuItem) && 
              (menuStyle != WOSwitchMenuUserPicture))
+    {
+        userInfo = 
+            [NSDictionary dictionaryWithObject:
+                [NSNumber numberWithInt:WOSwitchMenuUserPicture]
+                                        forKey:WO_PREF_MENU_STYLE];
         [self performSelector:@selector(_showUserImageInMenuBar) 
                    withObject:nil 
                    afterDelay:0.5];
+    }
     else if ((sender == showFullUsernameMenuItem) && 
              (menuStyle != WOSwitchMenuFullUsername)) 
+    {
+        userInfo = 
+            [NSDictionary dictionaryWithObject:
+                [NSNumber numberWithInt:WOSwitchMenuFullUsername]
+                                        forKey:WO_PREF_MENU_STYLE];
         [self performSelector:@selector(_showFullUsernameInMenuBar) 
                    withObject:nil 
                    afterDelay:0.5];
+    }
     else if ((sender == showShortUsernameMenuItem) && 
              (menuStyle != WOSwitchMenuShortUsername))
+    {
+        userInfo = 
+            [NSDictionary dictionaryWithObject:
+                [NSNumber numberWithInt:WOSwitchMenuShortUsername]
+                                        forKey:WO_PREF_MENU_STYLE];
         [self performSelector:@selector(_showShortUsernameInMenuBar) 
                    withObject:nil 
                    afterDelay:0.5];
+    }
     else if (sender == showRootUserMenuItem)
     {
         if ([showRootUserMenuItem state] == NSOnState)
@@ -355,11 +449,20 @@
             [showRootUserMenuItem setState:NSOnState];
             showRootUser = YES;
         }
-        [self _flushPrefsToDisk];
-        
+        userInfo = 
+            [NSDictionary dictionaryWithObject:
+                [NSNumber numberWithBool:showRootUser]
+                                    forKey:WO_PREF_SHOW_ROOT_USER];
+                
         // force rebuild of cache next time user clicks on the menu
         _refreshAllUsersCache = YES;
+        [self _flushPrefsToDisk];
     }
+    if (userInfo)
+        [[NSDistributedNotificationCenter 
+            defaultCenter] postNotificationName:WS_PREF_CHANGED_NOTIFICATION 
+                                         object:nil 
+                                       userInfo:userInfo];
 }
 
 - (void)_flushPrefsToDisk
@@ -367,8 +470,10 @@
     // update preferences on disk
     NSDictionary *preferences =
     [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithInt:menuStyle],     WO_PREF_MENU_STYLE,
-        [NSNumber numberWithBool:showRootUser], WO_PREF_SHOW_ROOT_USER,
+        [NSNumber numberWithInt:menuStyle],         WO_PREF_MENU_STYLE,
+        [NSNumber numberWithBool:showRootUser],     WO_PREF_SHOW_ROOT_USER,
+        [NSNumber numberWithFloat:userPictureSize], WO_PREF_USER_PICTURE_SIZE,
+        [NSNumber numberWithFloat:menuPictureSize], WO_PREF_MENU_PICTURE_SIZE,
         nil];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setPersistentDomain:preferences
@@ -413,7 +518,7 @@
     
     while ((itemName = [enumerator nextObject]))
     {
-        if ([itemName isEqualToString:@".DS_Store"]) continue;
+        if ([itemName hasPrefix:@"."]) continue;
         NSString *itemPath = [path stringByAppendingPathComponent:itemName];
         if ([sharedWorkspace openFile:itemPath])
             NSLog(@"Auto-launched item \"%@\"", itemPath);
@@ -476,7 +581,7 @@
 
 // unlike the other _show methods, this one only ever called from initWithBundle
 - (void)_showFirstNameInMenuBar
-{
+{    
     NSString *firstName = nil;
     NSArray *names = [[self _fullUserName] componentsSeparatedByString:@" "];
     if (names && ([names count] > 0))
@@ -550,7 +655,7 @@
     {
         if (![[user objectForKey:@"RealShell"] boolValue])
             continue;   // skip "users" without real shells
-        
+           
         NSMenuItem *item = 
         [[NSMenuItem alloc] initWithTitle:[user objectForKey:@"Username"]
                                    action:@selector(switchToUser:)
@@ -577,8 +682,7 @@
         [theMenu addItem:[NSMenuItem separatorItem]];
         
         NSString *showSubmenuTitle = NSLocalizedStringFromTableInBundle
-            (@"Show", @"", [NSBundle bundleForClass:[self class]],
-             @"Show");
+            (@"Show", @"", [self bundle], @"Show");
         
         NSMenuItem *showItem = 
             [theMenu addItemWithTitle:showSubmenuTitle
@@ -593,7 +697,7 @@
         
 #define WO_ADD_SHOW_SUBMENU_ITEM(menu, text)                                \
         NSString *menu ## Title = NSLocalizedStringFromTableInBundle        \
-            (text, @"", [NSBundle bundleForClass:[self class]], text);      \
+            (text, @"", [self bundle], text);                               \
         menu = (NSMenuItem *)[showSubmenu addItemWithTitle:menu ## Title    \
                                action:@selector(_showSubmenuItemSelected:)  \
                                keyEquivalent:@""];                          \
@@ -621,8 +725,7 @@
         // add "Open Accounts..." item
         [theMenu addItem:[NSMenuItem separatorItem]];
         NSString *openAccounts = NSLocalizedStringFromTableInBundle
-            (@"Open Accounts", @"", [NSBundle bundleForClass:[self class]],
-             @"Open Accounts");
+            (@"Open Accounts", @"", [self bundle], @"Open Accounts");
         [[theMenu addItemWithTitle:openAccounts
                             action:@selector(accountsPrefPane:)
                      keyEquivalent:@""] setTarget:self];
@@ -630,7 +733,7 @@
         // add "Login Window..." item
         [theMenu addItem:[NSMenuItem separatorItem]];
         NSString *loginWindow = NSLocalizedStringFromTableInBundle
-            (@"Login Window", @"", [NSBundle bundleForClass:[self class]],
+            (@"Login Window", @"", [self bundle],
              @"Login Window");
         [[theMenu addItemWithTitle:loginWindow 
                             action:@selector(suspend:) 
@@ -1106,18 +1209,36 @@
     return [dimmedImage autorelease];
 }
 
+- (NSImage *)_paddedImage:(NSImage *)image
+{
+    NSRect bounds, paddedBounds;
+    bounds.origin           = NSZeroPoint;
+    bounds.size             = [image size];
+    paddedBounds            = NSMakeRect(bounds.origin.x, 
+                                         bounds.origin.y, 
+                                         bounds.size.height + 8.0, 
+                                         bounds.size.height + 8.0);
+    NSImage *paddedImage    = [[NSImage alloc] initWithSize:paddedBounds.size];
+    [paddedImage lockFocus];
+    {
+        [image compositeToPoint:NSMakePoint(4.0, 4.0)
+                      operation:NSCompositeSourceOver];
+    }
+    [paddedImage unlockFocus];
+    return [paddedImage autorelease];
+}
+
 // The code for creating attributed strings with embedded images is quite bulky
 // and ugly, so split it off into a separate method.
 - (NSAttributedString *)_menuString:(NSString *)aString 
                        withIconPath:(NSString *)iconPath
                               state:(int)state
                           dimImages:(BOOL)dim
-{
+{    
     // initialize instance variables only as required
     if ((state == NSOnState) && (!dim) && (!_tick))
     {
-        NSBundle *bundle    = [NSBundle bundleForClass:[self class]];
-        NSString *path      = [bundle pathForResource:@"tick" ofType:@"tiff"];
+        NSString *path = [[self bundle] pathForResource:@"tick" ofType:@"tiff"];
         NSFileWrapper *wrapper = [[NSFileWrapper alloc] initWithPath:path];
         NSTextAttachment *attachment = 
             [[NSTextAttachment alloc] initWithFileWrapper:wrapper];
@@ -1129,8 +1250,7 @@
     
     if ((state == NSOnState) && (dim) && (!_dimmedTick))
     {
-        NSBundle *bundle    = [NSBundle bundleForClass:[self class]];
-        NSString *path      = [bundle pathForResource:@"tick" ofType:@"tiff"];
+        NSString *path = [[self bundle] pathForResource:@"tick" ofType:@"tiff"];
         NSFileWrapper *wrapper = [[NSFileWrapper alloc] initWithPath:path];
         NSTextAttachment *attachment =
             [[NSTextAttachment alloc] initWithFileWrapper:wrapper];
@@ -1146,8 +1266,8 @@
     
     if ((state == NSOffState) && (!_noTick))
     {
-        NSBundle *bundle    = [NSBundle bundleForClass:[self class]];
-        NSString *path      = [bundle pathForResource:@"noTick" ofType:@"tiff"];
+        NSString *path = [[self bundle] pathForResource:@"noTick" 
+                                                 ofType:@"tiff"];
         NSFileWrapper *wrapper = [[NSFileWrapper alloc] initWithPath:path];
         NSTextAttachment *attachment = 
             [[NSTextAttachment alloc] initWithFileWrapper:wrapper];
@@ -1162,7 +1282,7 @@
     NSAttributedString *iconString = nil;
     if (iconPath)
     {
-        NSSize iconSize     = NSMakeSize(32.0, 32.0);
+        NSSize iconSize     = NSMakeSize(menuPictureSize, menuPictureSize);
         NSFileWrapper *wrapper = [[NSFileWrapper alloc] initWithPath:iconPath];
         if (wrapper)
         {
@@ -1173,10 +1293,11 @@
                 [icon setScalesWhenResized:YES];
                 [icon setSize:iconSize];
             }
+
             if (dim)
-                [wrapper setIcon:[self _dimmedImage:icon]];
+                [wrapper setIcon:[self _dimmedImage:[self _paddedImage:icon]]];
             else
-                [wrapper setIcon:icon];
+                [wrapper setIcon:[self _paddedImage:icon]];
             [icon release];
             
             NSTextAttachment *attachment = 
@@ -1191,11 +1312,25 @@
                     [cellImage setScalesWhenResized:YES];
                     [cellImage setSize:iconSize];
                 }
+
+                // testing shows that Carbon/Cocoa will crash trying to draw
+                // menu if multiple representations present here
+                NSMutableArray *reps = 
+                    [[[cellImage representations] mutableCopy] autorelease];
+                while ([reps count] > 1)
+                {
+                    [cellImage removeRepresentation:[reps lastObject]];
+                    [reps removeLastObject];
+                }
+
                 if (dim)
-                    [cell setImage:[self _dimmedImage:cellImage]];
+                    [cell setImage:[self _dimmedImage:
+                        [self _paddedImage:cellImage]]];
+                else
+                    [cell setImage:[self _paddedImage:cellImage]];
                 iconString = 
                     [NSAttributedString attributedStringWithAttachment:
-                        attachment];
+                        attachment];                
                 [attachment release];
             }
             else
@@ -1228,17 +1363,39 @@
     else
         [returnString insertAttributedString:_tick          atIndex:0];    
 
-    // lift up textual part so it is centre aligned within the menu
+    // get things lined up nicely: default settings
+    float tickOffset = 0.0;
+    float iconOffset = -15.0;
+    float textOffset = 3.0;
+    
+    if (menuPictureSize == 16.0)
+    {
+        tickOffset = 0.0;
+        iconOffset = -4.0;
+        textOffset = 2.0;
+    }
+    else if (menuPictureSize == 48.0)
+    {
+        tickOffset = 14.0;
+        iconOffset = -6.0;
+        textOffset = 17.0;
+    }
+    
+    // lift up tick so it is centre aligned within the menu
     [returnString addAttribute:NSBaselineOffsetAttributeName
-                         value:[NSNumber numberWithFloat:10.0]
-                         range:NSMakeRange(3,[returnString length] - 3)];
-        
+                         value:[NSNumber numberWithFloat:tickOffset]
+                         range:NSMakeRange(0, 1)];
     
     // move icon down otherwise part of it juts out above highlight rectangle
     [returnString addAttribute:NSBaselineOffsetAttributeName
-                         value:[NSNumber numberWithFloat:-3.0]
+                         value:[NSNumber numberWithFloat:iconOffset]
                          range:NSMakeRange(1, 1)];
     
+    // lift up textual part so it is centre aligned within the menu
+    [returnString addAttribute:NSBaselineOffsetAttributeName
+                         value:[NSNumber numberWithFloat:textOffset]
+                         range:NSMakeRange(3,[returnString length] - 3)];
+            
     return [returnString autorelease];
 }
 
