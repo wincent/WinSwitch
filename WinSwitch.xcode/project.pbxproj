@@ -61,6 +61,7 @@
 				no,
 				Finnish,
 				Turkish,
+				he,
 			);
 			mainGroup = 089C166AFE841209C02AAC07;
 			projectDirPath = "";
@@ -486,6 +487,7 @@
 				BC3E773806EEF36C00FA0245,
 				BC5DC86307414D2E0076A1DF,
 				BC51899807DE305500BBD55C,
+				BC5B4B5C07EE1DB10023DE9C,
 			);
 			isa = PBXVariantGroup;
 			name = Localizable.strings;
@@ -731,6 +733,22 @@
 			isa = PBXBuildFile;
 			settings = {
 			};
+		};
+		BC5B4B5B07EE1DB10023DE9C = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = he;
+			path = he.lproj/InfoPlist.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BC5B4B5C07EE1DB10023DE9C = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = he;
+			path = he.lproj/Localizable.strings;
+			refType = 4;
+			sourceTree = "<group>";
 		};
 		BC5DC86307414D2E0076A1DF = {
 			isa = PBXFileReference;
@@ -1012,6 +1030,7 @@
 				BC3E773706EEF36C00FA0245,
 				BC5DC86407414D2E0076A1DF,
 				BC51899707DE305500BBD55C,
+				BC5B4B5B07EE1DB10023DE9C,
 			);
 			isa = PBXVariantGroup;
 			name = InfoPlist.strings;
