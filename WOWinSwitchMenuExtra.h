@@ -20,7 +20,9 @@ typedef enum WOSwitchMenuStyle {
     WOSwitchMenuIcon            = 0,
     WOSwitchMenuUserPicture     = 1,
     WOSwitchMenuFullUsername    = 2,
-    WOSwitchMenuShortUsername   = 3
+    WOSwitchMenuShortUsername   = 3,
+    WOSwitchMenuFirstName       = 4,
+    WOSwitchMenuInitials        = 5
     
 } WOSwitchMenuStyle;
 

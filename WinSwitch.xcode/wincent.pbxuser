@@ -14,8 +14,8 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXErrorsWarningsDataSource_LocationID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					516.8799,
-					280.2085,
+					482.8799,
+					263.2085,
 				);
 				PBXFileTableDataSourceColumnsKey = (
 					PBXErrorsWarningsDataSource_TypeID,
@@ -62,9 +62,9 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXSymbolsDataSource_SymbolNameID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					16,
-					225.8008,
-					254.0356,
-					231.2085,
+					236.8008,
+					266.0356,
+					243.2085,
 				);
 				PBXFileTableDataSourceColumnsKey = (
 					PBXSymbolsDataSource_SymbolTypeIconID,
@@ -119,7 +119,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 114774995;
+			PBXPerProjectTemplateStateSaveDate = 116176968;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -653,42 +653,95 @@
 				};
 				RubberWindowFrame = "0 99 1024 647 0 0 1024 746 ";
 			};
-			PBXWorkspaceStateSaveDate = 114774995;
+			PBXWorkspaceStateSaveDate = 116176968;
 		};
 		perUserProjectItems = {
-			BC218B4A06D754AC00E6DDD8 = BC218B4A06D754AC00E6DDD8;
-			BC218B4B06D754AC00E6DDD8 = BC218B4B06D754AC00E6DDD8;
 			BC218B4C06D754AC00E6DDD8 = BC218B4C06D754AC00E6DDD8;
-			BC218B4D06D754AC00E6DDD8 = BC218B4D06D754AC00E6DDD8;
-			BC218B5606D755B800E6DDD8 = BC218B5606D755B800E6DDD8;
-			BC21950F06D7566E00E6DDD8 = BC21950F06D7566E00E6DDD8;
-			BC21952206D7574500E6DDD8 = BC21952206D7574500E6DDD8;
-			BC21952306D7574500E6DDD8 = BC21952306D7574500E6DDD8;
-			BC21952406D7574500E6DDD8 = BC21952406D7574500E6DDD8;
-			BC21952506D7574500E6DDD8 = BC21952506D7574500E6DDD8;
 			BC21952606D7574500E6DDD8 = BC21952606D7574500E6DDD8;
 			BC21952706D7574500E6DDD8 = BC21952706D7574500E6DDD8;
 			BC21952806D7574500E6DDD8 = BC21952806D7574500E6DDD8;
-			BC21952906D7574500E6DDD8 = BC21952906D7574500E6DDD8;
-			BC21953006D7580E00E6DDD8 = BC21953006D7580E00E6DDD8;
-			BC21953106D7580E00E6DDD8 = BC21953106D7580E00E6DDD8;
 			BC21953206D7580E00E6DDD8 = BC21953206D7580E00E6DDD8;
-			BC21953306D7580E00E6DDD8 = BC21953306D7580E00E6DDD8;
-			BC21953A06D7583300E6DDD8 = BC21953A06D7583300E6DDD8;
-			BC21954106D7588300E6DDD8 = BC21954106D7588300E6DDD8;
-			BC21954806D76E6000E6DDD8 = BC21954806D76E6000E6DDD8;
-			BC21954F06D76EA200E6DDD8 = BC21954F06D76EA200E6DDD8;
-			BC21955606D76EE300E6DDD8 = BC21955606D76EE300E6DDD8;
 			BC21956206D76F4600E6DDD8 = BC21956206D76F4600E6DDD8;
-			BC21956306D76F4600E6DDD8 = BC21956306D76F4600E6DDD8;
 			BC21956406D76F4600E6DDD8 = BC21956406D76F4600E6DDD8;
-			BC21956506D76F4600E6DDD8 = BC21956506D76F4600E6DDD8;
-			BC21956C06D76F5300E6DDD8 = BC21956C06D76F5300E6DDD8;
-			BC21957306D76F6700E6DDD8 = BC21957306D76F6700E6DDD8;
-			BC21957A06D76F8100E6DDD8 = BC21957A06D76F8100E6DDD8;
-			BC21958106D76F9A00E6DDD8 = BC21958106D76F9A00E6DDD8;
-			BC21958806D76FC300E6DDD8 = BC21958806D76FC300E6DDD8;
-			BC21958F06D76FD700E6DDD8 = BC21958F06D76FD700E6DDD8;
+			BC2195A606D770CA00E6DDD8 = BC2195A606D770CA00E6DDD8;
+			BC2195A806D770CA00E6DDD8 = BC2195A806D770CA00E6DDD8;
+			BC21962606D7711900E6DDD8 = BC21962606D7711900E6DDD8;
+			BC21963E06D771C400E6DDD8 = BC21963E06D771C400E6DDD8;
+			BC21964A06D771C400E6DDD8 = BC21964A06D771C400E6DDD8;
+			BC21964E06D771C400E6DDD8 = BC21964E06D771C400E6DDD8;
+			BC21964F06D771C400E6DDD8 = BC21964F06D771C400E6DDD8;
+			BC21965006D771C400E6DDD8 = BC21965006D771C400E6DDD8;
+			BC21965106D771C400E6DDD8 = BC21965106D771C400E6DDD8;
+			BC21965206D771C400E6DDD8 = BC21965206D771C400E6DDD8;
+			BC21965306D771C400E6DDD8 = BC21965306D771C400E6DDD8;
+			BC21965406D771C400E6DDD8 = BC21965406D771C400E6DDD8;
+			BC21AC9F06D773D200E6DDD8 = BC21AC9F06D773D200E6DDD8;
+			BC3BD03006DDD2C6004768FD = BC3BD03006DDD2C6004768FD;
+			BC3C4CDC06DB7FEB003EC79C = BC3C4CDC06DB7FEB003EC79C;
+			BC3E706306ECB8AD00FA0245 = BC3E706306ECB8AD00FA0245;
+			BC3E706406ECB8AD00FA0245 = BC3E706406ECB8AD00FA0245;
+			BC3E717006ECF79000FA0245 = BC3E717006ECF79000FA0245;
+			BC3E717106ECF79000FA0245 = BC3E717106ECF79000FA0245;
+			BC3E717206ECF79000FA0245 = BC3E717206ECF79000FA0245;
+			BC3E719A06ED027100FA0245 = BC3E719A06ED027100FA0245;
+			BC3E719B06ED027100FA0245 = BC3E719B06ED027100FA0245;
+			BC3E719D06ED027100FA0245 = BC3E719D06ED027100FA0245;
+			BC3E719E06ED027100FA0245 = BC3E719E06ED027100FA0245;
+			BC3E719F06ED027100FA0245 = BC3E719F06ED027100FA0245;
+			BC3E71A006ED027100FA0245 = BC3E71A006ED027100FA0245;
+			BC3E71A106ED027100FA0245 = BC3E71A106ED027100FA0245;
+			BC3E71A206ED027100FA0245 = BC3E71A206ED027100FA0245;
+			BC3E71A306ED027100FA0245 = BC3E71A306ED027100FA0245;
+			BC3E71A406ED027100FA0245 = BC3E71A406ED027100FA0245;
+			BC3E71A506ED027100FA0245 = BC3E71A506ED027100FA0245;
+			BC3E71A606ED027100FA0245 = BC3E71A606ED027100FA0245;
+			BC3E71A706ED027100FA0245 = BC3E71A706ED027100FA0245;
+			BC3E71A806ED027100FA0245 = BC3E71A806ED027100FA0245;
+			BC3E71A906ED027100FA0245 = BC3E71A906ED027100FA0245;
+			BC3E71AA06ED027100FA0245 = BC3E71AA06ED027100FA0245;
+			BC3E71AB06ED027100FA0245 = BC3E71AB06ED027100FA0245;
+			BC3E71AC06ED027100FA0245 = BC3E71AC06ED027100FA0245;
+			BC3E71AD06ED027100FA0245 = BC3E71AD06ED027100FA0245;
+			BC3E71B406ED03DD00FA0245 = BC3E71B406ED03DD00FA0245;
+			BC3E71C306ED046300FA0245 = BC3E71C306ED046300FA0245;
+			BC3E71C406ED046300FA0245 = BC3E71C406ED046300FA0245;
+			BC3E71CC06ED049100FA0245 = BC3E71CC06ED049100FA0245;
+			BC3E721006ED098100FA0245 = BC3E721006ED098100FA0245;
+			BC3E721106ED098100FA0245 = BC3E721106ED098100FA0245;
+			BC3E721206ED098100FA0245 = BC3E721206ED098100FA0245;
+			BC3E721306ED098100FA0245 = BC3E721306ED098100FA0245;
+			BC3E721406ED098100FA0245 = BC3E721406ED098100FA0245;
+			BC3E721506ED098100FA0245 = BC3E721506ED098100FA0245;
+			BC3E721606ED098100FA0245 = BC3E721606ED098100FA0245;
+			BC3E721706ED098100FA0245 = BC3E721706ED098100FA0245;
+			BC3E721806ED098100FA0245 = BC3E721806ED098100FA0245;
+			BC3E721A06ED098100FA0245 = BC3E721A06ED098100FA0245;
+			BC3E721B06ED098100FA0245 = BC3E721B06ED098100FA0245;
+			BC3E721C06ED098100FA0245 = BC3E721C06ED098100FA0245;
+			BC3E721D06ED098100FA0245 = BC3E721D06ED098100FA0245;
+			BC3E721E06ED098100FA0245 = BC3E721E06ED098100FA0245;
+			BC3E721F06ED098100FA0245 = BC3E721F06ED098100FA0245;
+			BC3E722006ED098100FA0245 = BC3E722006ED098100FA0245;
+			BC3E722106ED098100FA0245 = BC3E722106ED098100FA0245;
+			BC3E722206ED098100FA0245 = BC3E722206ED098100FA0245;
+			BC3E722306ED098100FA0245 = BC3E722306ED098100FA0245;
+			BC3E722406ED098100FA0245 = BC3E722406ED098100FA0245;
+			BC3E722506ED098100FA0245 = BC3E722506ED098100FA0245;
+			BC3E722B06ED099000FA0245 = BC3E722B06ED099000FA0245;
+			BC3E722D06ED099100FA0245 = BC3E722D06ED099100FA0245;
+			BC3E723506ED0BF400FA0245 = BC3E723506ED0BF400FA0245;
+			BC3E723606ED0BF400FA0245 = BC3E723606ED0BF400FA0245;
+			BC3E723806ED0BF400FA0245 = BC3E723806ED0BF400FA0245;
+			BC3E723906ED0BF400FA0245 = BC3E723906ED0BF400FA0245;
+			BC3E724106ED149D00FA0245 = BC3E724106ED149D00FA0245;
+			BC3E724D06ED160100FA0245 = BC3E724D06ED160100FA0245;
+			BC3E724E06ED160100FA0245 = BC3E724E06ED160100FA0245;
+			BC3E725F06ED16F200FA0245 = BC3E725F06ED16F200FA0245;
+			BC3E728006ED1CE000FA0245 = BC3E728006ED1CE000FA0245;
+			BC3E728106ED1CE000FA0245 = BC3E728106ED1CE000FA0245;
+			BC3E728206ED1CE000FA0245 = BC3E728206ED1CE000FA0245;
+			BC3E728306ED1CE000FA0245 = BC3E728306ED1CE000FA0245;
+			BC3E728406ED1CE000FA0245 = BC3E728406ED1CE000FA0245;
 		};
 		sourceControlManager = BC31BE4505AA2FC2003881B1;
 		userBuildSettings = {
@@ -698,31 +751,31 @@
 	};
 	31408C1C055C05C7000B2096 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 1008}}";
-			sepNavSelRange = "{1223, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 1036}}";
+			sepNavSelRange = "{1116, 0}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
 		};
 	};
 	31408C1D055C05C7000B2096 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 11480}}";
-			sepNavSelRange = "{26900, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {747, 18396}}";
+			sepNavSelRange = "{14170, 23}";
+			sepNavVisRect = "{{0, 5347}, {747, 241}}";
 			sepNavWindowFrame = "{{15, 183}, {750, 558}}";
 		};
 	};
 	31408C22055C0664000B2096 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
 			sepNavSelRange = "{497, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
 		};
 	};
 	31408C23055C0664000B2096 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 882}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 882}}";
 			sepNavSelRange = "{839, 24}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
 		};
 	};
 	31408C28055C079E000B2096 = {
@@ -734,9 +787,10 @@
 	};
 	3166A9170560081F00B604B6 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {748, 550}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
 			sepNavSelRange = "{155, 0}";
-			sepNavVisRect = "{{0, 0}, {748, 550}}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
+			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
 	32DBCF630370AF2F00C91783 = {
@@ -751,30 +805,10 @@
 	};
 	8D5B49B7048680CD000E48DA = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {748, 550}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
 			sepNavSelRange = "{581, 0}";
-			sepNavVisRect = "{{0, 0}, {748, 550}}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
 		};
-	};
-	BC218B4A06D754AC00E6DDD8 = {
-		fRef = BCE05359061B961500238E7E;
-		isa = PBXTextBookmark;
-		name = "CHANGELOG.txt: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 2133;
-		vrLoc = 0;
-	};
-	BC218B4B06D754AC00E6DDD8 = {
-		fRef = BCE0535A061B961500238E7E;
-		isa = PBXTextBookmark;
-		name = "TODO.txt: 11";
-		rLen = 0;
-		rLoc = 642;
-		rType = 0;
-		vrLen = 864;
-		vrLoc = 0;
 	};
 	BC218B4C06D754AC00E6DDD8 = {
 		fRef = BCE05359061B961500238E7E;
@@ -786,72 +820,14 @@
 		vrLen = 2133;
 		vrLoc = 0;
 	};
-	BC218B4D06D754AC00E6DDD8 = {
-		fRef = BCE0535A061B961500238E7E;
-		isa = PBXTextBookmark;
-		name = "TODO.txt: 3";
-		rLen = 0;
-		rLoc = 323;
-		rType = 0;
-		vrLen = 955;
-		vrLoc = 0;
-	};
-	BC218B5606D755B800E6DDD8 = {
-		fRef = BCE0535A061B961500238E7E;
-		isa = PBXTextBookmark;
-		name = "TODO.txt: 3";
-		rLen = 0;
-		rLoc = 323;
-		rType = 0;
-		vrLen = 955;
-		vrLoc = 0;
-	};
-	BC21950F06D7566E00E6DDD8 = {
-		fRef = BCE0535A061B961500238E7E;
-		isa = PBXTextBookmark;
-		name = "TODO.txt: 3";
-		rLen = 0;
-		rLoc = 323;
-		rType = 0;
-		vrLen = 955;
-		vrLoc = 0;
-	};
-	BC21952206D7574500E6DDD8 = {
-		fRef = BCE0535A061B961500238E7E;
-		isa = PBXTextBookmark;
-		name = "TODO.txt: 3";
-		rLen = 0;
-		rLoc = 323;
-		rType = 0;
-		vrLen = 955;
-		vrLoc = 0;
-	};
-	BC21952306D7574500E6DDD8 = {
-		fRef = BC31BF6005AA7CBF003881B1;
-		isa = PBXBookmark;
-	};
-	BC21952406D7574500E6DDD8 = {
-		fRef = 3166A9170560081F00B604B6;
-		isa = PBXTextBookmark;
-		name = "English: 5";
-		rLen = 0;
-		rLoc = 155;
-		rType = 0;
-		vrLen = 262;
-		vrLoc = 0;
-	};
-	BC21952506D7574500E6DDD8 = {
-		fRef = 8D5B49B7048680CD000E48DA;
-		isa = PBXBookmark;
-	};
 	BC21952606D7574500E6DDD8 = {
 		fRef = BCE0535A061B961500238E7E;
 		isa = PBXTextBookmark;
 		name = "TODO.txt: 3";
 		rLen = 0;
-		rLoc = 323;
+		rLoc = 462;
 		rType = 0;
-		vrLen = 955;
+		vrLen = 539;
 		vrLoc = 0;
 	};
 	BC21952706D7574500E6DDD8 = {
@@ -868,30 +844,6 @@
 		vrLen = 262;
 		vrLoc = 0;
 	};
-	BC21952906D7574500E6DDD8 = {
-		fRef = 8D5B49B7048680CD000E48DA;
-		isa = PBXTextBookmark;
-		name = "Info.plist: 18";
-		rLen = 0;
-		rLoc = 581;
-		rType = 0;
-		vrLen = 728;
-		vrLoc = 0;
-	};
-	BC21953006D7580E00E6DDD8 = {
-		fRef = 8D5B49B7048680CD000E48DA;
-		isa = PBXTextBookmark;
-		name = "Info.plist: 18";
-		rLen = 0;
-		rLoc = 581;
-		rType = 0;
-		vrLen = 728;
-		vrLoc = 0;
-	};
-	BC21953106D7580E00E6DDD8 = {
-		fRef = BC31BF5F05AA7CBF003881B1;
-		isa = PBXBookmark;
-	};
 	BC21953206D7580E00E6DDD8 = {
 		fRef = 8D5B49B7048680CD000E48DA;
 		isa = PBXTextBookmark;
@@ -900,66 +852,6 @@
 		rLoc = 581;
 		rType = 0;
 		vrLen = 728;
-		vrLoc = 0;
-	};
-	BC21953306D7580E00E6DDD8 = {
-		fRef = BC31BF5F05AA7CBF003881B1;
-		isa = PBXTextBookmark;
-		name = "SetFolderIcon: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 698;
-		vrLoc = 0;
-	};
-	BC21953A06D7583300E6DDD8 = {
-		fRef = BC31BF5F05AA7CBF003881B1;
-		isa = PBXTextBookmark;
-		name = "SetFolderIcon: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 698;
-		vrLoc = 0;
-	};
-	BC21954106D7588300E6DDD8 = {
-		fRef = BC31BF5F05AA7CBF003881B1;
-		isa = PBXTextBookmark;
-		name = "SetFolderIcon: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 698;
-		vrLoc = 0;
-	};
-	BC21954806D76E6000E6DDD8 = {
-		fRef = BC31BF5F05AA7CBF003881B1;
-		isa = PBXTextBookmark;
-		name = "SetFolderIcon: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 698;
-		vrLoc = 0;
-	};
-	BC21954F06D76EA200E6DDD8 = {
-		fRef = BC31BF5F05AA7CBF003881B1;
-		isa = PBXTextBookmark;
-		name = "SetFolderIcon: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 698;
-		vrLoc = 0;
-	};
-	BC21955606D76EE300E6DDD8 = {
-		fRef = BC31BF5F05AA7CBF003881B1;
-		isa = PBXTextBookmark;
-		name = "SetFolderIcon: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 698;
 		vrLoc = 0;
 	};
 	BC21955806D76F0C00E6DDD8 = {
@@ -979,16 +871,6 @@
 		vrLen = 698;
 		vrLoc = 0;
 	};
-	BC21956306D76F4600E6DDD8 = {
-		fRef = BC21955806D76F0C00E6DDD8;
-		isa = PBXTextBookmark;
-		name = "activate-winswitch-command-icon.r: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 3065;
-		vrLoc = 0;
-	};
 	BC21956406D76F4600E6DDD8 = {
 		fRef = BC31BF5F05AA7CBF003881B1;
 		isa = PBXTextBookmark;
@@ -999,7 +881,7 @@
 		vrLen = 698;
 		vrLoc = 0;
 	};
-	BC21956506D76F4600E6DDD8 = {
+	BC2195A606D770CA00E6DDD8 = {
 		fRef = BC21955806D76F0C00E6DDD8;
 		isa = PBXTextBookmark;
 		name = "activate-winswitch-command-icon.r: 1";
@@ -1009,64 +891,134 @@
 		vrLen = 3065;
 		vrLoc = 0;
 	};
-	BC21956C06D76F5300E6DDD8 = {
-		fRef = BC21955806D76F0C00E6DDD8;
+	BC2195A806D770CA00E6DDD8 = {
+		fRef = BCE05358061B961500238E7E;
 		isa = PBXTextBookmark;
-		name = "activate-winswitch-command-icon.r: 1";
+		name = "activate-winswitch.command: 5";
 		rLen = 0;
-		rLoc = 0;
+		rLoc = 67;
 		rType = 0;
-		vrLen = 3065;
+		vrLen = 925;
 		vrLoc = 0;
 	};
-	BC21957306D76F6700E6DDD8 = {
-		fRef = BC21955806D76F0C00E6DDD8;
+	BC21962606D7711900E6DDD8 = {
+		fRef = BC31BF6005AA7CBF003881B1;
+		isa = PBXBookmark;
+	};
+	BC21963E06D771C400E6DDD8 = {
+		fRef = BC21963F06D771C400E6DDD8;
 		isa = PBXTextBookmark;
-		name = "activate-winswitch-command-icon.r: 1";
-		rLen = 0;
-		rLoc = 0;
+		name = "http://sourceforge.net/projects/menucracker";
+		rLen = 43;
+		rLoc = 1364;
 		rType = 0;
-		vrLen = 3065;
+		vrLen = 1451;
 		vrLoc = 0;
 	};
-	BC21957A06D76F8100E6DDD8 = {
-		fRef = BC21955806D76F0C00E6DDD8;
+	BC21963F06D771C400E6DDD8 = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.rtf;
+		name = ReadMe.rtf;
+		path = "/Users/wincent/trabajo/WinSwitch/svn-files/MenuCracker.menu/Contents/Resources/ReadMe.rtf";
+		refType = 0;
+		sourceTree = "<absolute>";
+	};
+	BC21964A06D771C400E6DDD8 = {
+		fRef = BC21964B06D771C400E6DDD8;
 		isa = PBXTextBookmark;
-		name = "activate-winswitch-command-icon.r: 1";
-		rLen = 0;
-		rLoc = 0;
+		name = "http://sourceforge.net/projects/menucracker";
+		rLen = 43;
+		rLoc = 1364;
 		rType = 0;
-		vrLen = 3065;
+		vrLen = 1451;
 		vrLoc = 0;
 	};
-	BC21958106D76F9A00E6DDD8 = {
-		fRef = BC21955806D76F0C00E6DDD8;
+	BC21964B06D771C400E6DDD8 = {
+		isa = PBXFileReference;
+		lastKnownFileType = text.rtf;
+		name = ReadMe.rtf;
+		path = "/Users/wincent/trabajo/WinSwitch/svn-files/MenuCracker.menu/Contents/Resources/ReadMe.rtf";
+		refType = 0;
+		sourceTree = "<absolute>";
+	};
+	BC21964E06D771C400E6DDD8 = {
+		fRef = BCE4F36F05AC472400A5A030;
 		isa = PBXTextBookmark;
-		name = "activate-winswitch-command-icon.r: 1";
+		name = "Spanish: 4";
 		rLen = 0;
-		rLoc = 0;
+		rLoc = 106;
 		rType = 0;
-		vrLen = 3065;
+		vrLen = 262;
 		vrLoc = 0;
 	};
-	BC21958806D76FC300E6DDD8 = {
-		fRef = BC21955806D76F0C00E6DDD8;
+	BC21964F06D771C400E6DDD8 = {
+		fRef = BC9A57A20619C08C004314F6;
 		isa = PBXTextBookmark;
-		name = "activate-winswitch-command-icon.r: 1";
+		name = "German: 5";
 		rLen = 0;
-		rLoc = 0;
+		rLoc = 155;
 		rType = 0;
-		vrLen = 3065;
+		vrLen = 262;
 		vrLoc = 0;
 	};
-	BC21958F06D76FD700E6DDD8 = {
-		fRef = BC21955806D76F0C00E6DDD8;
+	BC21965006D771C400E6DDD8 = {
+		fRef = BC577A4A061E52D800C5B355;
 		isa = PBXTextBookmark;
-		name = "activate-winswitch-command-icon.r: 1";
+		name = "French: 4";
 		rLen = 0;
-		rLoc = 0;
+		rLoc = 106;
 		rType = 0;
-		vrLen = 3065;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC21965106D771C400E6DDD8 = {
+		fRef = BC7489970621C0CA002E7F0F;
+		isa = PBXTextBookmark;
+		name = "Italian: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC21965206D771C400E6DDD8 = {
+		fRef = BC56E8200652BF2500D9027E;
+		isa = PBXTextBookmark;
+		name = "Swedish: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC21965306D771C400E6DDD8 = {
+		fRef = BCA21F3F0684F79D00F97840;
+		isa = PBXTextBookmark;
+		name = "Japanese: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC21965406D771C400E6DDD8 = {
+		fRef = BCC0E3D806B44D3B0020437A;
+		isa = PBXTextBookmark;
+		name = "Danish: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC21AC9F06D773D200E6DDD8 = {
+		fRef = BCC0EB0506B532750020437A;
+		isa = PBXTextBookmark;
+		name = "Dutch: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
 		vrLoc = 0;
 	};
 	BC31BE4505AA2FC2003881B1 = {
@@ -1093,9 +1045,9 @@
 	};
 	BC31BEDE05AA5070003881B1 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
 			sepNavSelRange = "{214, 42}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
 		};
 	};
 	BC31BEE205AA5082003881B1 = {
@@ -1112,11 +1064,669 @@
 			sepNavVisRect = "{{0, 0}, {748, 550}}";
 		};
 	};
+	BC3BD03006DDD2C6004768FD = {
+		fRef = BC21955806D76F0C00E6DDD8;
+		isa = PBXTextBookmark;
+		name = "activate-winswitch-command-icon.r: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2909;
+		vrLoc = 0;
+	};
+	BC3C4CDC06DB7FEB003EC79C = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.m: 624";
+		rLen = 0;
+		rLoc = 26976;
+		rType = 0;
+		vrLen = 1850;
+		vrLoc = 22979;
+	};
+	BC3E706306ECB8AD00FA0245 = {
+		fRef = BCE05358061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "activate-winswitch.command: 5";
+		rLen = 0;
+		rLoc = 67;
+		rType = 0;
+		vrLen = 925;
+		vrLoc = 0;
+	};
+	BC3E706406ECB8AD00FA0245 = {
+		fRef = BCE05358061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "activate-winswitch.command: 5";
+		rLen = 0;
+		rLoc = 67;
+		rType = 0;
+		vrLen = 925;
+		vrLoc = 0;
+	};
+	BC3E717006ECF79000FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 10";
+		rLen = 0;
+		rLoc = 781;
+		rType = 0;
+		vrLen = 2240;
+		vrLoc = 0;
+	};
+	BC3E717106ECF79000FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.m: 270";
+		rLen = 0;
+		rLoc = 9829;
+		rType = 0;
+		vrLen = 1247;
+		vrLoc = 9332;
+	};
+	BC3E717206ECF79000FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 8";
+		rLen = 0;
+		rLoc = 414;
+		rType = 0;
+		vrLen = 2237;
+		vrLoc = 0;
+	};
+	BC3E719A06ED027100FA0245 = {
+		fRef = 31408C23055C0664000B2096;
+		isa = PBXTextBookmark;
+		name = "ias:YES];\n        [conte";
+		rLen = 24;
+		rLoc = 839;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 0;
+	};
+	BC3E719B06ED027100FA0245 = {
+		fRef = 31408C22055C0664000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtraView.h: 18";
+		rLen = 0;
+		rLoc = 497;
+		rType = 0;
+		vrLen = 557;
+		vrLoc = 0;
+	};
+	BC3E719D06ED027100FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.m: 390";
+		rLen = 0;
+		rLoc = 14097;
+		rType = 0;
+		vrLen = 1447;
+		vrLoc = 13836;
+	};
+	BC3E719E06ED027100FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 8";
+		rLen = 0;
+		rLoc = 414;
+		rType = 0;
+		vrLen = 2237;
+		vrLoc = 0;
+	};
+	BC3E719F06ED027100FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "- (void)_showFullUsernameInMenuBar\n";
+		rLen = 35;
+		rLoc = 16255;
+		rType = 0;
+		vrLen = 1532;
+		vrLoc = 15380;
+	};
+	BC3E71A006ED027100FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "  - feature: command-line option to show \"First name only\" (long username truncated at first space)\n  - feature: command-line option to show \"Initials only\"\n";
+		rLen = 0;
+		rLoc = 414;
+		rType = 0;
+		vrLen = 2237;
+		vrLoc = 0;
+	};
+	BC3E71A106ED027100FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "- (void)_showShortUsernameInMenuBar\n";
+		rLen = 36;
+		rLoc = 16962;
+		rType = 0;
+		vrLen = 1514;
+		vrLoc = 16023;
+	};
+	BC3E71A206ED027100FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 7";
+		rLen = 0;
+		rLoc = 414;
+		rType = 0;
+		vrLen = 2319;
+		vrLoc = 0;
+	};
+	BC3E71A306ED027100FA0245 = {
+		fRef = BCE0535A061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "TODO.txt: 16";
+		rLen = 0;
+		rLoc = 652;
+		rType = 0;
+		vrLen = 808;
+		vrLoc = 0;
+	};
+	BC3E71A406ED027100FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "- (void)_showShortUsernameInMenuBar\n";
+		rLen = 36;
+		rLoc = 16962;
+		rType = 0;
+		vrLen = 1403;
+		vrLoc = 3552;
+	};
+	BC3E71A506ED027100FA0245 = {
+		fRef = 31408C1C055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.h: 37";
+		rLen = 0;
+		rLoc = 1116;
+		rType = 0;
+		vrLen = 1534;
+		vrLoc = 449;
+	};
+	BC3E71A606ED027100FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "- (id)initWithBundle:(NSBundle *)bundle\n";
+		rLen = 40;
+		rLoc = 4353;
+		rType = 0;
+		vrLen = 1431;
+		vrLoc = 3639;
+	};
+	BC3E71A706ED027100FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 4";
+		rLen = 0;
+		rLoc = 101;
+		rType = 0;
+		vrLen = 2253;
+		vrLoc = 0;
+	};
+	BC3E71A806ED027100FA0245 = {
+		fRef = BCE0535A061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "TODO.txt: 12";
+		rLen = 0;
+		rLoc = 652;
+		rType = 0;
+		vrLen = 652;
+		vrLoc = 0;
+	};
+	BC3E71A906ED027100FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 10";
+		rLen = 0;
+		rLoc = 663;
+		rType = 0;
+		vrLen = 2172;
+		vrLoc = 0;
+	};
+	BC3E71AA06ED027100FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "- (id)initWithBundle:(NSBundle *)bundle\n";
+		rLen = 40;
+		rLoc = 4353;
+		rType = 0;
+		vrLen = 1430;
+		vrLoc = 3639;
+	};
+	BC3E71AB06ED027100FA0245 = {
+		fRef = 31408C22055C0664000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtraView.h: 18";
+		rLen = 0;
+		rLoc = 497;
+		rType = 0;
+		vrLen = 557;
+		vrLoc = 0;
+	};
+	BC3E71AC06ED027100FA0245 = {
+		fRef = 31408C23055C0664000B2096;
+		isa = PBXTextBookmark;
+		name = "ias:YES];\n        [conte";
+		rLen = 24;
+		rLoc = 839;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 0;
+	};
+	BC3E71AD06ED027100FA0245 = {
+		fRef = 31408C22055C0664000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtraView.h: 18";
+		rLen = 0;
+		rLoc = 497;
+		rType = 0;
+		vrLen = 557;
+		vrLoc = 0;
+	};
+	BC3E71B406ED03DD00FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.m: 503";
+		rLen = 0;
+		rLoc = 18513;
+		rType = 0;
+		vrLen = 1343;
+		vrLoc = 17636;
+	};
+	BC3E71C306ED046300FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 10";
+		rLen = 0;
+		rLoc = 775;
+		rType = 0;
+		vrLen = 2158;
+		vrLoc = 0;
+	};
+	BC3E71C406ED046300FA0245 = {
+		fRef = 31408C1C055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.h: 37";
+		rLen = 0;
+		rLoc = 1116;
+		rType = 0;
+		vrLen = 1485;
+		vrLoc = 449;
+	};
+	BC3E71CC06ED049100FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.m: 503";
+		rLen = 0;
+		rLoc = 18513;
+		rType = 0;
+		vrLen = 1305;
+		vrLoc = 17674;
+	};
+	BC3E721006ED098100FA0245 = {
+		fRef = 8D5B49B7048680CD000E48DA;
+		isa = PBXTextBookmark;
+		name = "Info.plist: 18";
+		rLen = 0;
+		rLoc = 581;
+		rType = 0;
+		vrLen = 728;
+		vrLoc = 0;
+	};
+	BC3E721106ED098100FA0245 = {
+		fRef = 3166A9170560081F00B604B6;
+		isa = PBXTextBookmark;
+		name = "English: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721206ED098100FA0245 = {
+		fRef = BCE4F36F05AC472400A5A030;
+		isa = PBXTextBookmark;
+		name = "Spanish: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721306ED098100FA0245 = {
+		fRef = BC9A57A20619C08C004314F6;
+		isa = PBXTextBookmark;
+		name = "German: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721406ED098100FA0245 = {
+		fRef = BC577A4A061E52D800C5B355;
+		isa = PBXTextBookmark;
+		name = "French: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721506ED098100FA0245 = {
+		fRef = BC7489970621C0CA002E7F0F;
+		isa = PBXTextBookmark;
+		name = "Italian: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721606ED098100FA0245 = {
+		fRef = BC56E8200652BF2500D9027E;
+		isa = PBXTextBookmark;
+		name = "Swedish: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721706ED098100FA0245 = {
+		fRef = BCA21F3F0684F79D00F97840;
+		isa = PBXTextBookmark;
+		name = "Japanese: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721806ED098100FA0245 = {
+		fRef = BCC0E3D806B44D3B0020437A;
+		isa = PBXTextBookmark;
+		name = "Danish: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721A06ED098100FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "  - bugfix: root user, if logged in, would appear in menu regardless of preferences\n  - feature: optionally launch items on switch-out, switch-in (searches in \"~/Library/Application Support/WinSwitch/Switch-Out Items/\" and \"~/Library/Application Support/WinSwitch/Switch-In Items/\" respectively)\n  - more source code cleanups\n  - minor optimizations (eliminating some redundant code)\n  - feature: command-line option to show \"First name only\" (long username truncated at first space); defaults write com.wincent.WinSwitch \"Menu bar style\" '4'\n  - feature: command-line option to show \"Initials only\"; defaults write com.wincent.WinSwitch \"Menu bar style\" '5'\n  - bugfix: additions to build process to strip out .svn directories left inside MenuCracker.menu";
+		rLen = 756;
+		rLoc = 118;
+		rType = 0;
+		vrLen = 2170;
+		vrLoc = 0;
+	};
+	BC3E721B06ED098100FA0245 = {
+		fRef = 3166A9170560081F00B604B6;
+		isa = PBXTextBookmark;
+		name = "English: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721C06ED098100FA0245 = {
+		fRef = 8D5B49B7048680CD000E48DA;
+		isa = PBXTextBookmark;
+		name = "Info.plist: 18";
+		rLen = 0;
+		rLoc = 581;
+		rType = 0;
+		vrLen = 728;
+		vrLoc = 0;
+	};
+	BC3E721D06ED098100FA0245 = {
+		fRef = 3166A9170560081F00B604B6;
+		isa = PBXTextBookmark;
+		name = "English: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721E06ED098100FA0245 = {
+		fRef = BCE4F36F05AC472400A5A030;
+		isa = PBXTextBookmark;
+		name = "Spanish: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E721F06ED098100FA0245 = {
+		fRef = BC9A57A20619C08C004314F6;
+		isa = PBXTextBookmark;
+		name = "German: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E722006ED098100FA0245 = {
+		fRef = BC577A4A061E52D800C5B355;
+		isa = PBXTextBookmark;
+		name = "French: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E722106ED098100FA0245 = {
+		fRef = BC7489970621C0CA002E7F0F;
+		isa = PBXTextBookmark;
+		name = "Italian: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E722206ED098100FA0245 = {
+		fRef = BC56E8200652BF2500D9027E;
+		isa = PBXTextBookmark;
+		name = "Swedish: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E722306ED098100FA0245 = {
+		fRef = BCC0E3D806B44D3B0020437A;
+		isa = PBXTextBookmark;
+		name = "Danish: 4";
+		rLen = 0;
+		rLoc = 106;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E722406ED098100FA0245 = {
+		fRef = BCA21F3F0684F79D00F97840;
+		isa = PBXTextBookmark;
+		name = "Japanese: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E722506ED098100FA0245 = {
+		fRef = BCC0E3D806B44D3B0020437A;
+		isa = PBXTextBookmark;
+		name = "Danish: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E722B06ED099000FA0245 = {
+		fRef = BCC0EB0506B532750020437A;
+		isa = PBXTextBookmark;
+		name = "Dutch: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E722D06ED099100FA0245 = {
+		fRef = BCC0EB0506B532750020437A;
+		isa = PBXTextBookmark;
+		name = "Dutch: 5";
+		rLen = 0;
+		rLoc = 155;
+		rType = 0;
+		vrLen = 262;
+		vrLoc = 0;
+	};
+	BC3E723506ED0BF400FA0245 = {
+		fRef = BC31BEDE05AA5070003881B1;
+		isa = PBXTextBookmark;
+		name = "/* Root user */\n\"Root user\" = \"Root user\";";
+		rLen = 42;
+		rLoc = 214;
+		rType = 0;
+		vrLen = 367;
+		vrLoc = 0;
+	};
+	BC3E723606ED0BF400FA0245 = {
+		fRef = BCE0535A061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "TODO.txt: 12";
+		rLen = 0;
+		rLoc = 652;
+		rType = 0;
+		vrLen = 652;
+		vrLoc = 0;
+	};
+	BC3E723806ED0BF400FA0245 = {
+		fRef = BC31BEDE05AA5070003881B1;
+		isa = PBXTextBookmark;
+		name = "/* Root user */\n\"Root user\" = \"Root user\";";
+		rLen = 42;
+		rLoc = 214;
+		rType = 0;
+		vrLen = 367;
+		vrLoc = 0;
+	};
+	BC3E723906ED0BF400FA0245 = {
+		fRef = BCE0535A061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "TODO.txt: 12";
+		rLen = 0;
+		rLoc = 652;
+		rType = 0;
+		vrLen = 652;
+		vrLoc = 0;
+	};
+	BC3E724106ED149D00FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "  - bugfix: root user, if logged in, would appear in menu regardless of preferences\n  - feature: optionally launch items on switch-out, switch-in (searches in \"~/Library/Application Support/WinSwitch/Switch-Out Items/\" and \"~/Library/Application Support/WinSwitch/Switch-In Items/\" respectively)\n  - more source code cleanups\n  - minor optimizations (eliminating some redundant code)\n  - feature: command-line option to show \"First name only\" (long username truncated at first space); defaults write com.wincent.WinSwitch \"Menu bar style\" '4'\n  - feature: command-line option to show \"Initials only\"; defaults write com.wincent.WinSwitch \"Menu bar style\" '5'\n  - bugfix: additions to build process to strip out .svn directories left inside MenuCracker.menu";
+		rLen = 756;
+		rLoc = 118;
+		rType = 0;
+		vrLen = 2170;
+		vrLoc = 0;
+	};
+	BC3E724D06ED160100FA0245 = {
+		fRef = 31408C1C055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.h: 37";
+		rLen = 0;
+		rLoc = 1116;
+		rType = 0;
+		vrLen = 1195;
+		vrLoc = 0;
+	};
+	BC3E724E06ED160100FA0245 = {
+		fRef = 31408C1C055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.h: 37";
+		rLen = 0;
+		rLoc = 1116;
+		rType = 0;
+		vrLen = 1195;
+		vrLoc = 0;
+	};
+	BC3E725F06ED16F200FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		rLen = 1;
+		rLoc = 390;
+		rType = 1;
+	};
+	BC3E728006ED1CE000FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.m: 416";
+		rLen = 0;
+		rLoc = 15129;
+		rType = 0;
+		vrLen = 1591;
+		vrLoc = 14552;
+	};
+	BC3E728106ED1CE000FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "  - bugfix: root user, if logged in, would appear in menu regardless of preferences\n  - feature: optionally launch items on switch-out, switch-in (searches in \"~/Library/Application Support/WinSwitch/Switch-Out Items/\" and \"~/Library/Application Support/WinSwitch/Switch-In Items/\" respectively)\n  - more source code cleanups\n  - minor optimizations (eliminating some redundant code)\n  - feature: command-line option to show \"First name only\" (long username truncated at first space); defaults write com.wincent.WinSwitch \"Menu bar style\" '4'\n  - feature: command-line option to show \"Initials only\"; defaults write com.wincent.WinSwitch \"Menu bar style\" '5'\n  - bugfix: additions to build process to strip out .svn directories left inside MenuCracker.menu";
+		rLen = 756;
+		rLoc = 118;
+		rType = 0;
+		vrLen = 2170;
+		vrLoc = 0;
+	};
+	BC3E728206ED1CE000FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtra.m: 416";
+		rLen = 0;
+		rLoc = 15129;
+		rType = 0;
+		vrLen = 1591;
+		vrLoc = 14552;
+	};
+	BC3E728306ED1CE000FA0245 = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "  - bugfix: root user, if logged in, would appear in menu regardless of preferences\n  - feature: optionally launch items on switch-out, switch-in (searches in \"~/Library/Application Support/WinSwitch/Switch-Out Items/\" and \"~/Library/Application Support/WinSwitch/Switch-In Items/\" respectively)\n  - more source code cleanups\n  - minor optimizations (eliminating some redundant code)\n  - feature: command-line option to show \"First name only\" (long username truncated at first space); defaults write com.wincent.WinSwitch \"Menu bar style\" '4'\n  - feature: command-line option to show \"Initials only\"; defaults write com.wincent.WinSwitch \"Menu bar style\" '5'\n  - bugfix: additions to build process to strip out .svn directories left inside MenuCracker.menu";
+		rLen = 756;
+		rLoc = 118;
+		rType = 0;
+		vrLen = 2170;
+		vrLoc = 0;
+	};
+	BC3E728406ED1CE000FA0245 = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "    FSRef   folderRef;\n";
+		rLen = 23;
+		rLoc = 14170;
+		rType = 0;
+		vrLen = 654;
+		vrLoc = 13849;
+	};
 	BC56E8200652BF2500D9027E = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 387}}";
-			sepNavSelRange = "{106, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
+			sepNavSelRange = "{155, 0}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
+			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
 	BC56E8210652BF2500D9027E = {
@@ -1135,16 +1745,18 @@
 	};
 	BC577A4A061E52D800C5B355 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
 			sepNavSelRange = "{106, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
+			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
 	BC7489970621C0CA002E7F0F = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
 			sepNavSelRange = "{106, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
+			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
 	BC7489980621C0CA002E7F0F = {
@@ -1170,9 +1782,10 @@
 	};
 	BC9A57A20619C08C004314F6 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 387}}";
-			sepNavSelRange = "{155, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
+			sepNavSelRange = "{106, 0}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
+			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
 	BC9A57A30619C0A2004314F6 = {
@@ -1191,9 +1804,10 @@
 	};
 	BCA21F3F0684F79D00F97840 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 387}}";
-			sepNavSelRange = "{106, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
+			sepNavSelRange = "{155, 0}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
+			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
 	BCC0E3D706B44D3B0020437A = {
@@ -1205,9 +1819,10 @@
 	};
 	BCC0E3D806B44D3B0020437A = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 387}}";
-			sepNavSelRange = "{106, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
+			sepNavSelRange = "{155, 0}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
+			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
 	BCC0EB0406B532750020437A = {
@@ -1219,31 +1834,32 @@
 	};
 	BCC0EB0506B532750020437A = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 387}}";
-			sepNavSelRange = "{106, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
+			sepNavSelRange = "{155, 0}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
+			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
 	BCE05358061B961500238E7E = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {748, 550}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
 			sepNavSelRange = "{67, 0}";
-			sepNavVisRect = "{{0, 0}, {748, 550}}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
 		};
 	};
 	BCE05359061B961500238E7E = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {748, 1204}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRect = "{{0, 0}, {748, 550}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 1372}}";
+			sepNavSelRange = "{118, 756}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
 			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
 	BCE0535A061B961500238E7E = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {748, 550}}";
-			sepNavSelRange = "{642, 0}";
-			sepNavVisRect = "{{0, 0}, {748, 550}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
+			sepNavSelRange = "{652, 0}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
 		};
 	};
 	BCE4F33B05AC3CB300A5A030 = {
@@ -1255,9 +1871,10 @@
 	};
 	BCE4F36F05AC472400A5A030 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {734, 387}}";
+			sepNavIntBoundsRect = "{{0, 0}, {748, 530}}";
 			sepNavSelRange = "{106, 0}";
-			sepNavVisRect = "{{0, 0}, {734, 387}}";
+			sepNavVisRect = "{{0, 0}, {748, 530}}";
+			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
 }

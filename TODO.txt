@@ -1,3 +1,8 @@
+TODO for WinSwitch
+$Id$
+
+- bugfix: figure out how to activate for all users, thus obviating the need for the "Activate WinSwitch" command
+
 - request: anti-alias user picture in menu bar (similar to iChat, which appears to use high interpolation)
 
 - request: ability to set a hot key to bring up the login window (would require background daemon app to listen for hot keys, or registration of Carbon Event Handler; not sure if this can be done from an NSMenuExtra)
@@ -5,7 +10,3 @@
 - request: offer a greyscale version of the user icon
 
 - request: override default NSAttributedString behaviour so that users who use "themes" see the menu item text in their chosen color
-
-- request: option to show "first name only" (long username truncated at first space)
-
-- request: option to show "initials only"

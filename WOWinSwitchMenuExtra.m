@@ -59,7 +59,12 @@
 - (void)_showUserImageInMenuBar;
 - (void)_showFullUsernameInMenuBar;
 - (void)_showShortUsernameInMenuBar;
+- (void)_showFirstNameInMenuBar;
+- (void)_showInitialsInMenuBar;
 - (void)_flushPrefsToDisk;
+
+// auto-run items on switch out or switch in
+- (void)_processSwitchItems:(NSString *)folder;
 
 // an array of the users (NSDictionaries) currently logged in
 - (NSArray *)_loggedInUsers;
@@ -182,15 +187,13 @@
     [self _updateUserImage:[self _iconPathForUID:getuid()]];
     
     if (menuStyle == WOSwitchMenuFullUsername)
-    {
-        [self _setMenuTitleWithString:[self _fullUserName]];
         [self _showFullUsernameInMenuBar];
-    }
     else if (menuStyle == WOSwitchMenuShortUsername)
-    {
-        [self _setMenuTitleWithString:NSUserName()];
         [self _showShortUsernameInMenuBar];
-    }
+    else if (menuStyle == WOSwitchMenuFirstName)
+        [self _showFirstNameInMenuBar];
+    else if (menuStyle == WOSwitchMenuInitials)
+        [self _showInitialsInMenuBar];    
     
     NSLog(@"WinSwitch.menu loaded.");
     return self;
@@ -260,10 +263,19 @@
         _refreshAllUsersCache = YES;
     }
 
-    if ([name isEqualToString:NSWorkspaceSessionDidBecomeActiveNotification] ||
-        [name isEqualToString:NSWorkspaceSessionDidResignActiveNotification])
+    if ([name isEqualToString:NSWorkspaceSessionDidBecomeActiveNotification])
+    {
+       // force rebuild of "logged in users" cache next time menu is clicked
+        _refreshLoggedInUsers = YES;
+        [self _processSwitchItems:@"Switch-In Items"];
+    }
+    
+    if ([name isEqualToString:NSWorkspaceSessionDidResignActiveNotification])
+    {
         // force rebuild of "logged in users" cache next time menu is clicked
         _refreshLoggedInUsers = YES;
+        [self _processSwitchItems:@"Switch-Out Items"];
+    }
 }
 
 // drop back to login window
@@ -367,6 +379,49 @@
         NSLog(@"WinSwitch.menu: error while writing preferences to disk");
 }
 
+// auto-run items on switch out or switch in
+- (void)_processSwitchItems:(NSString *)folder
+{
+    // get path to "Application Support"
+    NSString *applicationSupport = nil;
+    
+    int     domain      = kUserDomain;
+    int     folderType  = kApplicationSupportFolderType;
+    Boolean createFlag  = kDontCreateFolder;
+    FSRef   folderRef;
+    
+    OSErr err = FSFindFolder(domain, folderType, createFlag, &folderRef);
+    if (err == noErr)
+    {
+        CFURLRef url = CFURLCreateFromFSRef(kCFAllocatorDefault, &folderRef);
+        if (url)
+        {   
+            applicationSupport = 
+            [NSString stringWithString:[(NSURL *)url path]];
+            CFRelease(url);
+        }
+    }
+    
+    NSString *path = 
+        [[applicationSupport stringByAppendingPathComponent:@"WinSwitch"]
+            stringByAppendingPathComponent:folder];
+    NSFileManager   *defaultManager = [NSFileManager defaultManager];
+    NSArray         *items = [defaultManager directoryContentsAtPath:path];
+    NSWorkspace     *sharedWorkspace = [NSWorkspace sharedWorkspace];
+    NSEnumerator    *enumerator = [items objectEnumerator];
+    NSString        *itemName;
+    
+    while ((itemName = [enumerator nextObject]))
+    {
+        if ([itemName isEqualToString:@".DS_Store"]) continue;
+        NSString *itemPath = [path stringByAppendingPathComponent:itemName];
+        if ([sharedWorkspace openFile:itemPath])
+            NSLog(@"Auto-launched item \"%@\"", itemPath);
+        else
+            NSLog(@"Error auto-launching item \"%@\"", itemPath);
+    }
+}
+
 - (void)_showIconInMenuBar
 {
     [[showSubmenu itemAtIndex:(int)menuStyle] setState:NSOffState];
@@ -417,6 +472,44 @@
 	[self setLength:textSize.width + 8.0];
     [theView setNeedsDisplay:YES];              	
     [self _flushPrefsToDisk];
+}
+
+// unlike the other _show methods, this one only ever called from initWithBundle
+- (void)_showFirstNameInMenuBar
+{
+    NSString *firstName = nil;
+    NSArray *names = [[self _fullUserName] componentsSeparatedByString:@" "];
+    if (names && ([names count] > 0))
+        firstName = [names objectAtIndex:0];
+    
+    [self _setMenuTitleWithString:firstName];
+    NSSize textSize = [[self attributedTitle] size];
+    [theView setFrameSize:
+        NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];
+    [self setLength:textSize.width + 8.0];
+    [theView setNeedsDisplay:YES];
+}
+
+// unlike the other _show methods, this one only ever called from initWithBundle
+- (void)_showInitialsInMenuBar
+{
+    NSMutableString *initials = [NSMutableString string];
+    NSArray *names = [[self _fullUserName] componentsSeparatedByString:@" "];
+    NSEnumerator *enumerator = [names objectEnumerator];
+    NSString *name;
+    
+    while ((name = [enumerator nextObject]))
+    {
+        if ([name length] > 0)
+            [initials appendString:[name substringToIndex:1]];
+    }
+    
+    [self _setMenuTitleWithString:initials];
+    NSSize textSize = [[self attributedTitle] size];
+    [theView setFrameSize:
+        NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];
+    [self setLength:textSize.width + 8.0];
+    [theView setNeedsDisplay:YES];
 }
 
 - (NSMenu *)menu
@@ -620,10 +713,16 @@
                     {
                         // match found! find out owner
                         uid_t userId = processes[i].kp_eproc.e_ucred.cr_uid;
+                        
+                        // skip root user unless preferences say otherwise
+                        if (userId == 0 && !showRootUser) continue;
+                        
                         NSNumber *UID = [NSNumber numberWithInt:userId];
                         NSDictionary *user = [userList objectForKey:UID];
                         if (user)   // local user
-                            [_loggedInUsers addObject:user];
+                        {
+                                [_loggedInUsers addObject:user];                            
+                        }
                         else        // non-local user
                         {
                             user = [self _nonlocalUserForUID:UID];
