@@ -15,8 +15,8 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXErrorsWarningsDataSource_LocationID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					482.8799,
-					263.2085,
+					437.8799,
+					241.2085,
 				);
 				PBXFileTableDataSourceColumnsKey = (
 					PBXErrorsWarningsDataSource_TypeID,
@@ -41,9 +41,9 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					454,
+					448,
 					20,
-					83,
+					82,
 					43,
 					43,
 					20,
@@ -120,7 +120,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 121720072;
+			PBXPerProjectTemplateStateSaveDate = 123207264;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -654,7 +654,7 @@
 				};
 				RubberWindowFrame = "0 99 1024 647 0 0 1024 746 ";
 			};
-			PBXWorkspaceStateSaveDate = 121720072;
+			PBXWorkspaceStateSaveDate = 123207264;
 		};
 		perUserProjectItems = {
 			BC102ED70726C7410039C6C6 = BC102ED70726C7410039C6C6;
@@ -673,6 +673,7 @@
 			BC1030B3072735D70039C6C6 = BC1030B3072735D70039C6C6;
 			BC1030B4072735D70039C6C6 = BC1030B4072735D70039C6C6;
 			BC1030B5072735D70039C6C6 = BC1030B5072735D70039C6C6;
+			BC1574A60756B1860025449A = BC1574A60756B1860025449A;
 			BC17EC93070F6E04001449C6 = BC17EC93070F6E04001449C6;
 			BC21952706D7574500E6DDD8 = BC21952706D7574500E6DDD8;
 			BC21952806D7574500E6DDD8 = BC21952806D7574500E6DDD8;
@@ -723,8 +724,73 @@
 			BC5A915A072D2FFD0040ADC4 = BC5A915A072D2FFD0040ADC4;
 			BC5A915B072D2FFD0040ADC4 = BC5A915B072D2FFD0040ADC4;
 			BC5A916F072D33680040ADC4 = BC5A916F072D33680040ADC4;
-			BC5DC86C07414D4B0076A1DF = BC5DC86C07414D4B0076A1DF;
 			BC5DC87007414DA10076A1DF = BC5DC87007414DA10076A1DF;
+			BC9A73C10757FE97007BD7AC = BC9A73C10757FE97007BD7AC;
+			BC9A73C20757FE97007BD7AC = BC9A73C20757FE97007BD7AC;
+			BC9A73C30757FE97007BD7AC = BC9A73C30757FE97007BD7AC;
+			BC9A73C40757FE97007BD7AC = BC9A73C40757FE97007BD7AC;
+			BC9A73C50757FE97007BD7AC = BC9A73C50757FE97007BD7AC;
+			BC9A73C60757FE97007BD7AC = BC9A73C60757FE97007BD7AC;
+			BC9A73C70757FE97007BD7AC = BC9A73C70757FE97007BD7AC;
+			BC9A73D40757FED7007BD7AC = BC9A73D40757FED7007BD7AC;
+			BC9A73D50757FED7007BD7AC = BC9A73D50757FED7007BD7AC;
+			BC9A73D60757FED7007BD7AC = BC9A73D60757FED7007BD7AC;
+			BC9A73D70757FED7007BD7AC = BC9A73D70757FED7007BD7AC;
+			BC9A73E00757FF0E007BD7AC = BC9A73E00757FF0E007BD7AC;
+			BC9A73F30757FF97007BD7AC = BC9A73F30757FF97007BD7AC;
+			BC9A74030757FFAC007BD7AC = BC9A74030757FFAC007BD7AC;
+			BC9A740C0757FFCD007BD7AC = BC9A740C0757FFCD007BD7AC;
+			BC9A741507580006007BD7AC = BC9A741507580006007BD7AC;
+			BC9A741E07580078007BD7AC = BC9A741E07580078007BD7AC;
+			BC9A743A075801DA007BD7AC = BC9A743A075801DA007BD7AC;
+			BC9A74450758024A007BD7AC = BC9A74450758024A007BD7AC;
+			BC9A745007580254007BD7AC = BC9A745007580254007BD7AC;
+			BC9A745907580268007BD7AC = BC9A745907580268007BD7AC;
+			BC9A74620758026D007BD7AC = BC9A74620758026D007BD7AC;
+			BC9A746B07580275007BD7AC = BC9A746B07580275007BD7AC;
+			BC9A7478075802FC007BD7AC = BC9A7478075802FC007BD7AC;
+			BC9A7487075803B3007BD7AC = BC9A7487075803B3007BD7AC;
+			BC9A7488075803B3007BD7AC = BC9A7488075803B3007BD7AC;
+			BC9A7489075803B3007BD7AC = BC9A7489075803B3007BD7AC;
+			BC9A748A075803B3007BD7AC = BC9A748A075803B3007BD7AC;
+			BC9A7495075803D8007BD7AC = BC9A7495075803D8007BD7AC;
+			BC9A74A3075804A8007BD7AC = BC9A74A3075804A8007BD7AC;
+			BC9A74B0075804B1007BD7AC = BC9A74B0075804B1007BD7AC;
+			BC9A74BB07580550007BD7AC = BC9A74BB07580550007BD7AC;
+			BC9A74C507580558007BD7AC = BC9A74C507580558007BD7AC;
+			BC9A74CF0758056E007BD7AC = BC9A74CF0758056E007BD7AC;
+			BC9A74D9075805BE007BD7AC = BC9A74D9075805BE007BD7AC;
+			BC9A74E7075805C9007BD7AC = BC9A74E7075805C9007BD7AC;
+			BC9A74F4075805D9007BD7AC = BC9A74F4075805D9007BD7AC;
+			BC9A750007580604007BD7AC = BC9A750007580604007BD7AC;
+			BC9A750907580608007BD7AC = BC9A750907580608007BD7AC;
+			BC9A751407580633007BD7AC = BC9A751407580633007BD7AC;
+			BC9A75330758068D007BD7AC = BC9A75330758068D007BD7AC;
+			BC9A754A075806D9007BD7AC = BC9A754A075806D9007BD7AC;
+			BC9A755307580710007BD7AC = BC9A755307580710007BD7AC;
+			BC9A756307580A0D007BD7AC = BC9A756307580A0D007BD7AC;
+			BC9A757B07580A43007BD7AC = BC9A757B07580A43007BD7AC;
+			BC9A758407580A47007BD7AC = BC9A758407580A47007BD7AC;
+			BC9A758D07580A52007BD7AC = BC9A758D07580A52007BD7AC;
+			BC9A759607580A96007BD7AC = BC9A759607580A96007BD7AC;
+			BC9A75A107580ABC007BD7AC = BC9A75A107580ABC007BD7AC;
+			BC9A75AA07580AEB007BD7AC = BC9A75AA07580AEB007BD7AC;
+			BC9A76D607589567007BD7AC = BC9A76D607589567007BD7AC;
+			BC9A76E50758D745007BD7AC = BC9A76E50758D745007BD7AC;
+			BC9A76EF0758D754007BD7AC = BC9A76EF0758D754007BD7AC;
+			BC9A76FB0758D785007BD7AC = BC9A76FB0758D785007BD7AC;
+			BC9A77080758D9FF007BD7AC = BC9A77080758D9FF007BD7AC;
+			BC9A77150758DA13007BD7AC = BC9A77150758DA13007BD7AC;
+			BC9A77260758DAD8007BD7AC = BC9A77260758DAD8007BD7AC;
+			BC9A77320758DAE9007BD7AC = BC9A77320758DAE9007BD7AC;
+			BC9A773D0758DAFD007BD7AC = BC9A773D0758DAFD007BD7AC;
+			BC9A77480758DB32007BD7AC = BC9A77480758DB32007BD7AC;
+			BC9A77530758DB98007BD7AC = BC9A77530758DB98007BD7AC;
+			BC9A775E0758DBC9007BD7AC = BC9A775E0758DBC9007BD7AC;
+			BC9A776B0758DC00007BD7AC = BC9A776B0758DC00007BD7AC;
+			BC9A77780758DC24007BD7AC = BC9A77780758DC24007BD7AC;
+			BC9A77840758DC7D007BD7AC = BC9A77840758DC7D007BD7AC;
+			BC9A7A0F0758E026007BD7AC = BC9A7A0F0758E026007BD7AC;
 			BCD68FE006F4A20700E651A6 = BCD68FE006F4A20700E651A6;
 			BCE1D0CD072D48A700078264 = BCE1D0CD072D48A700078264;
 			BCE1D0CE072D48A700078264 = BCE1D0CE072D48A700078264;
@@ -751,16 +817,16 @@
 	31408C1D055C05C7000B2096 = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {681, 21700}}";
-			sepNavSelRange = "{0, 61}";
-			sepNavVisRect = "{{0, 0}, {681, 534}}";
+			sepNavSelRange = "{5173, 40}";
+			sepNavVisRect = "{{0, 2919}, {681, 534}}";
 			sepNavWindowFrame = "{{15, 183}, {750, 558}}";
 		};
 	};
 	31408C22055C0664000B2096 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {681, 535}}";
+			sepNavIntBoundsRect = "{{0, 0}, {681, 534}}";
 			sepNavSelRange = "{497, 0}";
-			sepNavVisRect = "{{0, 0}, {681, 535}}";
+			sepNavVisRect = "{{0, 0}, {681, 534}}";
 		};
 	};
 	31408C23055C0664000B2096 = {
@@ -925,6 +991,16 @@
 	BC1030B5072735D70039C6C6 = {
 		fRef = BC31BFF605AB16BF003881B1;
 		isa = PBXBookmark;
+	};
+	BC1574A60756B1860025449A = {
+		fRef = BC5A9135072D2AD60040ADC4;
+		isa = PBXTextBookmark;
+		name = "4:03:57Z wincent $\n//\n\n#import \"NSString+WOWinSwitchExtensions.h\"\n\n@implementation NSString (WOWinSwitchExtensions)\n\n- (NSArray *)componentsSeparatedByWhitespace:(NSString *)whitespaceCharacters\n{\n    NSMutableArray *components = [NSMutableArray array];\n    \n    if (!whitespaceCharacters)\n    {\n        @throw [NSException exceptionWithName:NSInvalidArgumentException \n                                       reason:@\"nil string argument\"  \n                                     userInfo:nil];\n    }\n    else if ([whitespaceCharacters length] == 0)\n    {\n        [components addObject:self];\n    }\n    else\n    {\n        NSCharacterSet *whitespace = \n            [NSCharacterSet characterSetWithCharactersInString:\n                whitespaceCharacters];\n        NSScanner *scanner = [NSScanner scannerWithString:self];\n        \n        if ([scanner scanCharactersFromSet:whitespace intoString:nil])\n            [components addObject:@\"\"];\n        \n        NSString *component = nil;\n        \n        while ([scanner scanUpToCharactersFromSet:whitespace \n                                       intoString:&component])\n        {\n            [components addObject:component];\n            if ([scanner scanCharactersFromSet:whitespace intoString:nil] &&\n                [scanner isAtEnd])\n                [components addObject:@\"\"];\n        }\n    }\n             \n    // return immutable, autorele";
+		rLen = 1391;
+		rLoc = 221;
+		rType = 0;
+		vrLen = 1334;
+		vrLoc = 337;
 	};
 	BC17EC93070F6E04001449C6 = {
 		fRef = BC31BEDE05AA5070003881B1;
@@ -1495,7 +1571,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {681, 769}}";
 			sepNavSelRange = "{221, 1391}";
-			sepNavVisRect = "{{0, 222}, {681, 534}}";
+			sepNavVisRect = "{{0, 168}, {681, 534}}";
 		};
 	};
 	BC5A914E072D2FFD0040ADC4 = {
@@ -1537,16 +1613,6 @@
 		rType = 0;
 		vrLen = 342;
 		vrLoc = 0;
-	};
-	BC5DC86C07414D4B0076A1DF = {
-		fRef = BC5A9135072D2AD60040ADC4;
-		isa = PBXTextBookmark;
-		name = "@implementation NSString (WOWinSwitchExtensions)\n\n- (NSArray *)componentsSeparatedByWhitespace:(NSString *)whitespaceCharacters\n{\n    NSMutableArray *components = [NSMutableArray array];\n    \n    if (!whitespaceCharacters)\n    {\n        @throw [NSException exceptionWithName:NSInvalidArgumentException \n                                       reason:@\"nil string argument\"  \n                                     userInfo:nil];\n    }\n    else if ([whitespaceCharacters length] == 0)\n    {\n        [components addObject:self];\n    }\n    else\n    {\n        NSCharacterSet *whitespace = \n            [NSCharacterSet characterSetWithCharactersInString:\n                whitespaceCharacters];\n        NSScanner *scanner = [NSScanner scannerWithString:self];\n        \n        if ([scanner scanCharactersFromSet:whitespace intoString:nil])\n            [components addObject:@\"\"];\n        \n        NSString *component = nil;\n        \n        while ([scanner scanUpToCharactersFromSet:whitespace \n                                       intoString:&component])\n        {\n            [components addObject:component];\n            if ([scanner scanCharactersFromSet:whitespace intoString:nil] &&\n                [scanner isAtEnd])\n                [components addObject:@\"\"];\n        }\n    }\n             \n    // return immutable, autoreleased array\n    return [NSArray arrayWithArray:components];\n}\n\n@end\n";
-		rLen = 1391;
-		rLoc = 221;
-		rType = 0;
-		vrLen = 1261;
-		vrLoc = 351;
 	};
 	BC5DC87007414DA10076A1DF = {
 		fRef = BC5A9135072D2AD60040ADC4;
@@ -1601,6 +1667,666 @@
 			sepNavSelRange = "{528, 0}";
 			sepNavVisRect = "{{0, 0}, {681, 898}}";
 		};
+	};
+	BC9A73C10757FE97007BD7AC = {
+		fRef = BC5A9135072D2AD60040ADC4;
+		isa = PBXTextBookmark;
+		name = "4:03:57Z wincent $\n//\n\n#import \"NSString+WOWinSwitchExtensions.h\"\n\n@implementation NSString (WOWinSwitchExtensions)\n\n- (NSArray *)componentsSeparatedByWhitespace:(NSString *)whitespaceCharacters\n{\n    NSMutableArray *components = [NSMutableArray array];\n    \n    if (!whitespaceCharacters)\n    {\n        @throw [NSException exceptionWithName:NSInvalidArgumentException \n                                       reason:@\"nil string argument\"  \n                                     userInfo:nil];\n    }\n    else if ([whitespaceCharacters length] == 0)\n    {\n        [components addObject:self];\n    }\n    else\n    {\n        NSCharacterSet *whitespace = \n            [NSCharacterSet characterSetWithCharactersInString:\n                whitespaceCharacters];\n        NSScanner *scanner = [NSScanner scannerWithString:self];\n        \n        if ([scanner scanCharactersFromSet:whitespace intoString:nil])\n            [components addObject:@\"\"];\n        \n        NSString *component = nil;\n        \n        while ([scanner scanUpToCharactersFromSet:whitespace \n                                       intoString:&component])\n        {\n            [components addObject:component];\n            if ([scanner scanCharactersFromSet:whitespace intoString:nil] &&\n                [scanner isAtEnd])\n                [components addObject:@\"\"];\n        }\n    }\n             \n    // return immutable, autorele";
+		rLen = 1391;
+		rLoc = 221;
+		rType = 0;
+		vrLen = 1334;
+		vrLoc = 337;
+	};
+	BC9A73C20757FE97007BD7AC = {
+		fRef = 31408C22055C0664000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtraView.h: 18";
+		rLen = 0;
+		rLoc = 497;
+		rType = 0;
+		vrLen = 557;
+		vrLoc = 0;
+	};
+	BC9A73C30757FE97007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "//\n//  WOWinSwitchMenuExtra.m\n//\n//  Based on FuseMenuExtra.m";
+		rLen = 61;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1828;
+		vrLoc = 921;
+	};
+	BC9A73C40757FE97007BD7AC = {
+		fRef = BC5A9135072D2AD60040ADC4;
+		isa = PBXTextBookmark;
+		name = "4:03:57Z wincent $\n//\n\n#import \"NSString+WOWinSwitchExtensions.h\"\n\n@implementation NSString (WOWinSwitchExtensions)\n\n- (NSArray *)componentsSeparatedByWhitespace:(NSString *)whitespaceCharacters\n{\n    NSMutableArray *components = [NSMutableArray array];\n    \n    if (!whitespaceCharacters)\n    {\n        @throw [NSException exceptionWithName:NSInvalidArgumentException \n                                       reason:@\"nil string argument\"  \n                                     userInfo:nil];\n    }\n    else if ([whitespaceCharacters length] == 0)\n    {\n        [components addObject:self];\n    }\n    else\n    {\n        NSCharacterSet *whitespace = \n            [NSCharacterSet characterSetWithCharactersInString:\n                whitespaceCharacters];\n        NSScanner *scanner = [NSScanner scannerWithString:self];\n        \n        if ([scanner scanCharactersFromSet:whitespace intoString:nil])\n            [components addObject:@\"\"];\n        \n        NSString *component = nil;\n        \n        while ([scanner scanUpToCharactersFromSet:whitespace \n                                       intoString:&component])\n        {\n            [components addObject:component];\n            if ([scanner scanCharactersFromSet:whitespace intoString:nil] &&\n                [scanner isAtEnd])\n                [components addObject:@\"\"];\n        }\n    }\n             \n    // return immutable, autorele";
+		rLen = 1391;
+		rLoc = 221;
+		rType = 0;
+		vrLen = 1334;
+		vrLoc = 337;
+	};
+	BC9A73C50757FE97007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "//\n//  WOWinSwitchMenuExtra.m\n//\n//  Based on FuseMenuExtra.m";
+		rLen = 61;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1828;
+		vrLoc = 921;
+	};
+	BC9A73C60757FE97007BD7AC = {
+		fRef = 31408C22055C0664000B2096;
+		isa = PBXTextBookmark;
+		name = "WOWinSwitchMenuExtraView.h: 18";
+		rLen = 0;
+		rLoc = 497;
+		rType = 0;
+		vrLen = 557;
+		vrLoc = 0;
+	};
+	BC9A73C70757FE97007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "- (id)initWithBundle:(NSBundle *)bundle\n";
+		rLen = 40;
+		rLoc = 5173;
+		rType = 0;
+		vrLen = 1450;
+		vrLoc = 8055;
+	};
+	BC9A73D40757FED7007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "- (id)initWithBundle:(NSBundle *)bundle\n";
+		rLen = 40;
+		rLoc = 5173;
+		rType = 0;
+		vrLen = 2457;
+		vrLoc = 8055;
+	};
+	BC9A73D50757FED7007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "with live updating of menu bar if the username is edited in the Accounts preference pane";
+		rLen = 88;
+		rLoc = 786;
+		rType = 0;
+		vrLen = 4296;
+		vrLoc = 0;
+	};
+	BC9A73D60757FED7007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "- (id)initWithBundle:(NSBundle *)bundle\n";
+		rLen = 40;
+		rLoc = 5173;
+		rType = 0;
+		vrLen = 2457;
+		vrLoc = 8055;
+	};
+	BC9A73D70757FED7007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A73E00757FF0E007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A73F30757FF97007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A74030757FFAC007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A740C0757FFCD007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A741507580006007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A741E07580078007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A743A075801DA007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A74450758024A007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A745007580254007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A745907580268007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A74620758026D007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A746B07580275007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A7478075802FC007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A7487075803B3007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A7488075803B3007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = "- (id)initWithBundle:(NSBundle *)bundle\n";
+		rLen = 40;
+		rLoc = 5173;
+		rType = 0;
+		vrLen = 2457;
+		vrLoc = 8055;
+	};
+	BC9A7489075803B3007BD7AC = {
+		fRef = BCE05359061B961500238E7E;
+		isa = PBXTextBookmark;
+		name = "CHANGELOG.txt: 15";
+		rLen = 0;
+		rLoc = 1407;
+		rType = 0;
+		vrLen = 4297;
+		vrLoc = 0;
+	};
+	BC9A748A075803B3007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A7495075803D8007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A74A3075804A8007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A74B0075804B1007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A74BB07580550007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A74C507580558007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A74CF0758056E007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A74D9075805BE007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A74E7075805C9007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A74F4075805D9007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A750007580604007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A750907580608007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A751407580633007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A75330758068D007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A754A075806D9007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A755307580710007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A756307580A0D007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A757B07580A43007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A758407580A47007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A758D07580A52007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A759607580A96007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A75A107580ABC007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A75AA07580AEB007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A76D607589567007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A76E50758D745007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A76EF0758D754007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A76FB0758D785007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A77080758D9FF007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A77150758DA13007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A77260758DAD8007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A77320758DAE9007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A773D0758DAFD007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A77480758DB32007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A77530758DB98007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A775E0758DBC9007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A776B0758DC00007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A77780758DC24007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A77840758DC7D007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
+	};
+	BC9A7A0F0758E026007BD7AC = {
+		fRef = 31408C1D055C05C7000B2096;
+		isa = PBXTextBookmark;
+		name = _flush;
+		rLen = 6;
+		rLoc = 14525;
+		rType = 0;
+		vrLen = 3089;
+		vrLoc = 12589;
 	};
 	BCA21F3E0684F79D00F97840 = {
 		uiCtxt = {
@@ -1666,9 +2392,9 @@
 	};
 	BCE05359061B961500238E7E = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {681, 1749}}";
-			sepNavSelRange = "{785, 88}";
-			sepNavVisRect = "{{0, 0}, {681, 535}}";
+			sepNavIntBoundsRect = "{{0, 0}, {674, 1777}}";
+			sepNavSelRange = "{1407, 0}";
+			sepNavVisRect = "{{0, 0}, {674, 972}}";
 			sepNavWindowFrame = "{{15, 59}, {780, 682}}";
 		};
 	};
@@ -1684,7 +2410,7 @@
 		isa = PBXTextBookmark;
 		name = "with live updating of menu bar if the username is edited in the Accounts preference pane";
 		rLen = 88;
-		rLoc = 785;
+		rLoc = 786;
 		rType = 0;
 		vrLen = 2626;
 		vrLoc = 0;
@@ -1739,7 +2465,7 @@
 		isa = PBXTextBookmark;
 		name = "CHANGELOG.txt: 10";
 		rLen = 0;
-		rLoc = 1690;
+		rLoc = 1691;
 		rType = 0;
 		vrLen = 2307;
 		vrLoc = 0;

@@ -1,7 +1,7 @@
 CHANGELOG for WinSwitch
 $Id$
 
-Version 3.0b release ( October 2004):
+Version 3.0b release ( November 2004):
   - adjustable user icon size inside the body of the menu itself (not just in the menu bar)
   - Norwegian localization by Sjur N¿rsteb¿ Moshagen
   - changes to "Activate WinSwitch" script to make it more tolerant of errors reported by the system
