@@ -56,6 +56,7 @@
 				Spanish,
 				Italian,
 				Swedish,
+				Danish,
 			);
 			mainGroup = 089C166AFE841209C02AAC07;
 			projectDirPath = "";
@@ -461,6 +462,7 @@
 				BC7489980621C0CA002E7F0F,
 				BC56E8210652BF2500D9027E,
 				BCA21F3E0684F79D00F97840,
+				BCC0E3D706B44D3B0020437A,
 			);
 			isa = PBXVariantGroup;
 			name = Localizable.strings;
@@ -544,6 +546,7 @@
 			sourceTree = "<group>";
 		};
 		BC56E8210652BF2500D9027E = {
+			fileEncoding = 10;
 			isa = PBXFileReference;
 			lastKnownFileType = text.plist.strings;
 			name = Swedish;
@@ -700,6 +703,23 @@
 			settings = {
 			};
 		};
+		BCC0E3D706B44D3B0020437A = {
+			fileEncoding = 10;
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = Danish;
+			path = Danish.lproj/Localizable.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BCC0E3D806B44D3B0020437A = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = Danish;
+			path = Danish.lproj/InfoPlist.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
 		BCE03878061A55C300238E7E = {
 			isa = PBXFileReference;
 			lastKnownFileType = "compiled.mach-o.executable";
@@ -778,6 +798,7 @@
 				BC7489970621C0CA002E7F0F,
 				BC56E8200652BF2500D9027E,
 				BCA21F3F0684F79D00F97840,
+				BCC0E3D806B44D3B0020437A,
 			);
 			isa = PBXVariantGroup;
 			name = InfoPlist.strings;
