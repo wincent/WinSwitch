@@ -1,6 +1,10 @@
 CHANGELOG for WinSwitch
 $Id$
 
+
+NOTE: As of version 3.0 this file will no longer be updated. Please see the website for the official changelog: <http://wincent.com/a/products/winswitch/history/>
+
+
 Version 3.0b release (6 December 2004):
   - adjustable user icon size inside the body of the menu itself (not just in the menu bar)
   - Norwegian localization by Sjur N¿rsteb¿ Moshagen
