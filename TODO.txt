@@ -5,3 +5,7 @@
 - request: offer a greyscale version of the user icon
 
 - request: override default NSAttributedString behaviour so that users who use "themes" see the menu item text in their chosen color
+
+- request: option to show "first name only" (long username truncated at first space)
+
+- bugfix: repair the to two casualties in the move to Subversion: the custom icon on the MenuCrack.menu bundle, and the custom icon on the activate-winswitch.command (the resource fork and the metadata, respectively, stripped by the move); partial solution may be /Developer/Tools/DeRez and /Developer/Tools/Rez
