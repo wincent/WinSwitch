@@ -65,6 +65,7 @@
 		};
 		089C166AFE841209C02AAC07 = {
 			children = (
+				BC958C3D06B29816006F9C43,
 				BCE05355061B95F300238E7E,
 				BC31BF5E05AA7C76003881B1,
 				08FB77AFFE84173DC02AAC07,
@@ -579,6 +580,32 @@
 			lastKnownFileType = text.plist.strings;
 			name = Italian;
 			path = Italian.lproj/Localizable.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BC958C3D06B29816006F9C43 = {
+			children = (
+				BC958C4206B2982C006F9C43,
+				BC958C4306B2982C006F9C43,
+			);
+			isa = PBXGroup;
+			name = Utilities;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BC958C4206B2982C006F9C43 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.sh;
+			path = "create-branch.sh";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BC958C4306B2982C006F9C43 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.sh;
+			path = "tag-release.sh";
 			refType = 4;
 			sourceTree = "<group>";
 		};
