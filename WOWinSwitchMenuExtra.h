@@ -36,10 +36,10 @@ typedef enum WOSwitchMenuStyle {
     // NSMenuExtra has methods for attributed titles, but they look like NOPs
     NSAttributedString          *_attributedTitle;  // manage title here
     
+    // user-settable preferences
     WOSwitchMenuStyle           menuStyle;      // icon, picture, full, short
-    
-    // size of the user picture in menu bar: 19.0 (default) or 16.0 (small)
-    float                       userPictureSize;
+    BOOL                        showRootUser; 
+    float                       userPictureSize;    // 5.0 to 19.0 pixels
     
     // convenience pointers to items in the "Show" submenu
     NSMenu                      *showSubmenu;
@@ -47,7 +47,8 @@ typedef enum WOSwitchMenuStyle {
     NSMenuItem                  *showUserPictureMenuItem;
     NSMenuItem                  *showFullUsernameMenuItem;
     NSMenuItem                  *showShortUsernameMenuItem;
-
+    NSMenuItem                  *showRootUserMenuItem;
+    
     @private
         // caches
         NSMutableDictionary     *_allUsersCache;

@@ -39,6 +39,7 @@
 
 #define WO_BUNDLE_IDENTIFIER        @"com.wincent.WinSwitch"
 #define WO_PREF_MENU_STYLE          @"Menu bar style"
+#define WO_PREF_SHOW_ROOT_USER      @"Show root user"
 #define WO_PREF_USER_PICTURE_SIZE   @"User picture size"
 
 // these notification names taken from output of the "strings" utility run on:
@@ -165,8 +166,11 @@
         [[NSUserDefaults standardUserDefaults] persistentDomainForName:
             WO_BUNDLE_IDENTIFIER];
     
-    if (preferences)                // menu style defaults to 0 (Standard Icon)
-        menuStyle = [[preferences objectForKey:WO_PREF_MENU_STYLE] intValue];
+    // menu style defaults to 0 (Standard Icon), even if preference not set
+    menuStyle = [[preferences objectForKey:WO_PREF_MENU_STYLE] intValue];
+    
+    showRootUser = 
+        [[preferences objectForKey:WO_PREF_SHOW_ROOT_USER] boolValue];
     
     userPictureSize = 
         [[preferences objectForKey:WO_PREF_USER_PICTURE_SIZE] floatValue];
@@ -298,7 +302,7 @@
     [args   release];
 }
 
-- (void)_menuStyleChanged:(id)sender
+- (void)_showSubmenuItemSelected:(id)sender
 {
     // Use performSelector:WithObject:AfterDelay: to give Cocoa time to 
     // unhighlight the menu title before actually performing the action
@@ -327,14 +331,33 @@
         [self performSelector:@selector(_showShortUsernameInMenuBar) 
                    withObject:nil 
                    afterDelay:0.5];
+    else if (sender == showRootUserMenuItem)
+    {
+        if ([showRootUserMenuItem state] == NSOnState)
+        {
+            [showRootUserMenuItem setState:NSOffState];
+            showRootUser = NO;
+        }
+        else
+        {
+            [showRootUserMenuItem setState:NSOnState];
+            showRootUser = YES;
+        }
+        [self _flushPrefsToDisk];
+        
+        // force rebuild of cache next time user clicks on the menu
+        _refreshAllUsersCache = YES;
+    }
 }
 
 - (void)_flushPrefsToDisk
 {
     // update preferences on disk
     NSDictionary *preferences =
-    [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:menuStyle]
-                                forKey:WO_PREF_MENU_STYLE];
+    [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithInt:menuStyle],     WO_PREF_MENU_STYLE,
+        [NSNumber numberWithBool:showRootUser], WO_PREF_SHOW_ROOT_USER,
+        nil];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setPersistentDomain:preferences
                           forName:WO_BUNDLE_IDENTIFIER];
@@ -466,7 +489,7 @@
         
         NSMenuItem *showItem = 
             [theMenu addItemWithTitle:showSubmenuTitle
-                               action:@selector(_menuStyleChanged:) 
+                               action:@selector(_showSubmenuItemSelected:) 
                         keyEquivalent:@""];
         
         [showItem setTarget:self];
@@ -479,7 +502,7 @@
         NSString *menu ## Title = NSLocalizedStringFromTableInBundle        \
             (text, @"", [NSBundle bundleForClass:[self class]], text);      \
         menu = (NSMenuItem *)[showSubmenu addItemWithTitle:menu ## Title    \
-                                      action:@selector(_menuStyleChanged:)  \
+                               action:@selector(_showSubmenuItemSelected:)  \
                                keyEquivalent:@""];                          \
         [menu setTarget:self]; /* can call macro with or without semicolon */
             
@@ -487,6 +510,8 @@
         WO_ADD_SHOW_SUBMENU_ITEM(showUserPictureMenuItem,   @"User picture");
         WO_ADD_SHOW_SUBMENU_ITEM(showFullUsernameMenuItem,  @"Name");
         WO_ADD_SHOW_SUBMENU_ITEM(showShortUsernameMenuItem, @"Short name");
+        [showSubmenu addItem:[NSMenuItem separatorItem]];   // separator
+        WO_ADD_SHOW_SUBMENU_ITEM(showRootUserMenuItem,      @"Root user");
         
         if (menuStyle == WOSwitchMenuIcon)
             [showIconMenuItem setState:NSOnState];
@@ -496,6 +521,9 @@
             [showFullUsernameMenuItem setState:NSOnState];
         else if (menuStyle == WOSwitchMenuShortUsername)
             [showShortUsernameMenuItem setState:NSOnState];
+        
+        if (showRootUser)
+            [showRootUserMenuItem setState:NSOnState];
         
         // add "Open Accounts..." item
         [theMenu addItem:[NSMenuItem separatorItem]];
@@ -667,7 +695,14 @@
                 users.ni_entrylist_val[i].names->ni_namelist_val[0];
                 uid_t uid = strtol(user, NULL, 10);
                 // must cast to signed otherwise user "nobody" (-2) passes test
-                if ((signed)uid <= 500) continue;
+                if (showRootUser)
+                {
+                    if (((signed)uid <= 500) && ((signed)uid != 0)) continue;
+                }
+                else
+                {
+                    if ((signed)uid <= 500) continue;
+                }
                 
                 // add user to caches
                 NSMutableDictionary *theUser = 
