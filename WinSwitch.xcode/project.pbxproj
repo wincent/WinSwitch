@@ -60,6 +60,7 @@
 				Dutch,
 				no,
 				Finnish,
+				Turkish,
 			);
 			mainGroup = 089C166AFE841209C02AAC07;
 			projectDirPath = "";
@@ -484,6 +485,7 @@
 				BCC0EB0406B532750020437A,
 				BC3E773806EEF36C00FA0245,
 				BC5DC86307414D2E0076A1DF,
+				BC51899807DE305500BBD55C,
 			);
 			isa = PBXVariantGroup;
 			name = Localizable.strings;
@@ -642,6 +644,22 @@
 			isa = PBXTargetDependency;
 			name = "WinSwitchHelper (from WinSwitchHelper.xcode)";
 			targetProxy = BC3EE02007649904009DFA54;
+		};
+		BC51899707DE305500BBD55C = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = Turkish;
+			path = Turkish.lproj/InfoPlist.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BC51899807DE305500BBD55C = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = Turkish;
+			path = Turkish.lproj/Localizable.strings;
+			refType = 4;
+			sourceTree = "<group>";
 		};
 		BC56E8200652BF2500D9027E = {
 			isa = PBXFileReference;
@@ -993,6 +1011,7 @@
 				BCC0EB0506B532750020437A,
 				BC3E773706EEF36C00FA0245,
 				BC5DC86407414D2E0076A1DF,
+				BC51899707DE305500BBD55C,
 			);
 			isa = PBXVariantGroup;
 			name = InfoPlist.strings;

@@ -13,4 +13,8 @@
 
 - (NSArray *)componentsSeparatedByWhitespace:(NSString *)whitespaceCharacters;
 
+- (BOOL)pathIsOwnedByCurrentUser;
+
+- (BOOL)pathIsWritableOnlyByCurrentUser;
+
 @end

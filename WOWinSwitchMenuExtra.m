@@ -658,6 +658,16 @@
     NSString *path = 
         [[applicationSupport stringByAppendingPathComponent:@"WinSwitch"]
             stringByAppendingPathComponent:folder];
+    
+    if (path &&
+        (![path pathIsOwnedByCurrentUser] ||
+         ![path pathIsWritableOnlyByCurrentUser]))
+    {
+        NSLog(@"Warning: no items launched (path \"%@\" must be owned and "
+              @"writable only by the current user)", path);
+        return;
+    }
+             
     NSFileManager   *defaultManager = [NSFileManager defaultManager];
     NSArray         *items = [defaultManager directoryContentsAtPath:path];
     NSWorkspace     *sharedWorkspace = [NSWorkspace sharedWorkspace];
@@ -668,6 +678,16 @@
     {
         if ([itemName hasPrefix:@"."]) continue;
         NSString *itemPath = [path stringByAppendingPathComponent:itemName];
+        
+        if (itemPath &&
+            (![itemPath pathIsOwnedByCurrentUser] ||
+             ![itemPath pathIsWritableOnlyByCurrentUser]))
+        {
+            NSLog(@"Warning: item \"%@\" not launched (must be owned and "
+                  @"writable only by the current user)", itemPath);            
+            continue;
+        }                
+        
         if ([sharedWorkspace openFile:itemPath])
             NSLog(@"Auto-launched item \"%@\"", itemPath);
         else
@@ -1062,39 +1082,13 @@
             unsigned i;
             for (i = 0; i < users.ni_entrylist_len; i++)
             {
-                NSLog(@"In for loop (%d) while i < %d", i, users.ni_entrylist_len);
-                
-                NSLog(@"Will get ni_namelist pointer 'names'");
                 ni_namelist *names = 
                     users.ni_entrylist_val[i].names;
-                NSLog(@"Did get ni_namelist pointer 'names' (%d)", names);
-                
-                // fix for http://wincent.com/a/support/bugs/show_bug.cgi?id=68
-                if (!names)
-                {
-                    NSLog(@"'names' is nil, skipping to next iteration of loop");
-                    continue;   
-                }
-                else
-                    NSLog(@"'names' is not nil, proceeding");
-                
-                NSLog(@"Will get ni_name 'user'");
+                if (!names) continue;   
                 ni_name user = 
                     users.ni_entrylist_val[i].names->ni_namelist_val[0];
-                NSLog(@"Did get ni_name 'user' (%d)", user);
-                
-                if (!user)
-                {
-                    NSLog(@"'user' is nil, skipping to next iteration of loop");
-                    continue;   
-                }
-                else
-                    NSLog(@"'user' is not nil, proceeding");
-                
-                NSLog(@"Will invoke strtol()");
+                if (!user) continue;   
                 uid_t uid = strtol(user, NULL, 10);
-                NSLog(@"Did invoke strtol(), got %d", uid);
-                
                 // must cast to signed otherwise user "nobody" (-2) passes test
                 if (showRootUser)
                 {
