@@ -50,6 +50,8 @@ typedef enum WOSwitchMenuStyle {
     NSMenuItem                  *showUserPictureMenuItem;
     NSMenuItem                  *showFullUsernameMenuItem;
     NSMenuItem                  *showShortUsernameMenuItem;
+    NSMenuItem                  *showFirstNameOnlyMenuItem;
+    NSMenuItem                  *showInitialsOnlyMenuItem;
     NSMenuItem                  *showRootUserMenuItem;
     
     @private

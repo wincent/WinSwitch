@@ -18,6 +18,7 @@
 
 #import "WOWinSwitchMenuExtra.h"
 #import "WOWinSwitchMenuExtraView.h"
+#import "NSString+WOWinSwitchExtensions.h"
 
 // for getuid()
 #import <unistd.h>
@@ -54,13 +55,19 @@
 #define WO_USER_ADDED           @"com.apple.UserWasAddedNotification"
 #define WO_USER_ENABLED         @"com.apple.UserWasEnabledNotification"
 
-#define WS_UNLOAD_NOTIFICATION          @"WSWinSwitchUnloadNotification"
-#define WS_HELPER_CHANGED_NOTIFICATION  @"WSHelperChangedNotification"
-#define WS_PREF_CHANGED_NOTIFICATION    @"WSPreferencesChangedNotification"
+#define WS_UNLOAD_NOTIFICATION                                  \
+@"com.wincent.WinSwitch.UnloadNotification"
+#define WS_HELPER_CHANGED_NOTIFICATION                          \
+@"com.wincent.WinSwitchHelper.PreferencesChangedNotification"
+#define WS_PREF_CHANGED_NOTIFICATION                            \
+@"com.wincent.WinSwitch.PreferencesChangedNotification"
+#define WS_SHOW_PREF_WINDOW_NOTIFICATION                        \
+@"com.wincent.WinSwitch.ShowPreferencesWindowNotification"
 
 @interface WOWinSwitchMenuExtra (Private)
 
 // methods for toggling menu bar style
+- (void)_showSubmenuItemSelected:(id)sender;
 - (void)_showIconInMenuBar;
 - (void)_showUserImageInMenuBar;
 - (void)_showFullUsernameInMenuBar;
@@ -290,6 +297,10 @@
         _refreshAllUsersCache = YES;                // force cache rebuild
         if (menuStyle == WOSwitchMenuFullUsername)  // update title in menubar
             [self _showFullUsernameInMenuBar];
+        else if (menuStyle == WOSwitchMenuInitials)
+            [self _showInitialsInMenuBar];
+        else if (menuStyle == WOSwitchMenuFirstName)
+            [self _showFirstNameInMenuBar];
     }
     else if ([name isEqualToString:WO_USER_PICTURE])
     {
@@ -317,15 +328,30 @@
             id object = nil;
             if ((object = [userInfo objectForKey:WO_PREF_MENU_STYLE]))
             {
-            
+                WOSwitchMenuStyle newStyle = [object intValue];
+                if ((newStyle == WOSwitchMenuFirstName) && 
+                    (menuStyle != WOSwitchMenuFirstName))
+                    [self _showFirstNameInMenuBar];
+                else if ((newStyle == WOSwitchMenuFullUsername) &&
+                         (menuStyle != WOSwitchMenuFullUsername))
+                    [self _showFullUsernameInMenuBar];
+                else if ((newStyle == WOSwitchMenuIcon) &&
+                         (menuStyle != WOSwitchMenuIcon))
+                    [self _showIconInMenuBar];
+                else if ((newStyle == WOSwitchMenuInitials) &&
+                         (menuStyle != WOSwitchMenuInitials))
+                    [self _showInitialsInMenuBar];
+                else if ((newStyle == WOSwitchMenuShortUsername) &&
+                         (menuStyle != WOSwitchMenuShortUsername))
+                    [self _showShortUsernameInMenuBar];
+                else if ((newStyle == WOSwitchMenuUserPicture) &&
+                         (menuStyle != WOSwitchMenuUserPicture))
+                    [self _showUserImageInMenuBar];
             }
             if ((object = [userInfo objectForKey:WO_PREF_SHOW_ROOT_USER]))
             {
-            
-            }
-            if ((object = [userInfo objectForKey:WO_PREF_HOT_KEY_SUSPENDS]))
-            {
-            
+                if ([object boolValue] != showRootUser)
+                    [self _showSubmenuItemSelected:showRootUserMenuItem];    
             }
             if ((object = [userInfo objectForKey:WO_PREF_MENU_PICTURE_SIZE]))
             {   
@@ -372,6 +398,14 @@
     [workspace openFile:@"/System/Library/PreferencePanes/Accounts.prefPane"
         withApplication:@"System Preferences"
           andDeactivate:YES];
+}
+
+// open WinSwitch preferences (WinSwitchHelper)
+- (void)openPreferences:(id)sender
+{
+    [[NSDistributedNotificationCenter 
+        defaultCenter] postNotificationName:WS_SHOW_PREF_WINDOW_NOTIFICATION
+                                     object:nil];
 }
 
 - (void)switchToUser:(id)sender
@@ -434,6 +468,28 @@
                 [NSNumber numberWithInt:WOSwitchMenuShortUsername]
                                         forKey:WO_PREF_MENU_STYLE];
         [self performSelector:@selector(_showShortUsernameInMenuBar) 
+                   withObject:nil 
+                   afterDelay:0.5];
+    }
+    else if ((sender == showFirstNameOnlyMenuItem) &&
+             (menuStyle != WOSwitchMenuFirstName))
+    {
+        userInfo = 
+            [NSDictionary dictionaryWithObject:
+                [NSNumber numberWithInt:WOSwitchMenuFirstName]
+                                        forKey:WO_PREF_MENU_STYLE];
+        [self performSelector:@selector(_showFirstNameInMenuBar) 
+                   withObject:nil 
+                   afterDelay:0.5];
+    }
+    else if ((sender == showInitialsOnlyMenuItem) &&
+             (menuStyle != WOSwitchMenuInitials))
+    {
+        userInfo = 
+            [NSDictionary dictionaryWithObject:
+                [NSNumber numberWithInt:WOSwitchMenuInitials]
+                                        forKey:WO_PREF_MENU_STYLE];
+        [self performSelector:@selector(_showInitialsInMenuBar) 
                    withObject:nil 
                    afterDelay:0.5];
     }
@@ -579,9 +635,12 @@
     [self _flushPrefsToDisk];
 }
 
-// unlike the other _show methods, this one only ever called from initWithBundle
 - (void)_showFirstNameInMenuBar
 {    
+    [[showSubmenu itemAtIndex:(int)menuStyle] setState:NSOffState];
+    menuStyle = WOSwitchMenuFirstName;
+    [[showSubmenu itemAtIndex:(int)menuStyle] setState:NSOnState];
+    
     NSString *firstName = nil;
     NSArray *names = [[self _fullUserName] componentsSeparatedByString:@" "];
     if (names && ([names count] > 0))
@@ -593,13 +652,18 @@
         NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];
     [self setLength:textSize.width + 8.0];
     [theView setNeedsDisplay:YES];
+    [self _flushPrefsToDisk];
 }
 
-// unlike the other _show methods, this one only ever called from initWithBundle
 - (void)_showInitialsInMenuBar
 {
+    [[showSubmenu itemAtIndex:(int)menuStyle] setState:NSOffState];
+    menuStyle = WOSwitchMenuInitials;
+    [[showSubmenu itemAtIndex:(int)menuStyle] setState:NSOnState];
+    
     NSMutableString *initials = [NSMutableString string];
-    NSArray *names = [[self _fullUserName] componentsSeparatedByString:@" "];
+    NSArray *names = 
+        [[self _fullUserName] componentsSeparatedByWhitespace:@" .,"];
     NSEnumerator *enumerator = [names objectEnumerator];
     NSString *name;
     
@@ -615,6 +679,7 @@
         NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];
     [self setLength:textSize.width + 8.0];
     [theView setNeedsDisplay:YES];
+    [self _flushPrefsToDisk];
 }
 
 - (NSMenu *)menu
@@ -627,7 +692,7 @@
     else if (_refreshAllUsersCache || _refreshLoggedInUsers) // must re-build
     {
         int i;                                  // erase all items
-        for (i = 0; i < (count - 6); i++)       // except the last six
+        for (i = 0; i < (count - 7); i++)       // except the last seven
             [theMenu removeItemAtIndex:0];      // "Login window...", "Show" etc
     }
     else
@@ -707,6 +772,8 @@
         WO_ADD_SHOW_SUBMENU_ITEM(showUserPictureMenuItem,   @"User picture");
         WO_ADD_SHOW_SUBMENU_ITEM(showFullUsernameMenuItem,  @"Name");
         WO_ADD_SHOW_SUBMENU_ITEM(showShortUsernameMenuItem, @"Short name");
+        WO_ADD_SHOW_SUBMENU_ITEM(showFirstNameOnlyMenuItem, @"First name only");
+        WO_ADD_SHOW_SUBMENU_ITEM(showInitialsOnlyMenuItem,  @"Initials only");
         [showSubmenu addItem:[NSMenuItem separatorItem]];   // separator
         WO_ADD_SHOW_SUBMENU_ITEM(showRootUserMenuItem,      @"Root user");
         
@@ -718,12 +785,24 @@
             [showFullUsernameMenuItem setState:NSOnState];
         else if (menuStyle == WOSwitchMenuShortUsername)
             [showShortUsernameMenuItem setState:NSOnState];
+        else if (menuStyle == WOSwitchMenuFirstName)
+            [showFirstNameOnlyMenuItem setState:NSOnState];
+        else if (menuStyle == WOSwitchMenuInitials)
+            [showInitialsOnlyMenuItem setState:NSOnState];
         
         if (showRootUser)
             [showRootUserMenuItem setState:NSOnState];
+
+        // add "WinSwitch Preferences..." item
+        [theMenu addItem:[NSMenuItem separatorItem]];        
+        NSString *winSwitchPreferences = NSLocalizedStringFromTableInBundle
+            (@"WinSwitch Preferences", @"", [self bundle], 
+             @"WinSwitch Preferences");
+        [[theMenu addItemWithTitle:winSwitchPreferences
+                            action:@selector(openPreferences:)
+                     keyEquivalent:@""] setTarget:self];
         
         // add "Open Accounts..." item
-        [theMenu addItem:[NSMenuItem separatorItem]];
         NSString *openAccounts = NSLocalizedStringFromTableInBundle
             (@"Open Accounts", @"", [self bundle], @"Open Accounts");
         [[theMenu addItemWithTitle:openAccounts
@@ -1273,7 +1352,7 @@
             [[NSTextAttachment alloc] initWithFileWrapper:wrapper];
         _noTick = 
             [NSAttributedString attributedStringWithAttachment:attachment];
-        [_noTick      retain];    // have this object persist
+        [_noTick    retain];    // have this object persist
         [wrapper    release];
         [attachment release];
     }
