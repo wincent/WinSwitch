@@ -64,7 +64,12 @@
 #define WS_SHOW_PREF_WINDOW_NOTIFICATION                        \
 @"com.wincent.WinSwitch.ShowPreferencesWindowNotification"
 
-@interface WOWinSwitchMenuExtra (Private)
+#define WS_HELPER_IDENTIFIER    @"com.wincent.WinSwitchHelper"
+
+@interface WOWinSwitchMenuExtra (WOPrivate)
+
+- (void)launchWinSwitchHelperAndShowPreferencesWindow:(BOOL)show;
+- (BOOL)helperRunning;
 
 // methods for toggling menu bar style
 - (void)_showSubmenuItemSelected:(id)sender;
@@ -224,14 +229,7 @@
     else if (menuStyle == WOSwitchMenuInitials)
         [self _showInitialsInMenuBar];    
 
-    // launch WinSwitchHelper, if present
-    NSString *helper = [[self bundle] pathForResource:@"WinSwitchHelper" 
-                                               ofType:@"app"];
-    
-    if (helper && [[NSWorkspace sharedWorkspace] openFile:helper])
-        NSLog(@"WinSwitchHelper launched");
-    else
-        NSLog(@"Error trying to launch WinSwitchHelper");        
+    [self launchWinSwitchHelperAndShowPreferencesWindow:NO];      
         
     NSLog(@"WinSwitch.menu loaded.");
     return self;
@@ -403,9 +401,91 @@
 // open WinSwitch preferences (WinSwitchHelper)
 - (void)openPreferences:(id)sender
 {
-    [[NSDistributedNotificationCenter 
-        defaultCenter] postNotificationName:WS_SHOW_PREF_WINDOW_NOTIFICATION
-                                     object:nil];
+    if ([self helperRunning])
+        [[NSDistributedNotificationCenter 
+            defaultCenter] postNotificationName:WS_SHOW_PREF_WINDOW_NOTIFICATION
+                                         object:nil];
+    else // not running
+        [self launchWinSwitchHelperAndShowPreferencesWindow:YES];
+}
+
+- (BOOL)helperRunning
+{
+    BOOL returnValue = NO;
+
+    int                 mib[4]      = { CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0 };
+    struct kinfo_proc   *processes  = NULL;
+    size_t              length      = 0;
+    int                 err;
+    
+    err = sysctl(mib, 4, NULL, &length, NULL, 0);   // find out size of buffer
+    if (err >= 0)
+    {
+        processes = (struct kinfo_proc*)malloc(length);
+        if (processes)
+        {
+            err = sysctl(mib, 4, processes, &length, NULL, 0);
+            if (err >= 0)
+            {
+                int i;  // search for "WinSwitchHelper" processes
+                int procCount = length / sizeof(struct kinfo_proc);
+                for (i = 0; i < procCount; i++)
+                {
+                    if ((processes[i].kp_proc.p_comm) &&
+                        (strcmp(processes[i].kp_proc.p_comm,"WinSwitchHelper")==0))
+                    {
+                        // match found! find out owner
+                        if (processes[i].kp_eproc.e_ucred.cr_uid != getuid())
+                            continue;   // belongs to other user, keep searching
+                        else
+                        {
+                            returnValue = YES;  // found
+                            break;
+                        }
+                    }
+                }
+            }
+            free(processes);
+        }
+    }
+    return returnValue;
+}
+
+- (void)launchWinSwitchHelperAndShowPreferencesWindow:(BOOL)show
+{
+    NSString *helper = [[self bundle] pathForResource:@"WinSwitchHelper" 
+                                               ofType:@"app"];
+
+    if (show) // need to pass commandline argument to helper
+    {
+        // fork
+        pid_t pid = fork();
+        
+        if (pid == 0)   // child process successfully created
+        {
+            const char *path =
+                [[[[helper stringByAppendingPathComponent:@"Contents"]
+                    stringByAppendingPathComponent:@"MacOS"]
+                    stringByAppendingPathComponent:@"WinSwitchHelper"]
+                    UTF8String];
+            if (execle(path, path, "--preferences", NULL, NULL))
+            {
+                NSLog(@"Error trying to launch WinSwitchHelper");
+                _exit(EXIT_SUCCESS);
+            }
+            else
+                NSLog(@"WinSwitchHelper launched");
+        }
+        else if (pid == -1) // error trying to fork child process
+            NSLog(@"Error (%d): failed to fork", errno);
+    }
+    else
+    {
+        if (helper && [[NSWorkspace sharedWorkspace] openFile:helper])
+            NSLog(@"WinSwitchHelper launched");
+        else
+            NSLog(@"Error trying to launch WinSwitchHelper");  
+    }
 }
 
 - (void)switchToUser:(id)sender
