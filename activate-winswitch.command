@@ -1,6 +1,8 @@
 #!/bin/sh
-
-# script to activate WinSwitch in current user account
+#
+# Activate WinSwitch.command
+# Script to activate WinSwitch in current user account
+# $Id$
 
 tool="/Library/Menu Extras/WinSwitch.menu/Contents/Resources/menu-extra-tool"
  
@@ -12,7 +14,7 @@ tool="/Library/Menu Extras/WinSwitch.menu/Contents/Resources/menu-extra-tool"
   
 /bin/sleep 3
 
-#Êmust kill SystemUIServer to force it to reload the new WinSwitch bundle
+# must kill SystemUIServer to force it to reload the new WinSwitch bundle
 /usr/bin/killall -SIGHUP SystemUIServer
   
 # open MenuCracker; will relaunch SystemUIServer if it did not respawn already
@@ -27,4 +29,11 @@ tool="/Library/Menu Extras/WinSwitch.menu/Contents/Resources/menu-extra-tool"
   -a "/Library/Menu Extras/WinSwitch.menu"      \
   -p -1
 
+# retry if error reported on first try (system under heavy load may take longer to respawn SystemUIServer)
+if [ $? -ne 0 ]; then
+  /bin/sleep 5
+  "${tool}" -a "/Library/Menu Extras/WinSwitch.menu" -p -1
+fi
+
+# don't check the exit status (spurious errors reported due to conflict with Unsanity MEE?)
 exit 0
