@@ -188,19 +188,25 @@
                             name:NSWorkspaceSessionDidBecomeActiveNotification
                           object:nil];    
 
-    // read preferences
+    // read preferences from disk
     NSDictionary *preferences =
         [[NSUserDefaults standardUserDefaults] persistentDomainForName:
             WO_BUNDLE_IDENTIFIER];
-    
-    // menu style defaults to 0 (Standard Icon), even if preference not set
-    menuStyle = [[preferences objectForKey:WO_PREF_MENU_STYLE] intValue];
+   
+    if ([preferences objectForKey:WO_PREF_MENU_STYLE])
+        menuStyle = [[preferences objectForKey:WO_PREF_MENU_STYLE] intValue];
+    else
+        menuStyle = 0;
 
-    menuPictureSize = 
-        [[preferences objectForKey:WO_PREF_MENU_PICTURE_SIZE] floatValue];
+    if ([preferences objectForKey:WO_PREF_MENU_PICTURE_SIZE])
+        menuPictureSize =
+            [[preferences objectForKey:WO_PREF_MENU_PICTURE_SIZE] floatValue];
+    else
+        menuPictureSize = 32.0;    
     
+    // sanity check
     if (menuPictureSize == 0)
-        menuPictureSize = 32.0;         // if size is unset, use default size
+        menuPictureSize = 32.0;         // default size
     else if (menuPictureSize < 24.0)
         menuPictureSize = 16.0;         // in other cases force size to 16.0...
     else if (menuPictureSize > 42.0)
@@ -208,15 +214,21 @@
     else
         menuPictureSize = 32.0;         // or 32.0...
     
-    showRootUser = 
-        [[preferences objectForKey:WO_PREF_SHOW_ROOT_USER] boolValue];
+    if ([preferences objectForKey:WO_PREF_SHOW_ROOT_USER])
+        showRootUser = 
+            [[preferences objectForKey:WO_PREF_SHOW_ROOT_USER] boolValue];
+    else
+        showRootUser = NO;
     
-    userPictureSize = 
-        [[preferences objectForKey:WO_PREF_USER_PICTURE_SIZE] floatValue];
+    if ([preferences objectForKey:WO_PREF_USER_PICTURE_SIZE])
+        userPictureSize = 
+            [[preferences objectForKey:WO_PREF_USER_PICTURE_SIZE] floatValue];
+    else
+        userPictureSize = 19.0;
     
     if ((userPictureSize < 5.0) || (userPictureSize > 19.0))    // sanity check
         userPictureSize = 19.0;                     // use default picture size
-
+    
     // get and store current user picture
     [self _updateUserImage:[self _iconPathForUID:getuid()]];
     
@@ -349,7 +361,7 @@
             if ((object = [userInfo objectForKey:WO_PREF_SHOW_ROOT_USER]))
             {
                 if ([object boolValue] != showRootUser)
-                    [self _showSubmenuItemSelected:showRootUserMenuItem];    
+                    [self _showSubmenuItemSelected:showRootUserMenuItem];
             }
             if ((object = [userInfo objectForKey:WO_PREF_MENU_PICTURE_SIZE]))
             {   
@@ -588,7 +600,7 @@
         userInfo = 
             [NSDictionary dictionaryWithObject:
                 [NSNumber numberWithBool:showRootUser]
-                                    forKey:WO_PREF_SHOW_ROOT_USER];
+                                        forKey:WO_PREF_SHOW_ROOT_USER];
                 
         // force rebuild of cache next time user clicks on the menu
         _refreshAllUsersCache = YES;
@@ -982,9 +994,7 @@
                         NSNumber *UID = [NSNumber numberWithInt:userId];
                         NSDictionary *user = [userList objectForKey:UID];
                         if (user)   // local user
-                        {
-                                [_loggedInUsers addObject:user];                            
-                        }
+                            [_loggedInUsers addObject:user];                            
                         else        // non-local user
                         {
                             user = [self _nonlocalUserForUID:UID];
@@ -1039,22 +1049,52 @@
     // get UIDs in "users" directory in current (local) domain from NetInfo
     void *handle;
     ni_status status = ni_open(NULL, ".", &handle);
-    if (status != NI_OK) return _sortedCache; // can't even connect to NetInfo!
+    if (status != NI_OK || handle == NULL) return _sortedCache; // can't connect
     ni_id dir;
     const char *search = "/users";
     status = ni_pathsearch(handle, &dir, search);   // find "users" dir
-    if (status == NI_OK)
+    if ((status == NI_OK) && dir.nii_object && dir.nii_instance)
     {
         ni_entrylist users;
         status = ni_list(handle, &dir, "uid", &users);  // check for UIDs > 500
-        if (status == NI_OK)
+        if ((status == NI_OK) && (users.ni_entrylist_len))
         {
             unsigned i;
             for (i = 0; i < users.ni_entrylist_len; i++)
             {
+                NSLog(@"In for loop (%d) while i < %d", i, users.ni_entrylist_len);
+                
+                NSLog(@"Will get ni_namelist pointer 'names'");
+                ni_namelist *names = 
+                    users.ni_entrylist_val[i].names;
+                NSLog(@"Did get ni_namelist pointer 'names' (%d)", names);
+                
+                // fix for http://wincent.com/a/support/bugs/show_bug.cgi?id=68
+                if (!names)
+                {
+                    NSLog(@"'names' is nil, skipping to next iteration of loop");
+                    continue;   
+                }
+                else
+                    NSLog(@"'names' is not nil, proceeding");
+                
+                NSLog(@"Will get ni_name 'user'");
                 ni_name user = 
-                users.ni_entrylist_val[i].names->ni_namelist_val[0];
+                    users.ni_entrylist_val[i].names->ni_namelist_val[0];
+                NSLog(@"Did get ni_name 'user' (%d)", user);
+                
+                if (!user)
+                {
+                    NSLog(@"'user' is nil, skipping to next iteration of loop");
+                    continue;   
+                }
+                else
+                    NSLog(@"'user' is not nil, proceeding");
+                
+                NSLog(@"Will invoke strtol()");
                 uid_t uid = strtol(user, NULL, 10);
+                NSLog(@"Did invoke strtol(), got %d", uid);
+                
                 // must cast to signed otherwise user "nobody" (-2) passes test
                 if (showRootUser)
                 {
@@ -1078,7 +1118,6 @@
                 // does user have a real shell?
                 NSArray  *realShells = [self _realShells];
                 NSString *shell = [self _propertyForKey:@"shell" user:uid];
-                
                 if (shell && [realShells containsObject:shell])
                     [theUser setObject:[NSNumber numberWithBool:YES]
                                 forKey:@"RealShell"];
@@ -1127,7 +1166,6 @@
                                                dimImages:NO];
                     [theUser setObject:usernamePlusTick 
                                 forKey:@"UsernamePlusTick"];
-                    
                     // NSAttributedString -> username + image + no tick
                     NSAttributedString *usernameNoTick =
                         [self _menuString:username
@@ -1172,7 +1210,6 @@
     [_sortedCache sortUsingDescriptors:
         [NSArray arrayWithObject:descriptor]];
     [descriptor release];
-    
     return _sortedCache;
 }
 
@@ -1305,7 +1342,7 @@
         status = ni_open(NULL, "/", &handle);
     else            // local domain
         status = ni_open(NULL, ".", &handle);
-    if (status != NI_OK) return nil;
+    if (status != NI_OK || handle == NULL) return nil;
     ni_id dir;
     const char *search = 
         [[NSString stringWithFormat:@"/users/uid=%d", UID] UTF8String];
@@ -1315,13 +1352,16 @@
         ni_namelist properties;
         NI_INIT(&properties);
         status = ni_lookupprop(handle, &dir, [key UTF8String], &properties);
-        if ((status == NI_OK) && (properties.ni_namelist_val[0]))
+        if ((status == NI_OK) && (properties.ni_namelist_len))
         {
-            // note that only first property is returned
-            returnString = 
-            [NSString stringWithUTF8String:properties.ni_namelist_val[0]];
+            if (properties.ni_namelist_val[0])
+            {
+                // note that only first property is returned
+                returnString = 
+                    [NSString stringWithUTF8String:properties.ni_namelist_val[0]];
+            }
+            ni_namelist_free(&properties);
         }
-        ni_namelist_free(&properties);
     }
     ni_free(handle);
     return returnString;    // returns nil on failure

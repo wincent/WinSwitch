@@ -63,12 +63,19 @@
 			);
 			mainGroup = 089C166AFE841209C02AAC07;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BC3EE0050764984A009DFA54;
+					ProjectRef = BC3EE0040764984A009DFA54;
+				},
+			);
 			targets = (
 				8D5B49AC048680CD000E48DA,
 			);
 		};
 		089C166AFE841209C02AAC07 = {
 			children = (
+				BC3EE00107649833009DFA54,
 				BC958C3D06B29816006F9C43,
 				BCE05355061B95F300238E7E,
 				BC31BF5E05AA7C76003881B1,
@@ -95,7 +102,6 @@
 		};
 		089C167CFE841241C02AAC07 = {
 			children = (
-				BCA3D59907638FD4005B39A3,
 				BCA80B040618E96300B62BEA,
 				BCE03878061A55C300238E7E,
 				BC31BFF605AB16BF003881B1,
@@ -328,13 +334,14 @@
 				8D5B49AF048680CD000E48DA,
 				8D5B49B1048680CD000E48DA,
 				8D5B49B3048680CD000E48DA,
-				8D5B49B5048680CD000E48DA,
+				BC3EE01E076498D9009DFA54,
 				BC31BF6305AA7D06003881B1,
 			);
 			buildRules = (
 			);
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -359,6 +366,7 @@
 				WRAPPER_EXTENSION = menu;
 			};
 			dependencies = (
+				BC3EE02107649904009DFA54,
 			);
 			isa = PBXNativeTarget;
 			name = WinSwitch;
@@ -399,7 +407,6 @@
 				BCA80B38061903FB00B62BEA,
 				BC9A57BB0619CB94004314F6,
 				BCE03879061A55C300238E7E,
-				BCA3D59A07638FD4005B39A3,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,13 +436,6 @@
 			isa = PBXBuildFile;
 			settings = {
 			};
-		};
-		8D5B49B5048680CD000E48DA = {
-			buildActionMask = 2147483647;
-			files = (
-			);
-			isa = PBXRezBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8D5B49B6048680CD000E48DA = {
 			explicitFileType = wrapper.cfbundle;
@@ -573,6 +573,75 @@
 			path = no.lproj/Localizable.strings;
 			refType = 4;
 			sourceTree = "<group>";
+		};
+		BC3EE00107649833009DFA54 = {
+			children = (
+				BC3EE0040764984A009DFA54,
+			);
+			isa = PBXGroup;
+			name = Dependencies;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BC3EE0040764984A009DFA54 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "wrapper.pb-project";
+			name = WinSwitchHelper.xcode;
+			path = "/Users/wincent/trabajo/WinSwitchHelper/svn-files/WinSwitchHelper.xcode";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		BC3EE0050764984A009DFA54 = {
+			children = (
+				BC3EE0090764984C009DFA54,
+			);
+			isa = PBXGroup;
+			name = Products;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BC3EE0090764984C009DFA54 = {
+			fileType = wrapper.application;
+			isa = PBXReferenceProxy;
+			path = WinSwitchHelper.app;
+			refType = 3;
+			remoteRef = BC3EE00A0764987D009DFA54;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BC3EE00A0764987D009DFA54 = {
+			containerPortal = BC3EE0040764984A009DFA54;
+			isa = PBXContainerItemProxy;
+			proxyType = 2;
+			remoteGlobalIDString = 8D1107320486CEB800E47090;
+			remoteInfo = WinSwitchHelper;
+		};
+		BC3EE01E076498D9009DFA54 = {
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				BC3EE01F076498E5009DFA54,
+			);
+			isa = PBXCopyFilesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC3EE01F076498E5009DFA54 = {
+			fileRef = BC3EE0090764984C009DFA54;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		BC3EE02007649904009DFA54 = {
+			containerPortal = BC3EE0040764984A009DFA54;
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = WinSwitchHelper;
+		};
+		BC3EE02107649904009DFA54 = {
+			isa = PBXTargetDependency;
+			name = "WinSwitchHelper (from WinSwitchHelper.xcode)";
+			targetProxy = BC3EE02007649904009DFA54;
 		};
 		BC56E8200652BF2500D9027E = {
 			isa = PBXFileReference;
@@ -749,19 +818,6 @@
 			path = Japanese.lproj/InfoPlist.strings;
 			refType = 4;
 			sourceTree = "<group>";
-		};
-		BCA3D59907638FD4005B39A3 = {
-			isa = PBXFileReference;
-			lastKnownFileType = wrapper.application;
-			path = WinSwitchHelper.app;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		BCA3D59A07638FD4005B39A3 = {
-			fileRef = BCA3D59907638FD4005B39A3;
-			isa = PBXBuildFile;
-			settings = {
-			};
 		};
 		BCA80A1106173E5B00B62BEA = {
 			fileRef = BC31BFF605AB16BF003881B1;

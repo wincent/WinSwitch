@@ -12,3 +12,7 @@ $Id$
 - try to log out current user if holding down option key (do this only once the notification of switch out has been received)
 
 - request: "You should disable the main user switch menu, whenever the accounts preference pane is opened, it puts the original one back"; note this is not possible without entering a race, so WinSwitchHelper throws up a notification bezel instead
+
+- request: "Ignore list": ability to ignore arbitrary accounts (ie. exclude them from the list)
+
+- ability to assign a separate hot key for each user account
