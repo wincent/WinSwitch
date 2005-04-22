@@ -13,7 +13,7 @@
 #import <Foundation/Foundation.h>
 
 // made with class-dump
-#import "SystemUIPlugin.h"
+#import "SystemUIPlugin_Tiger.h"
 
 @interface WOWinSwitchMenuExtraView : NSMenuExtraView {
     NSMenuExtra *menuExtra;

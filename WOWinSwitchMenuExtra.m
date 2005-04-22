@@ -35,6 +35,9 @@
 #import <sys/sysctl.h>
 #import <sys/proc.h>
 
+#import <Carbon/Carbon.h>
+#import <WebKit/CarbonUtils.h>
+
 #define WO_CGSESSION \
 @"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession"
 
@@ -243,7 +246,6 @@
 
     [self launchWinSwitchHelperAndShowPreferencesWindow:NO];      
         
-    NSLog(@"WinSwitch.menu loaded.");
     return self;
 }
 
@@ -796,6 +798,7 @@
 
 - (NSMenu *)menu
 {
+    [theMenu setMenuChangedMessagesEnabled:NO];
     BOOL    addNonUserItems = NO;       // default: do not add non-user items
     int     count           = [theMenu numberOfItems];
     
@@ -808,7 +811,10 @@
             [theMenu removeItemAtIndex:0];      // "Login window...", "Show" etc
     }
     else
+    {
+        [theMenu setMenuChangedMessagesEnabled:YES];
         return theMenu;             // menu is already built, return it
+    }
     
     if (_nonlocalUsersCurrentlyLoggedIn)
     {        
@@ -828,11 +834,30 @@
     NSEnumerator    *enumerator     = [allUsersCache reverseObjectEnumerator];
     NSDictionary    *user           = nil;
 
+    
+    // more fiddling:
+    extern MenuRef _NSGetCarbonMenu(NSMenu *);
+    MenuRef carbonMenu = _NSGetCarbonMenu(theMenu);
+    
+    // first time around, _NSGetCarbonMenu will return NULL (because menu has never been added to screen)
+    
+    // can we change the height?
+    if (carbonMenu)
+    {
+        //SetMenuHeight(carbonMenu, 64);
+        NSLog(@"Menu height is %d", GetMenuHeight(carbonMenu));
+    }
+    else
+        NSLog(@"NULL menuref");
+    
+    SInt16 carbonMenuItemIndex = 0;
     while ((user = [enumerator nextObject]))
     {
         if (![[user objectForKey:@"RealShell"] boolValue])
             continue;   // skip "users" without real shells
            
+        carbonMenuItemIndex++;
+        
         NSMenuItem *item = 
         [[NSMenuItem alloc] initWithTitle:[user objectForKey:@"Username"]
                                    action:@selector(switchToUser:)
@@ -840,10 +865,43 @@
         [item setRepresentedObject:user];
         
         // check if user is logged in
+/*
         if ([loggedInUsers containsObject:user])
             [item setAttributedTitle:[user objectForKey:@"UsernamePlusTick"]];
         else
             [item setAttributedTitle:[user objectForKey:@"UsernameNoTick"]];    
+*/
+        // testing only
+        if (carbonMenu)
+        {
+//            NSLog(@"trying to use CGImage");
+//            CGImageRef iconRef;
+//            NSString *iconPath = [[self bundle] pathForImageResource:@"generic"];
+//            NSImage *iconImage = [[[NSImage alloc] initWithContentsOfFile:iconPath] autorelease];
+//            iconRef = WebConvertNSImageToCGImageRef(iconImage);
+//            SetMenuItemIconHandle(carbonMenu, carbonMenuItemIndex, kMenuCGImageRefType, (Handle)iconRef);
+            NSLog(@"trying to use Carbon");
+            NSString *iconPath = [[self bundle] pathForImageResource:@"generic"];
+            IconRef iconRef;
+            FSSpec spec;
+            FSMakeFSSpec(0, 0, [[NSFileManager defaultManager] fileSystemRepresentationWithPath:iconPath], &spec);
+            GetIconRefFromFile(&spec, &iconRef, NULL);
+            SetMenuItemIconHandle(carbonMenu, carbonMenuItemIndex, kMenuIconRefType, (Handle)iconRef);
+        }
+        else
+        {
+            // does work, but image size is fixed
+            NSString *iconPath = [[self bundle] pathForImageResource:@"generic"];
+            //[item setImage:[[[NSImage alloc] initWithContentsOfFile:iconPath] autorelease]];
+        }
+        
+        // setOnStateImage/setOffStateImage are no-ops
+//        [item setOnStateImage:[NSImage imageNamed:@"tick"]];
+//        [item setOffStateImage:[[[NSImage alloc] initWithContentsOfFile:[[self bundle] pathForResource:@"tick" ofType:@"tiff"] autorelease]]];
+        if ([loggedInUsers containsObject:user])
+            [item setState:NSOnState];
+        else
+            [item setState:NSOffState];
         
         [theMenu insertItem:item atIndex:0];    // insert at start of menu
         [item setTarget:self];
@@ -930,6 +988,7 @@
                             action:@selector(suspend:) 
                      keyEquivalent:@""] setTarget:self];
     }
+    [theMenu setMenuChangedMessagesEnabled:YES];
     return theMenu;
 }
 
@@ -1547,6 +1606,9 @@
     // now assemble the components: the state image, icon, spaces and username
     NSMutableAttributedString *returnString = [textString mutableCopy];
     [textString release];
+
+    // including any of the following images causes a crash on Tiger
+    /* 
     if (iconString)
         [returnString insertAttributedString:iconString atIndex:0];
     if (state == NSOffState)
@@ -1588,7 +1650,7 @@
     [returnString addAttribute:NSBaselineOffsetAttributeName
                          value:[NSNumber numberWithFloat:textOffset]
                          range:NSMakeRange(3,[returnString length] - 3)];
-            
+     */      
     return [returnString autorelease];
 }
 

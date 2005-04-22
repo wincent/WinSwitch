@@ -13,7 +13,7 @@
 #import <Cocoa/Cocoa.h>
 
 // produced by class-dump
-#import "SystemUIPlugin.h"  
+#import "SystemUIPlugin_Tiger.h"  
 
 typedef enum WOSwitchMenuStyle {
 
