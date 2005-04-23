@@ -29,6 +29,9 @@ typedef enum WOSwitchMenuStyle {
 @class WOWinSwitchMenuExtraView;
 
 @interface WOWinSwitchMenuExtra : NSMenuExtra {
+    
+    BOOL                        isPanther;
+    
     NSMenu                      *theMenu;
     NSImage                     *theImage;      // default menu icon
     NSImage                     *altImage;      // default menu item, selected

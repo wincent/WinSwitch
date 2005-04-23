@@ -8,7 +8,7 @@
 		014CEA420018CDE011CA2923 = {
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				DEBUGGING_SYMBOLS = YES;
+				GCC_DEBUGGING_SYMBOLS = full;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -273,7 +273,7 @@
 			fileEncoding = 30;
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
-			path = SystemUIPlugin.h;
+			path = SystemUIPlugin_Panther.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -305,6 +305,7 @@
 		32C88E010371C26100C91783 = {
 			children = (
 				BCE4F33B05AC3CB300A5A030,
+				BC34B764081910CF004DB8F7,
 				32DBCF630370AF2F00C91783,
 			);
 			isa = PBXGroup;
@@ -386,6 +387,7 @@
 				31408C29055C079E000B2096,
 				BCE4F33C05AC3CB300A5A030,
 				BC5A9136072D2AD60040ADC4,
+				BC34B765081910CF004DB8F7,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +563,20 @@
 			path = tick.tiff;
 			refType = 4;
 			sourceTree = "<group>";
+		};
+		BC34B764081910CF004DB8F7 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = SystemUIPlugin_Tiger.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		BC34B765081910CF004DB8F7 = {
+			fileRef = BC34B764081910CF004DB8F7;
+			isa = PBXBuildFile;
+			settings = {
+			};
 		};
 		BC3E773706EEF36C00FA0245 = {
 			isa = PBXFileReference;
@@ -1006,7 +1022,7 @@
 			fileEncoding = 30;
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
-			path = SystemUIPlugin.h;
+			path = SystemUIPlugin_Panther.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};

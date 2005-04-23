@@ -35,9 +35,6 @@
 #import <sys/sysctl.h>
 #import <sys/proc.h>
 
-#import <Carbon/Carbon.h>
-#import <WebKit/CarbonUtils.h>
-
 #define WO_CGSESSION \
 @"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession"
 
@@ -140,6 +137,10 @@
 // returns full user name for current user (doesn't cache unlike NSFullUserName)
 - (NSString *)_fullUserName;
 
+- (NSImage *)imagePlusSpacerForUserImage:(NSImage *)aImage;
+
+- (NSImage *)imagePlusTickForUserIcon:(NSImage *)aImage;
+
 @end
 
 @implementation WOWinSwitchMenuExtra
@@ -148,6 +149,11 @@
 {
     self = [super initWithBundle:bundle];
     if (self == nil) return nil;
+    
+    SInt32 vers;
+    Gestalt(gestaltSystemVersion,&vers);
+    if (vers < 0x00001040)
+        isPanther = YES;
     
     theView = [[WOWinSwitchMenuExtraView alloc] initWithFrame:
         [[self view] frame] menuExtra:self];
@@ -834,74 +840,44 @@
     NSEnumerator    *enumerator     = [allUsersCache reverseObjectEnumerator];
     NSDictionary    *user           = nil;
 
-    
-    // more fiddling:
-    extern MenuRef _NSGetCarbonMenu(NSMenu *);
-    MenuRef carbonMenu = _NSGetCarbonMenu(theMenu);
-    
-    // first time around, _NSGetCarbonMenu will return NULL (because menu has never been added to screen)
-    
-    // can we change the height?
-    if (carbonMenu)
-    {
-        //SetMenuHeight(carbonMenu, 64);
-        NSLog(@"Menu height is %d", GetMenuHeight(carbonMenu));
-    }
-    else
-        NSLog(@"NULL menuref");
-    
-    SInt16 carbonMenuItemIndex = 0;
     while ((user = [enumerator nextObject]))
     {
         if (![[user objectForKey:@"RealShell"] boolValue])
             continue;   // skip "users" without real shells
            
-        carbonMenuItemIndex++;
-        
         NSMenuItem *item = 
         [[NSMenuItem alloc] initWithTitle:[user objectForKey:@"Username"]
                                    action:@selector(switchToUser:)
                             keyEquivalent:@""];
         [item setRepresentedObject:user];
-        
-        // check if user is logged in
-/*
-        if ([loggedInUsers containsObject:user])
-            [item setAttributedTitle:[user objectForKey:@"UsernamePlusTick"]];
-        else
-            [item setAttributedTitle:[user objectForKey:@"UsernameNoTick"]];    
-*/
-        // testing only
-        if (carbonMenu)
+
+        if (isPanther)
         {
-//            NSLog(@"trying to use CGImage");
-//            CGImageRef iconRef;
-//            NSString *iconPath = [[self bundle] pathForImageResource:@"generic"];
-//            NSImage *iconImage = [[[NSImage alloc] initWithContentsOfFile:iconPath] autorelease];
-//            iconRef = WebConvertNSImageToCGImageRef(iconImage);
-//            SetMenuItemIconHandle(carbonMenu, carbonMenuItemIndex, kMenuCGImageRefType, (Handle)iconRef);
-            NSLog(@"trying to use Carbon");
-            NSString *iconPath = [[self bundle] pathForImageResource:@"generic"];
-            IconRef iconRef;
-            FSSpec spec;
-            FSMakeFSSpec(0, 0, [[NSFileManager defaultManager] fileSystemRepresentationWithPath:iconPath], &spec);
-            GetIconRefFromFile(&spec, &iconRef, NULL);
-            SetMenuItemIconHandle(carbonMenu, carbonMenuItemIndex, kMenuIconRefType, (Handle)iconRef);
+            // check if user is logged in
+            if ([loggedInUsers containsObject:user])
+                [item setAttributedTitle:
+                    [user objectForKey:@"UsernamePlusTick"]];
+            else
+                [item setAttributedTitle:[user objectForKey:@"UsernameNoTick"]];            
         }
-        else
+        else // Tiger: attributed strings with attachments crash on Tiger
         {
-            // does work, but image size is fixed
-            NSString *iconPath = [[self bundle] pathForImageResource:@"generic"];
-            //[item setImage:[[[NSImage alloc] initWithContentsOfFile:iconPath] autorelease]];
+            NSImage *userIcon = [user objectForKey:@"Image"];
+            if (userIcon)
+            {
+                if ([loggedInUsers containsObject:user])
+                    [item setImage:[self imagePlusTickForUserIcon:userIcon]];
+                else
+                    [item setImage:[self imagePlusSpacerForUserImage:userIcon]];
+            }
+            else // no user image: something went badly wrong...
+            {
+                if ([loggedInUsers containsObject:user])
+                    [item setState:NSOnState];
+                else
+                    [item setState:NSOffState];
+            }
         }
-        
-        // setOnStateImage/setOffStateImage are no-ops
-//        [item setOnStateImage:[NSImage imageNamed:@"tick"]];
-//        [item setOffStateImage:[[[NSImage alloc] initWithContentsOfFile:[[self bundle] pathForResource:@"tick" ofType:@"tiff"] autorelease]]];
-        if ([loggedInUsers containsObject:user])
-            [item setState:NSOnState];
-        else
-            [item setState:NSOffState];
         
         [theMenu insertItem:item atIndex:0];    // insert at start of menu
         [item setTarget:self];
@@ -1201,33 +1177,53 @@
                 NSString *iconPath = [self _iconPathForUID:uid];
                 if (!iconPath)  // no custom icon for this user, use generic
                     iconPath = [[self bundle] pathForImageResource:@"generic"];
-                uid_t current_user = getuid();
-                if (uid == current_user) // store image + tick, dimmed
+                
+                if (isPanther)
                 {
-                    usernamePlusTick = [self _menuString:username 
-                                            withIconPath:iconPath
-                                                   state:NSOnState
-                                               dimImages:YES];
-                    [theUser setObject:usernamePlusTick 
-                                forKey:@"UsernamePlusTick"];
+                    uid_t current_user = getuid();
+                    if (uid == current_user) // store image + tick, dimmed
+                    {
+                        usernamePlusTick = [self _menuString:username 
+                                                withIconPath:iconPath
+                                                       state:NSOnState
+                                                   dimImages:YES];
+                        [theUser setObject:usernamePlusTick 
+                                    forKey:@"UsernamePlusTick"];
+                    }
+                    else // store with & without tick (not dimmed)
+                    {
+                        usernamePlusTick = [self _menuString:username 
+                                                withIconPath:iconPath
+                                                       state:NSOnState
+                                                   dimImages:NO];
+                        [theUser setObject:usernamePlusTick 
+                                    forKey:@"UsernamePlusTick"];
+                        // NSAttributedString -> username + image + no tick
+                        NSAttributedString *usernameNoTick =
+                            [self _menuString:username
+                                 withIconPath:iconPath
+                                        state:NSOffState
+                                    dimImages:NO];
+                        [theUser setObject:usernameNoTick 
+                                    forKey:@"UsernameNoTick"];
+                    }                    
                 }
-                else // not current user: store with & without tick (not dimmed)
+                else // Tiger
                 {
-                    usernamePlusTick = [self _menuString:username 
-                                            withIconPath:iconPath
-                                                   state:NSOnState
-                                               dimImages:NO];
-                    [theUser setObject:usernamePlusTick 
-                                forKey:@"UsernamePlusTick"];
-                    // NSAttributedString -> username + image + no tick
-                    NSAttributedString *usernameNoTick =
-                        [self _menuString:username
-                             withIconPath:iconPath
-                                    state:NSOffState
-                                dimImages:NO];
-                    [theUser setObject:usernameNoTick 
-                                forKey:@"UsernameNoTick"];
-                }                    
+                    NSImage *iconImage = 
+                    [[NSImage alloc] initWithContentsOfFile:iconPath];
+                    if (iconImage)
+                    {
+                        NSSize imageSize = NSMakeSize(menuPictureSize, 
+                                                      menuPictureSize);
+                        if (!NSEqualSizes([iconImage size], imageSize))
+                        {
+                            [iconImage setScalesWhenResized:YES];
+                            [iconImage setSize:imageSize];
+                        }
+                        [theUser setObject:iconImage forKey:@"Image"];
+                    }
+                }
             }
             ni_entrylist_free(&users);
         }
@@ -1480,6 +1476,52 @@
     return [paddedImage autorelease];
 }
 
+- (NSImage *)imagePlusTickForUserIcon:(NSImage *)aImage
+{
+    if (!aImage) return nil;
+    NSString *path = [[self bundle] pathForResource:@"tick" ofType:@"tiff"];
+    if (!path) return nil;
+    NSImage *tick = [[NSImage alloc] initWithContentsOfFile:path];
+    if (!tick) return nil;
+
+    // the tick image is 21 x 14: leave room for tick + 3 pixels space
+    NSSize totalSize = NSMakeSize((24.0 + menuPictureSize), menuPictureSize);
+    NSImage *returnImage = [[NSImage alloc] initWithSize:totalSize];
+    [returnImage lockFocus];
+    {
+        [tick compositeToPoint:NSMakePoint(0.0, ((menuPictureSize - 14.0) / 2))
+                     operation:NSCompositeSourceOver];
+        [aImage compositeToPoint:NSMakePoint(24.0, 0.0)
+                       operation:NSCompositeSourceOver];
+    }
+    [returnImage unlockFocus];
+    [tick release];
+    return returnImage;
+}
+
+- (NSImage *)imagePlusSpacerForUserImage:(NSImage *)aImage
+{
+    if (!aImage) return nil;
+    NSString *path = [[self bundle] pathForResource:@"noTick" ofType:@"tiff"];
+    if (!path) return nil;
+    NSImage *tick = [[NSImage alloc] initWithContentsOfFile:path];
+    if (!tick) return nil;
+    
+    // the tick image is 21 x 14: leave room for tick + 3 pixels space
+    NSSize totalSize = NSMakeSize((24.0 + menuPictureSize), menuPictureSize);
+    NSImage *returnImage = [[NSImage alloc] initWithSize:totalSize];
+    [returnImage lockFocus];
+    {
+        [tick compositeToPoint:NSMakePoint(0.0, ((menuPictureSize - 14.0) / 2))
+                     operation:NSCompositeSourceOver];
+        [aImage compositeToPoint:NSMakePoint(24.0, 0.0)
+                       operation:NSCompositeSourceOver];
+    }
+    [returnImage unlockFocus];
+    [tick release];
+    return returnImage;
+}
+
 // The code for creating attributed strings with embedded images is quite bulky
 // and ugly, so split it off into a separate method.
 - (NSAttributedString *)_menuString:(NSString *)aString 
@@ -1608,7 +1650,6 @@
     [textString release];
 
     // including any of the following images causes a crash on Tiger
-    /* 
     if (iconString)
         [returnString insertAttributedString:iconString atIndex:0];
     if (state == NSOffState)
@@ -1650,7 +1691,6 @@
     [returnString addAttribute:NSBaselineOffsetAttributeName
                          value:[NSNumber numberWithFloat:textOffset]
                          range:NSMakeRange(3,[returnString length] - 3)];
-     */      
     return [returnString autorelease];
 }
 
