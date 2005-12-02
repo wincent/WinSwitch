@@ -1,0 +1,685 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		31264969055C054C00DA5F94 /* SystemUIPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31264968055C054C00DA5F94 /* SystemUIPlugin.framework */; };
+		31408C1E055C05C7000B2096 /* WOWinSwitchMenuExtra.h in Headers */ = {isa = PBXBuildFile; fileRef = 31408C1C055C05C7000B2096 /* WOWinSwitchMenuExtra.h */; };
+		31408C1F055C05C7000B2096 /* WOWinSwitchMenuExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 31408C1D055C05C7000B2096 /* WOWinSwitchMenuExtra.m */; };
+		31408C24055C0664000B2096 /* WOWinSwitchMenuExtraView.h in Headers */ = {isa = PBXBuildFile; fileRef = 31408C22055C0664000B2096 /* WOWinSwitchMenuExtraView.h */; };
+		31408C25055C0664000B2096 /* WOWinSwitchMenuExtraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31408C23055C0664000B2096 /* WOWinSwitchMenuExtraView.m */; };
+		31408C29055C079E000B2096 /* SystemUIPlugin_Panther.h in Headers */ = {isa = PBXBuildFile; fileRef = 31408C28055C079E000B2096 /* SystemUIPlugin_Panther.h */; };
+		8D5B49AE048680CD000E48DA /* WOWinSwitch.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF630370AF2F00C91783 /* WOWinSwitch.pch */; };
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		BC31BEDF05AA5070003881B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC31BEDD05AA5070003881B1 /* Localizable.strings */; };
+		BC34B765081910CF004DB8F7 /* SystemUIPlugin_Tiger.h in Headers */ = {isa = PBXBuildFile; fileRef = BC34B764081910CF004DB8F7 /* SystemUIPlugin_Tiger.h */; };
+		BC3EE01F076498E5009DFA54 /*  in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC3EE0090764984C009DFA54 /*  */; };
+		BC5A9136072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = BC5A9134072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.h */; };
+		BC5A9137072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5A9135072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.m */; };
+		BC9A57BB0619CB94004314F6 /* userIconAlt.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BC9A57BA0619CB94004314F6 /* userIconAlt.tiff */; };
+		BCA80A1106173E5B00B62BEA /* tick.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BC31BFF605AB16BF003881B1 /* tick.tiff */; };
+		BCA80A1206173E5C00B62BEA /* noTick.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BCE4F32905ABA98700A5A030 /* noTick.tiff */; };
+		BCA80A1406173E5E00B62BEA /* userIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 311DE2B4055C546C002E0C0D /* userIcon.tiff */; };
+		BCA80B050618E96300B62BEA /* MenuCracker.menu in Resources */ = {isa = PBXBuildFile; fileRef = BCA80B040618E96300B62BEA /* MenuCracker.menu */; };
+		BCA80B38061903FB00B62BEA /* generic.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BCA80B37061903FB00B62BEA /* generic.tiff */; };
+		BCD6902706F4A58E00E651A6 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD6902606F4A58E00E651A6 /* ApplicationServices.framework */; };
+		BCE03879061A55C300238E7E /* menu-extra-tool in Resources */ = {isa = PBXBuildFile; fileRef = BCE03878061A55C300238E7E /* menu-extra-tool */; };
+		BCE4F33C05AC3CB300A5A030 /* SystemUIPlugin_Panther.h in Headers */ = {isa = PBXBuildFile; fileRef = BCE4F33B05AC3CB300A5A030 /* SystemUIPlugin_Panther.h */; };
+		BCE4F36E05AC471E00A5A030 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCE4F36D05AC471E00A5A030 /* InfoPlist.strings */; };
+		BCE4F39205AC61DF00A5A030 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49B7048680CD000E48DA /* Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		014CEA420018CDE011CA2923 /* Development */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OPTIMIZATION_CFLAGS = "-O0";
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		014CEA430018CDE011CA2923 /* Deployment */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		BC3EE00A0764987D009DFA54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC3EE0040764984A009DFA54 /* WinSwitchHelper.xcode */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D1107320486CEB800E47090;
+			remoteInfo = WinSwitchHelper;
+		};
+		BC3EE02007649904009DFA54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC3EE0040764984A009DFA54 /* WinSwitchHelper.xcode */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = WinSwitchHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BC3EE01E076498D9009DFA54 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				BC3EE01F076498E5009DFA54 /*  in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		311DE2B4055C546C002E0C0D /* userIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = userIcon.tiff; sourceTree = "<group>"; };
+		31264968055C054C00DA5F94 /* SystemUIPlugin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemUIPlugin.framework; path = /System/Library/PrivateFrameworks/SystemUIPlugin.framework; sourceTree = "<absolute>"; };
+		31408C1C055C05C7000B2096 /* WOWinSwitchMenuExtra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWinSwitchMenuExtra.h; sourceTree = "<group>"; };
+		31408C1D055C05C7000B2096 /* WOWinSwitchMenuExtra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOWinSwitchMenuExtra.m; sourceTree = "<group>"; };
+		31408C22055C0664000B2096 /* WOWinSwitchMenuExtraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWinSwitchMenuExtraView.h; sourceTree = "<group>"; };
+		31408C23055C0664000B2096 /* WOWinSwitchMenuExtraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOWinSwitchMenuExtraView.m; sourceTree = "<group>"; };
+		31408C28055C079E000B2096 /* SystemUIPlugin_Panther.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SystemUIPlugin_Panther.h; sourceTree = "<group>"; };
+		3166A9170560081F00B604B6 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		32DBCF630370AF2F00C91783 /* WOWinSwitch.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOWinSwitch.pch; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* WinSwitch.menu */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WinSwitch.menu; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BC21955806D76F0C00E6DDD8 /* activate-winswitch-command-icon.r */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.rez; path = "activate-winswitch-command-icon.r"; sourceTree = "<group>"; };
+		BC31BEDE05AA5070003881B1 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BC31BEE205AA5082003881B1 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BC31BF5F05AA7CBF003881B1 /* SetFolderIcon */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.script.sh; path = SetFolderIcon; sourceTree = "<group>"; };
+		BC31BF6005AA7CBF003881B1 /* WinSwitch.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WinSwitch.icns; sourceTree = "<group>"; };
+		BC31BFF605AB16BF003881B1 /* tick.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = tick.tiff; sourceTree = "<group>"; };
+		BC34B764081910CF004DB8F7 /* SystemUIPlugin_Tiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemUIPlugin_Tiger.h; sourceTree = "<group>"; };
+		BC3E773706EEF36C00FA0245 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC3E773806EEF36C00FA0245 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BC3EE0040764984A009DFA54 /* WinSwitchHelper.xcode */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WinSwitchHelper.xcode; path = "/Users/wincent/trabajo/WinSwitchHelper/svn-files/WinSwitchHelper.xcode"; sourceTree = "<absolute>"; };
+		BC51899707DE305500BBD55C /* Turkish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Turkish; path = Turkish.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC51899807DE305500BBD55C /* Turkish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Turkish; path = Turkish.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BC56E8200652BF2500D9027E /* Swedish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Swedish; path = Swedish.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC56E8210652BF2500D9027E /* Swedish */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Swedish; path = Swedish.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BC577A49061E52D800C5B355 /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BC577A4A061E52D800C5B355 /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC5A9134072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WOWinSwitchExtensions.h"; sourceTree = "<group>"; };
+		BC5A9135072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WOWinSwitchExtensions.m"; sourceTree = "<group>"; };
+		BC5B4B5B07EE1DB10023DE9C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC5B4B5C07EE1DB10023DE9C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BC5DC86307414D2E0076A1DF /* Finnish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Finnish; path = Finnish.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BC5DC86407414D2E0076A1DF /* Finnish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Finnish; path = Finnish.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC7489970621C0CA002E7F0F /* Italian */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC7489980621C0CA002E7F0F /* Italian */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BC958C4206B2982C006F9C43 /* create-branch.sh */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.script.sh; path = "create-branch.sh"; sourceTree = "<group>"; };
+		BC958C4306B2982C006F9C43 /* tag-release.sh */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.script.sh; path = "tag-release.sh"; sourceTree = "<group>"; };
+		BC9A57A20619C08C004314F6 /* German */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC9A57A30619C0A2004314F6 /* German */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BC9A57BA0619CB94004314F6 /* userIconAlt.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = userIconAlt.tiff; sourceTree = "<group>"; };
+		BCA21F3E0684F79D00F97840 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BCA21F3F0684F79D00F97840 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BCA80B040618E96300B62BEA /* MenuCracker.menu */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cfbundle; path = MenuCracker.menu; sourceTree = "<group>"; };
+		BCA80B37061903FB00B62BEA /* generic.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = generic.tiff; sourceTree = "<group>"; };
+		BCC0E3D706B44D3B0020437A /* Danish */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Danish; path = Danish.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BCC0E3D806B44D3B0020437A /* Danish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Danish; path = Danish.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BCC0EB0406B532750020437A /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BCC0EB0506B532750020437A /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BCD6902606F4A58E00E651A6 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
+		BCE03878061A55C300238E7E /* menu-extra-tool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "menu-extra-tool"; sourceTree = "<group>"; };
+		BCE05358061B961500238E7E /* activate-winswitch.command */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.script.sh; path = "activate-winswitch.command"; sourceTree = "<group>"; };
+		BCE05359061B961500238E7E /* CHANGELOG.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = CHANGELOG.txt; sourceTree = "<group>"; };
+		BCE0535A061B961500238E7E /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
+		BCE4F32905ABA98700A5A030 /* noTick.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = noTick.tiff; sourceTree = "<group>"; };
+		BCE4F33B05AC3CB300A5A030 /* SystemUIPlugin_Panther.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SystemUIPlugin_Panther.h; sourceTree = "<group>"; };
+		BCE4F36F05AC472400A5A030 /* Spanish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Spanish; path = Spanish.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				31264969055C054C00DA5F94 /* SystemUIPlugin.framework in Frameworks */,
+				BCD6902706F4A58E00E651A6 /* ApplicationServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* WinSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				BC3EE00107649833009DFA54 /* Dependencies */,
+				BC958C3D06B29816006F9C43 /* Utilities */,
+				BCE05355061B95F300238E7E /* Other */,
+				BC31BF5E05AA7C76003881B1 /* Scripts */,
+				BC5A9131072D2ABE0040ADC4 /* Categories */,
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				32C88E010371C26100C91783 /* Other Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = WinSwitch;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BCA80B040618E96300B62BEA /* MenuCracker.menu */,
+				BCE03878061A55C300238E7E /* menu-extra-tool */,
+				BC31BFF605AB16BF003881B1 /* tick.tiff */,
+				BCE4F32905ABA98700A5A030 /* noTick.tiff */,
+				BCA80B37061903FB00B62BEA /* generic.tiff */,
+				BC31BEDD05AA5070003881B1 /* Localizable.strings */,
+				BC31BF6005AA7CBF003881B1 /* WinSwitch.icns */,
+				311DE2B4055C546C002E0C0D /* userIcon.tiff */,
+				BC9A57BA0619CB94004314F6 /* userIconAlt.tiff */,
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+				BCE4F36D05AC471E00A5A030 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				31408C1C055C05C7000B2096 /* WOWinSwitchMenuExtra.h */,
+				31408C1D055C05C7000B2096 /* WOWinSwitchMenuExtra.m */,
+				31408C22055C0664000B2096 /* WOWinSwitchMenuExtraView.h */,
+				31408C23055C0664000B2096 /* WOWinSwitchMenuExtraView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31408C28055C079E000B2096 /* SystemUIPlugin_Panther.h */,
+				31264968055C054C00DA5F94 /* SystemUIPlugin.framework */,
+				BCD6902606F4A58E00E651A6 /* ApplicationServices.framework */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* WinSwitch.menu */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32C88E010371C26100C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BCE4F33B05AC3CB300A5A030 /* SystemUIPlugin_Panther.h */,
+				BC34B764081910CF004DB8F7 /* SystemUIPlugin_Tiger.h */,
+				32DBCF630370AF2F00C91783 /* WOWinSwitch.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		BC31BF5E05AA7C76003881B1 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				BC31BF5F05AA7CBF003881B1 /* SetFolderIcon */,
+			);
+			name = Scripts;
+			sourceTree = "<group>";
+		};
+		BC3EE00107649833009DFA54 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				BC3EE0040764984A009DFA54 /* WinSwitchHelper.xcode */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		BC3EE0050764984A009DFA54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC3EE0090764984C009DFA54 /*  */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC5A9131072D2ABE0040ADC4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BC5A9134072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.h */,
+				BC5A9135072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		BC958C3D06B29816006F9C43 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BC958C4206B2982C006F9C43 /* create-branch.sh */,
+				BC958C4306B2982C006F9C43 /* tag-release.sh */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		BCE05355061B95F300238E7E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				BC21955806D76F0C00E6DDD8 /* activate-winswitch-command-icon.r */,
+				BCE05358061B961500238E7E /* activate-winswitch.command */,
+				BCE05359061B961500238E7E /* CHANGELOG.txt */,
+				BCE0535A061B961500238E7E /* TODO.txt */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8D5B49AD048680CD000E48DA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49AE048680CD000E48DA /* WOWinSwitch.pch in Headers */,
+				31408C1E055C05C7000B2096 /* WOWinSwitchMenuExtra.h in Headers */,
+				31408C24055C0664000B2096 /* WOWinSwitchMenuExtraView.h in Headers */,
+				31408C29055C079E000B2096 /* SystemUIPlugin_Panther.h in Headers */,
+				BCE4F33C05AC3CB300A5A030 /* SystemUIPlugin_Panther.h in Headers */,
+				BC5A9136072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.h in Headers */,
+				BC34B765081910CF004DB8F7 /* SystemUIPlugin_Tiger.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* WinSwitch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC121E5408814D250062B12B /* Build configuration list for PBXNativeTarget "WinSwitch" */;
+			buildPhases = (
+				8D5B49AD048680CD000E48DA /* Headers */,
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+				BC3EE01E076498D9009DFA54 /* CopyFiles */,
+				BC31BF6305AA7D06003881B1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WOWinSwitch.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = Bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = WinSwitch;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = menu;
+			};
+			dependencies = (
+				BC3EE02107649904009DFA54 /* PBXTargetDependency */,
+			);
+			name = WinSwitch;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = SampleMenu;
+			productReference = 8D5B49B6048680CD000E48DA /* WinSwitch.menu */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = BC121E5808814D250062B12B /* Build configuration list for PBXProject "WinSwitch" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				014CEA420018CDE011CA2923 /* Development */,
+				014CEA430018CDE011CA2923 /* Deployment */,
+			);
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				Spanish,
+				Italian,
+				Swedish,
+				Danish,
+				Dutch,
+				no,
+				Finnish,
+				Turkish,
+				he,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* WinSwitch */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BC3EE0050764984A009DFA54 /* Products */;
+					ProjectRef = BC3EE0040764984A009DFA54 /* WinSwitchHelper.xcode */;
+				},
+			);
+			targets = (
+				8D5B49AC048680CD000E48DA /* WinSwitch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BC3EE0090764984C009DFA54 /*  */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			name = "";
+			remoteRef = BC3EE00A0764987D009DFA54 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCE4F36E05AC471E00A5A030 /* InfoPlist.strings in Resources */,
+				BC31BEDF05AA5070003881B1 /* Localizable.strings in Resources */,
+				BCE4F39205AC61DF00A5A030 /* Info.plist in Resources */,
+				BCA80A1106173E5B00B62BEA /* tick.tiff in Resources */,
+				BCA80A1206173E5C00B62BEA /* noTick.tiff in Resources */,
+				BCA80A1406173E5E00B62BEA /* userIcon.tiff in Resources */,
+				BCA80B050618E96300B62BEA /* MenuCracker.menu in Resources */,
+				BCA80B38061903FB00B62BEA /* generic.tiff in Resources */,
+				BC9A57BB0619CB94004314F6 /* userIconAlt.tiff in Resources */,
+				BCE03879061A55C300238E7E /* menu-extra-tool in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BC31BF6305AA7D06003881B1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\n# set custom icon on WinSwitch.menu bundle folder\n\n. ${SRCROOT}/SetFolderIcon ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME} WinSwitch.icns\n\n# set custom icon on activate-winswitch.command (Subversion strips resource forks)\n\n/Developer/Tools/SetFile -a C ${SRCROOT}/activate-winswitch.command\n\n/Developer/Tools/Rez \t${SRCROOT}/activate-winswitch-command-icon.r \\\n\t\t\t\t\t-o ${SRCROOT}/activate-winswitch.command/..namedfork/rsrc";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31408C1F055C05C7000B2096 /* WOWinSwitchMenuExtra.m in Sources */,
+				31408C25055C0664000B2096 /* WOWinSwitchMenuExtraView.m in Sources */,
+				BC5A9137072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BC3EE02107649904009DFA54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "WinSwitchHelper (from WinSwitchHelper.xcode)";
+			targetProxy = BC3EE02007649904009DFA54 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BC31BEDD05AA5070003881B1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC31BEDE05AA5070003881B1 /* English */,
+				BC31BEE205AA5082003881B1 /* Spanish */,
+				BC9A57A30619C0A2004314F6 /* German */,
+				BC577A49061E52D800C5B355 /* French */,
+				BC7489980621C0CA002E7F0F /* Italian */,
+				BC56E8210652BF2500D9027E /* Swedish */,
+				BCA21F3E0684F79D00F97840 /* Japanese */,
+				BCC0E3D706B44D3B0020437A /* Danish */,
+				BCC0EB0406B532750020437A /* Dutch */,
+				BC3E773806EEF36C00FA0245 /* no */,
+				BC5DC86307414D2E0076A1DF /* Finnish */,
+				BC51899807DE305500BBD55C /* Turkish */,
+				BC5B4B5C07EE1DB10023DE9C /* he */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		BCE4F36D05AC471E00A5A030 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3166A9170560081F00B604B6 /* English */,
+				BCE4F36F05AC472400A5A030 /* Spanish */,
+				BC9A57A20619C08C004314F6 /* German */,
+				BC577A4A061E52D800C5B355 /* French */,
+				BC7489970621C0CA002E7F0F /* Italian */,
+				BC56E8200652BF2500D9027E /* Swedish */,
+				BCA21F3F0684F79D00F97840 /* Japanese */,
+				BCC0E3D806B44D3B0020437A /* Danish */,
+				BCC0EB0506B532750020437A /* Dutch */,
+				BC3E773706EEF36C00FA0245 /* no */,
+				BC5DC86407414D2E0076A1DF /* Finnish */,
+				BC51899707DE305500BBD55C /* Turkish */,
+				BC5B4B5B07EE1DB10023DE9C /* he */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BC121E5508814D250062B12B /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WOWinSwitch.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = Bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = WinSwitch;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = menu;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		BC121E5608814D250062B12B /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WOWinSwitch.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = Bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = WinSwitch;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = menu;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		BC121E5708814D250062B12B /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WOWinSwitch.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = Bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = WinSwitch;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = menu;
+			};
+			name = Default;
+		};
+		BC121E5908814D250062B12B /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Development;
+		};
+		BC121E5A08814D250062B12B /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Deployment;
+		};
+		BC121E5B08814D250062B12B /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC121E5408814D250062B12B /* Build configuration list for PBXNativeTarget "WinSwitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC121E5508814D250062B12B /* Development */,
+				BC121E5608814D250062B12B /* Deployment */,
+				BC121E5708814D250062B12B /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		BC121E5808814D250062B12B /* Build configuration list for PBXProject "WinSwitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC121E5908814D250062B12B /* Development */,
+				BC121E5A08814D250062B12B /* Deployment */,
+				BC121E5B08814D250062B12B /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
