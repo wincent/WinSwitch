@@ -6,14 +6,19 @@
 //  Copyright (c) 2003 TheCodingMonkeys. All rights reserved.
 //
 //  Modifications by Wincent Colaiuta <win@wincent.org>
-//  Copyright (c) 2004 Wincent Colaiuta. All rights reserved.
+//  Copyright 2004-2006 Wincent Colaiuta.
 //
 //  $Id$
 
 #import <Foundation/Foundation.h>
 
-// made with class-dump
+#if defined(__ppc__)
+#import "SystemUIPlugin_Panther.h"
+#elif defined(__i386)
 #import "SystemUIPlugin_Tiger.h"
+#else
+#error Unknown architecture
+#endif
 
 @interface WOWinSwitchMenuExtraView : NSMenuExtraView {
     NSMenuExtra *menuExtra;

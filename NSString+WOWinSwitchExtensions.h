@@ -3,7 +3,7 @@
 //  WinSwitch
 //
 //  Created by Wincent Colaiuta on 25/10/04.
-//  Copyright (c) 2004 Wincent Colaiuta. All rights reserved.
+//  Copyright 2004-2006 Wincent Colaiuta.
 //  $Id$
 //
 

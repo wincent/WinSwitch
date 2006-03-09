@@ -15,10 +15,12 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleVersion</key>
-	<string>3.1</string>
+	<string>3.2.b</string>
 	<key>NSMenuExtraWidth</key>
 	<integer>19</integer>
 	<key>NSPrincipalClass</key>
 	<string>WOWinSwitchMenuExtra</string>
+	<key>WOCopyrightYear</key>
+	<string>2004-2006</string>
 </dict>
 </plist>

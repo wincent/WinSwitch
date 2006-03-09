@@ -6,14 +6,19 @@
 //  Copyright (c) 2003 TheCodingMonkeys. All rights reserved.
 //
 //  Modifications by Wincent Colaiuta <win@wincent.org>
-//  Copyright (c) 2004 Wincent Colaiuta. All rights reserved.
+//  Copyright 2004-2006 Wincent Colaiuta.
 // 
 //  $Id$
 
 #import <Cocoa/Cocoa.h>
 
-// produced by class-dump
-#import "SystemUIPlugin_Tiger.h"  
+#if defined(__ppc__)
+#import "SystemUIPlugin_Panther.h"
+#elif defined(__i386)
+#import "SystemUIPlugin_Tiger.h"
+#else
+#error Unknown architecture
+#endif
 
 typedef enum WOSwitchMenuStyle {
 
@@ -73,6 +78,7 @@ typedef enum WOSwitchMenuStyle {
         NSAttributedString      *_tick;
         NSAttributedString      *_dimmedTick;
         NSAttributedString      *_noTick;
+        
 }
 
 - (id)initWithBundle:(NSBundle *)bundle;

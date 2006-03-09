@@ -8,19 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		31264969055C054C00DA5F94 /* SystemUIPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31264968055C054C00DA5F94 /* SystemUIPlugin.framework */; };
-		31408C1E055C05C7000B2096 /* WOWinSwitchMenuExtra.h in Headers */ = {isa = PBXBuildFile; fileRef = 31408C1C055C05C7000B2096 /* WOWinSwitchMenuExtra.h */; };
 		31408C1F055C05C7000B2096 /* WOWinSwitchMenuExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = 31408C1D055C05C7000B2096 /* WOWinSwitchMenuExtra.m */; };
-		31408C24055C0664000B2096 /* WOWinSwitchMenuExtraView.h in Headers */ = {isa = PBXBuildFile; fileRef = 31408C22055C0664000B2096 /* WOWinSwitchMenuExtraView.h */; };
 		31408C25055C0664000B2096 /* WOWinSwitchMenuExtraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31408C23055C0664000B2096 /* WOWinSwitchMenuExtraView.m */; };
-		31408C29055C079E000B2096 /* SystemUIPlugin_Panther.h in Headers */ = {isa = PBXBuildFile; fileRef = 31408C28055C079E000B2096 /* SystemUIPlugin_Panther.h */; };
-		8D5B49AE048680CD000E48DA /* WOWinSwitch.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF630370AF2F00C91783 /* WOWinSwitch.pch */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		BC31BEDF05AA5070003881B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC31BEDD05AA5070003881B1 /* Localizable.strings */; };
-		BC34B765081910CF004DB8F7 /* SystemUIPlugin_Tiger.h in Headers */ = {isa = PBXBuildFile; fileRef = BC34B764081910CF004DB8F7 /* SystemUIPlugin_Tiger.h */; };
-		BC3EE01F076498E5009DFA54 /*  in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC3EE0090764984C009DFA54 /*  */; };
-		BC5A9136072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = BC5A9134072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.h */; };
 		BC5A9137072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5A9135072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.m */; };
 		BC9A57BB0619CB94004314F6 /* userIconAlt.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BC9A57BA0619CB94004314F6 /* userIconAlt.tiff */; };
+		BCA6A743096C159300FCA1C0 /* WinSwitchHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = BCA6A740096C157800FCA1C0 /* WinSwitchHelper.app */; };
 		BCA80A1106173E5B00B62BEA /* tick.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BC31BFF605AB16BF003881B1 /* tick.tiff */; };
 		BCA80A1206173E5C00B62BEA /* noTick.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BCE4F32905ABA98700A5A030 /* noTick.tiff */; };
 		BCA80A1406173E5E00B62BEA /* userIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 311DE2B4055C546C002E0C0D /* userIcon.tiff */; };
@@ -28,7 +22,6 @@
 		BCA80B38061903FB00B62BEA /* generic.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BCA80B37061903FB00B62BEA /* generic.tiff */; };
 		BCD6902706F4A58E00E651A6 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD6902606F4A58E00E651A6 /* ApplicationServices.framework */; };
 		BCE03879061A55C300238E7E /* menu-extra-tool in Resources */ = {isa = PBXBuildFile; fileRef = BCE03878061A55C300238E7E /* menu-extra-tool */; };
-		BCE4F33C05AC3CB300A5A030 /* SystemUIPlugin_Panther.h in Headers */ = {isa = PBXBuildFile; fileRef = BCE4F33B05AC3CB300A5A030 /* SystemUIPlugin_Panther.h */; };
 		BCE4F36E05AC471E00A5A030 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCE4F36D05AC471E00A5A030 /* InfoPlist.strings */; };
 		BCE4F39205AC61DF00A5A030 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49B7048680CD000E48DA /* Info.plist */; };
 /* End PBXBuildFile section */
@@ -61,16 +54,16 @@
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		BC3EE00A0764987D009DFA54 /* PBXContainerItemProxy */ = {
+		BCA6A73F096C157800FCA1C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BC3EE0040764984A009DFA54 /* WinSwitchHelper.xcode */;
+			containerPortal = BCA6A707096C157800FCA1C0 /* WinSwitchHelper.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8D1107320486CEB800E47090;
 			remoteInfo = WinSwitchHelper;
 		};
-		BC3EE02007649904009DFA54 /* PBXContainerItemProxy */ = {
+		BCA6A741096C158100FCA1C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BC3EE0040764984A009DFA54 /* WinSwitchHelper.xcode */;
+			containerPortal = BCA6A707096C157800FCA1C0 /* WinSwitchHelper.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = WinSwitchHelper;
@@ -84,7 +77,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				BC3EE01F076498E5009DFA54 /*  in CopyFiles */,
+				BCA6A743096C159300FCA1C0 /* WinSwitchHelper.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +105,10 @@
 		BC34B764081910CF004DB8F7 /* SystemUIPlugin_Tiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemUIPlugin_Tiger.h; sourceTree = "<group>"; };
 		BC3E773706EEF36C00FA0245 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BC3E773806EEF36C00FA0245 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BC3EE0040764984A009DFA54 /* WinSwitchHelper.xcode */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WinSwitchHelper.xcode; path = "/Users/wincent/trabajo/WinSwitchHelper/svn-files/WinSwitchHelper.xcode"; sourceTree = "<absolute>"; };
+		BC4C9D1B09C0BA0300195847 /* debug-style.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "debug-style.xcconfig"; path = "../../buildtools/debug-style.xcconfig"; sourceTree = SOURCE_ROOT; };
+		BC4C9D1C09C0BA0300195847 /* release-style.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "release-style.xcconfig"; path = "../../buildtools/release-style.xcconfig"; sourceTree = SOURCE_ROOT; };
+		BC4C9D1D09C0BA0300195847 /* loadable-bundle-target.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "loadable-bundle-target.xcconfig"; path = "../../buildtools/loadable-bundle-target.xcconfig"; sourceTree = SOURCE_ROOT; };
+		BC4C9D1E09C0BA0300195847 /* base-style.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "base-style.xcconfig"; path = "../../buildtools/base-style.xcconfig"; sourceTree = SOURCE_ROOT; };
 		BC51899707DE305500BBD55C /* Turkish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Turkish; path = Turkish.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BC51899807DE305500BBD55C /* Turkish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Turkish; path = Turkish.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BC56E8200652BF2500D9027E /* Swedish */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Swedish; path = Swedish.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -134,6 +130,7 @@
 		BC9A57BA0619CB94004314F6 /* userIconAlt.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = userIconAlt.tiff; sourceTree = "<group>"; };
 		BCA21F3E0684F79D00F97840 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BCA21F3F0684F79D00F97840 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BCA6A707096C157800FCA1C0 /* WinSwitchHelper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WinSwitchHelper.xcodeproj; path = "../../WinSwitchHelper/svn-files/WinSwitchHelper.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		BCA80B040618E96300B62BEA /* MenuCracker.menu */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cfbundle; path = MenuCracker.menu; sourceTree = "<group>"; };
 		BCA80B37061903FB00B62BEA /* generic.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = generic.tiff; sourceTree = "<group>"; };
 		BCC0E3D706B44D3B0020437A /* Danish */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Danish; path = Danish.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -167,6 +164,7 @@
 		089C166AFE841209C02AAC07 /* WinSwitch */ = {
 			isa = PBXGroup;
 			children = (
+				BC4C9CBC09C0B9AC00195847 /* Configuration */,
 				BC3EE00107649833009DFA54 /* Dependencies */,
 				BC958C3D06B29816006F9C43 /* Utilities */,
 				BCE05355061B95F300238E7E /* Other */,
@@ -258,17 +256,20 @@
 		BC3EE00107649833009DFA54 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				BC3EE0040764984A009DFA54 /* WinSwitchHelper.xcode */,
+				BCA6A707096C157800FCA1C0 /* WinSwitchHelper.xcodeproj */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
-		BC3EE0050764984A009DFA54 /* Products */ = {
+		BC4C9CBC09C0B9AC00195847 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				BC3EE0090764984C009DFA54 /*  */,
+				BC4C9D1B09C0BA0300195847 /* debug-style.xcconfig */,
+				BC4C9D1C09C0BA0300195847 /* release-style.xcconfig */,
+				BC4C9D1D09C0BA0300195847 /* loadable-bundle-target.xcconfig */,
+				BC4C9D1E09C0BA0300195847 /* base-style.xcconfig */,
 			);
-			name = Products;
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 		BC5A9131072D2ABE0040ADC4 /* Categories */ = {
@@ -289,6 +290,14 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		BCA6A708096C157800FCA1C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCA6A740096C157800FCA1C0 /* WinSwitchHelper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BCE05355061B95F300238E7E /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,34 +311,16 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		8D5B49AD048680CD000E48DA /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8D5B49AE048680CD000E48DA /* WOWinSwitch.pch in Headers */,
-				31408C1E055C05C7000B2096 /* WOWinSwitchMenuExtra.h in Headers */,
-				31408C24055C0664000B2096 /* WOWinSwitchMenuExtraView.h in Headers */,
-				31408C29055C079E000B2096 /* SystemUIPlugin_Panther.h in Headers */,
-				BCE4F33C05AC3CB300A5A030 /* SystemUIPlugin_Panther.h in Headers */,
-				BC5A9136072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.h in Headers */,
-				BC34B765081910CF004DB8F7 /* SystemUIPlugin_Tiger.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		8D5B49AC048680CD000E48DA /* WinSwitch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC121E5408814D250062B12B /* Build configuration list for PBXNativeTarget "WinSwitch" */;
 			buildPhases = (
-				8D5B49AD048680CD000E48DA /* Headers */,
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
 				BC3EE01E076498D9009DFA54 /* CopyFiles */,
-				BC31BF6305AA7D06003881B1 /* ShellScript */,
+				BC31BF6305AA7D06003881B1 /* Run Script (set custom icon) */,
 			);
 			buildRules = (
 			);
@@ -364,7 +355,7 @@
 				WRAPPER_EXTENSION = menu;
 			};
 			dependencies = (
-				BC3EE02107649904009DFA54 /* PBXTargetDependency */,
+				BCA6A742096C158100FCA1C0 /* PBXTargetDependency */,
 			);
 			name = WinSwitch;
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -404,8 +395,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = BC3EE0050764984A009DFA54 /* Products */;
-					ProjectRef = BC3EE0040764984A009DFA54 /* WinSwitchHelper.xcode */;
+					ProductGroup = BCA6A708096C157800FCA1C0 /* Products */;
+					ProjectRef = BCA6A707096C157800FCA1C0 /* WinSwitchHelper.xcodeproj */;
 				},
 			);
 			targets = (
@@ -415,11 +406,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		BC3EE0090764984C009DFA54 /*  */ = {
+		BCA6A740096C157800FCA1C0 /* WinSwitchHelper.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
-			name = "";
-			remoteRef = BC3EE00A0764987D009DFA54 /* PBXContainerItemProxy */;
+			path = WinSwitchHelper.app;
+			remoteRef = BCA6A73F096C157800FCA1C0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -445,13 +436,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BC31BF6305AA7D06003881B1 /* ShellScript */ = {
+		BC31BF6305AA7D06003881B1 /* Run Script (set custom icon) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script (set custom icon)";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,10 +466,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BC3EE02107649904009DFA54 /* PBXTargetDependency */ = {
+		BCA6A742096C158100FCA1C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "WinSwitchHelper (from WinSwitchHelper.xcode)";
-			targetProxy = BC3EE02007649904009DFA54 /* PBXContainerItemProxy */;
+			name = WinSwitchHelper;
+			targetProxy = BCA6A741096C158100FCA1C0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -525,136 +517,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		BC121E5508814D250062B12B /* Development */ = {
+		BC121E5508814D250062B12B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DEBUGGING_SYMBOLS = full;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_TRIGRAPHS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WOWinSwitch.pch;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_STYLE = Bundle;
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
-				OPTIMIZATION_CFLAGS = "-O0";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = WinSwitch;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = menu;
-				ZERO_LINK = YES;
-			};
-			name = Development;
-		};
-		BC121E5608814D250062B12B /* Deployment */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_TRIGRAPHS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WOWinSwitch.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "";
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_STYLE = Bundle;
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = WinSwitch;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = menu;
-				ZERO_LINK = NO;
-			};
-			name = Deployment;
-		};
-		BC121E5708814D250062B12B /* Default */ = {
-			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC4C9D1D09C0BA0300195847 /* loadable-bundle-target.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_TRIGRAPHS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WOWinSwitch.pch;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_STYLE = Bundle;
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = WinSwitch;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
 				WRAPPER_EXTENSION = menu;
 			};
-			name = Default;
+			name = Debug;
 		};
-		BC121E5908814D250062B12B /* Development */ = {
+		BC121E5608814D250062B12B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC4C9D1D09C0BA0300195847 /* loadable-bundle-target.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				GCC_PREFIX_HEADER = WOWinSwitch.pch;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = WinSwitch;
+				WRAPPER_EXTENSION = menu;
+			};
+			name = Release;
+		};
+		BC121E5908814D250062B12B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC4C9D1B09C0BA0300195847 /* debug-style.xcconfig */;
 			buildSettings = {
 			};
-			name = Development;
+			name = Debug;
 		};
-		BC121E5A08814D250062B12B /* Deployment */ = {
+		BC121E5A08814D250062B12B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC4C9D1C09C0BA0300195847 /* release-style.xcconfig */;
 			buildSettings = {
 			};
-			name = Deployment;
-		};
-		BC121E5B08814D250062B12B /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Default;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -662,22 +563,20 @@
 		BC121E5408814D250062B12B /* Build configuration list for PBXNativeTarget "WinSwitch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BC121E5508814D250062B12B /* Development */,
-				BC121E5608814D250062B12B /* Deployment */,
-				BC121E5708814D250062B12B /* Default */,
+				BC121E5508814D250062B12B /* Debug */,
+				BC121E5608814D250062B12B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 		BC121E5808814D250062B12B /* Build configuration list for PBXProject "WinSwitch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BC121E5908814D250062B12B /* Development */,
-				BC121E5A08814D250062B12B /* Deployment */,
-				BC121E5B08814D250062B12B /* Default */,
+				BC121E5908814D250062B12B /* Debug */,
+				BC121E5A08814D250062B12B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

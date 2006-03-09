@@ -1,6 +1,10 @@
 TODO for WinSwitch
 $Id$
 
+
+NOTE: As of version 3.2b this file will no longer be updated. Please see the website for the official bug and feature requests database: <http://bugs.wincent.com/>
+
+
 - bugfix: figure out how to activate for all users, thus obviating the need for the "Activate WinSwitch" command
 
 - request: anti-alias user picture in menu bar (similar to iChat, which appears to use high interpolation)

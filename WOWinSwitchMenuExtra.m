@@ -12,7 +12,7 @@
 //  http://www.macosxhints.com/article.php?story=20031102031045417
 //
 //  Modifications by Wincent Colaiuta <win@wincent.org>
-//  Copyright (c) 2004 Wincent Colaiuta. All rights reserved.
+//  Copyright 2004-2006 Wincent Colaiuta.
 //
 //  $Id$
 
@@ -35,36 +35,31 @@
 #import <sys/sysctl.h>
 #import <sys/proc.h>
 
-#define WO_CGSESSION \
-@"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession"
+#define WO_CGSESSION                        @"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession"
 
-#define WO_BUNDLE_IDENTIFIER        @"com.wincent.WinSwitch"
-#define WO_PREF_MENU_STYLE          @"Menu bar style"
-#define WO_PREF_SHOW_ROOT_USER      @"Show root user"
-#define WO_PREF_USER_PICTURE_SIZE   @"User picture size"
-#define WO_PREF_MENU_PICTURE_SIZE   @"User picture size in menu"
-#define WO_PREF_HOT_KEY_SUSPENDS    @"Hot key suspends session"
+#define WO_BUNDLE_IDENTIFIER                @"com.wincent.WinSwitch"
+#define WO_PREF_MENU_STYLE                  @"Menu bar style"
+#define WO_PREF_SHOW_ROOT_USER              @"Show root user"
+#define WO_PREF_USER_PICTURE_SIZE           @"User picture size"
+#define WO_PREF_MENU_PICTURE_SIZE           @"User picture size in menu"
+#define WO_PREF_HOT_KEY_SUSPENDS            @"Hot key suspends session"
 
 // these notification names taken from output of the "strings" utility run on:
 //  /System/Library/PreferencePanes/Accounts.prefPane/Contents/MacOS/Accounts
 //  /System/Library/CoreServices/Menu Extras/User.menu/Contents/MacOS/User
-#define WO_USER_REMOVED         @"com.apple.UserWasRemovedNotification"
-#define WO_USER_DISABLED        @"com.apple.UserWasDisabledNotification"
-#define WO_USER_PICTURE         @"com.apple.UserPictureDidChangeNotification"
-#define WO_USER_NAME            @"com.apple.FullUserNameDidChangeNotification"
-#define WO_USER_ADDED           @"com.apple.UserWasAddedNotification"
-#define WO_USER_ENABLED         @"com.apple.UserWasEnabledNotification"
+#define WO_USER_REMOVED                     @"com.apple.UserWasRemovedNotification"
+#define WO_USER_DISABLED                    @"com.apple.UserWasDisabledNotification"
+#define WO_USER_PICTURE                     @"com.apple.UserPictureDidChangeNotification"
+#define WO_USER_NAME                        @"com.apple.FullUserNameDidChangeNotification"
+#define WO_USER_ADDED                       @"com.apple.UserWasAddedNotification"
+#define WO_USER_ENABLED                     @"com.apple.UserWasEnabledNotification"
 
-#define WS_UNLOAD_NOTIFICATION                                  \
-@"com.wincent.WinSwitch.UnloadNotification"
-#define WS_HELPER_CHANGED_NOTIFICATION                          \
-@"com.wincent.WinSwitchHelper.PreferencesChangedNotification"
-#define WS_PREF_CHANGED_NOTIFICATION                            \
-@"com.wincent.WinSwitch.PreferencesChangedNotification"
-#define WS_SHOW_PREF_WINDOW_NOTIFICATION                        \
-@"com.wincent.WinSwitch.ShowPreferencesWindowNotification"
+#define WS_UNLOAD_NOTIFICATION              @"com.wincent.WinSwitch.UnloadNotification"
+#define WS_HELPER_CHANGED_NOTIFICATION      @"com.wincent.WinSwitchHelper.PreferencesChangedNotification"
+#define WS_PREF_CHANGED_NOTIFICATION        @"com.wincent.WinSwitch.PreferencesChangedNotification"
+#define WS_SHOW_PREF_WINDOW_NOTIFICATION    @"com.wincent.WinSwitch.ShowPreferencesWindowNotification"
 
-#define WS_HELPER_IDENTIFIER    @"com.wincent.WinSwitchHelper"
+#define WS_HELPER_IDENTIFIER                @"com.wincent.WinSwitchHelper"
 
 @interface WOWinSwitchMenuExtra (WOPrivate)
 
@@ -106,9 +101,7 @@
 - (NSString *)_propertyForKey:(NSString *)key user:(uid_t)UID;
 
 // as above, but optionally search in the global domain
-- (NSString *)_propertyForKey:(NSString *)key 
-                         user:(uid_t)UID
-               inGlobalDomain:(BOOL)global;
+- (NSString *)_propertyForKey:(NSString *)key user:(uid_t)UID inGlobalDomain:(BOOL)global;
 
 // get path to user icon by querying NetInfo
 - (NSString *)_iconPathForUID:(uid_t)UID;
@@ -123,10 +116,7 @@
 - (NSImage *)_paddedImage:(NSImage *)image;
 
 // convenience method to make NSAttributedStrings for the menu
-- (NSAttributedString *)_menuString:(NSString *)aString 
-                       withIconPath:(NSString *)iconPath
-                              state:(int)state
-                          dimImages:(BOOL)dim;
+- (NSAttributedString *)_menuString:(NSString *)aString withIconPath:(NSString *)iconPath state:(int)state dimImages:(BOOL)dim;
 
 // update cached copy of current user icon
 - (void)_updateUserImage:(NSString *)aPath;
@@ -155,38 +145,27 @@
     if (vers < 0x00001040)
         isPanther = YES;
     
-    theView = [[WOWinSwitchMenuExtraView alloc] initWithFrame:
-        [[self view] frame] menuExtra:self];
+    theView = [[WOWinSwitchMenuExtraView alloc] initWithFrame:[[self view] frame] menuExtra:self];
     [self setView:theView];
     
     theMenu = [[NSMenu alloc] initWithTitle:@""];
     [theMenu setAutoenablesItems:NO];
-    theImage = [[NSImage alloc] initWithContentsOfFile:
-        [[self bundle] pathForImageResource:@"userIcon"]];
-    altImage = [[NSImage alloc] initWithContentsOfFile:
-        [[self bundle] pathForImageResource:@"userIconAlt"]];
+    theImage = [[NSImage alloc] initWithContentsOfFile:[[self bundle] pathForImageResource:@"userIcon"]];
+    altImage = [[NSImage alloc] initWithContentsOfFile:[[self bundle] pathForImageResource:@"userIconAlt"]];
     
     // register for notifications from System Preferences (Accounts.prefPane)
-    NSDistributedNotificationCenter *distributedCenter =
-        [NSDistributedNotificationCenter defaultCenter];
-
-#define WO_ADD_OBSERVER(aNotification)                              \
-    [distributedCenter addObserver:self                             \
-                          selector:@selector(_handleNotification:)  \
-                              name:aNotification                    \
-                            object:nil]
-
-    WO_ADD_OBSERVER(WO_USER_REMOVED);
-    WO_ADD_OBSERVER(WO_USER_DISABLED);
-    WO_ADD_OBSERVER(WO_USER_PICTURE);
-    WO_ADD_OBSERVER(WO_USER_NAME);
-    WO_ADD_OBSERVER(WO_USER_ADDED);
-    WO_ADD_OBSERVER(WO_USER_ENABLED);
-    WO_ADD_OBSERVER(WS_HELPER_CHANGED_NOTIFICATION);
+    NSDistributedNotificationCenter *distributedCenter = [NSDistributedNotificationCenter defaultCenter];
+    [distributedCenter addObserver:self selector:@selector(_handleNotification:) name:WO_USER_REMOVED object:nil];
+    [distributedCenter addObserver:self selector:@selector(_handleNotification:) name:WO_USER_DISABLED object:nil];
+    [distributedCenter addObserver:self selector:@selector(_handleNotification:) name:WO_USER_PICTURE object:nil];
+    [distributedCenter addObserver:self selector:@selector(_handleNotification:) name:WO_USER_NAME object:nil];
+    [distributedCenter addObserver:self selector:@selector(_handleNotification:) name:WO_USER_ADDED object:nil];
+    [distributedCenter addObserver:self selector:@selector(_handleNotification:) name:WO_USER_ENABLED object:nil];
+    [distributedCenter addObserver:self selector:@selector(_handleNotification:) name:WS_HELPER_CHANGED_NOTIFICATION object:nil];
+    
     
     // other notifications (NSWorkspace)
-    NSNotificationCenter *workspaceCenter = 
-        [[NSWorkspace sharedWorkspace] notificationCenter];
+    NSNotificationCenter *workspaceCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
 
     [workspaceCenter addObserver:self 
                         selector:@selector(_handleNotification:) 
@@ -198,9 +177,7 @@
                           object:nil];    
 
     // read preferences from disk
-    NSDictionary *preferences =
-        [[NSUserDefaults standardUserDefaults] persistentDomainForName:
-            WO_BUNDLE_IDENTIFIER];
+    NSDictionary *preferences = [[NSUserDefaults standardUserDefaults] persistentDomainForName:WO_BUNDLE_IDENTIFIER];
    
     if ([preferences objectForKey:WO_PREF_MENU_STYLE])
         menuStyle = [[preferences objectForKey:WO_PREF_MENU_STYLE] intValue];
@@ -208,8 +185,7 @@
         menuStyle = 0;
 
     if ([preferences objectForKey:WO_PREF_MENU_PICTURE_SIZE])
-        menuPictureSize =
-            [[preferences objectForKey:WO_PREF_MENU_PICTURE_SIZE] floatValue];
+        menuPictureSize = [[preferences objectForKey:WO_PREF_MENU_PICTURE_SIZE] floatValue];
     else
         menuPictureSize = 32.0;    
     
@@ -224,14 +200,12 @@
         menuPictureSize = 32.0;         // or 32.0...
     
     if ([preferences objectForKey:WO_PREF_SHOW_ROOT_USER])
-        showRootUser = 
-            [[preferences objectForKey:WO_PREF_SHOW_ROOT_USER] boolValue];
+        showRootUser = [[preferences objectForKey:WO_PREF_SHOW_ROOT_USER] boolValue];
     else
         showRootUser = NO;
     
     if ([preferences objectForKey:WO_PREF_USER_PICTURE_SIZE])
-        userPictureSize = 
-            [[preferences objectForKey:WO_PREF_USER_PICTURE_SIZE] floatValue];
+        userPictureSize = [[preferences objectForKey:WO_PREF_USER_PICTURE_SIZE] floatValue];
     else
         userPictureSize = 19.0;
     
@@ -259,21 +233,8 @@
 {
     [[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
 
-    NSDistributedNotificationCenter *distributedCenter =
-        [NSDistributedNotificationCenter defaultCenter];
-    
-#define WO_REMOVE_OBSERVER(aNotification)           \
-    [distributedCenter removeObserver:self          \
-                                 name:aNotification \
-                               object:nil]
-        
-    WO_REMOVE_OBSERVER(WO_USER_REMOVED);
-    WO_REMOVE_OBSERVER(WO_USER_DISABLED);
-    WO_REMOVE_OBSERVER(WO_USER_PICTURE);
-    WO_REMOVE_OBSERVER(WO_USER_NAME);
-    WO_REMOVE_OBSERVER(WO_USER_ADDED);
-    WO_REMOVE_OBSERVER(WO_USER_ENABLED);    
-    WO_REMOVE_OBSERVER(WS_HELPER_CHANGED_NOTIFICATION);
+    NSDistributedNotificationCenter *distributedCenter = [NSDistributedNotificationCenter defaultCenter];
+    [distributedCenter removeObserver:self];
 
     // try to terminate WinSwitchHelper
     [distributedCenter postNotificationName:WS_UNLOAD_NOTIFICATION object:nil];
@@ -405,8 +366,7 @@
 // drop back to login window
 - (void)suspend:(id)sender
 {
-    [NSTask launchedTaskWithLaunchPath:WO_CGSESSION 
-                             arguments:[NSArray arrayWithObject:@"-suspend"]];
+    [NSTask launchedTaskWithLaunchPath:WO_CGSESSION arguments:[NSArray arrayWithObject:@"-suspend"]];
 }
 
 // open Accounts.prefPane
@@ -422,9 +382,7 @@
 - (void)openPreferences:(id)sender
 {
     if ([self helperRunning])
-        [[NSDistributedNotificationCenter 
-            defaultCenter] postNotificationName:WS_SHOW_PREF_WINDOW_NOTIFICATION
-                                         object:nil];
+        [[NSDistributedNotificationCenter defaultCenter] postNotificationName:WS_SHOW_PREF_WINDOW_NOTIFICATION object:nil];
     else // not running
         [self launchWinSwitchHelperAndShowPreferencesWindow:YES];
 }
@@ -1641,7 +1599,8 @@
     // Apple bug: menuFontOfSize:0.0 is too small <rdar://3522284/>
     NSFont *menuFont = [NSFont menuFontOfSize:14.0];
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
-        menuFont, NSFontAttributeName, nil];
+        menuFont,               NSFontAttributeName, 
+        [NSColor textColor],    NSForegroundColorAttributeName, nil];
     textString = [[NSAttributedString alloc] initWithString:spacedString
                                                  attributes:attributes];
     
@@ -1735,7 +1694,8 @@
     
     NSFont          *menuFont   = [NSFont boldSystemFontOfSize:14.0];
     NSDictionary    *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
-        menuFont, NSFontAttributeName, nil];
+        menuFont,               NSFontAttributeName,
+        [NSColor textColor],    NSForegroundColorAttributeName, nil];
     NSAttributedString *title = 
         [[NSAttributedString alloc] initWithString:aString 
                                         attributes:attributes];
