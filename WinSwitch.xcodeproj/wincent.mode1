@@ -242,8 +242,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -294,6 +292,7 @@
 								<string>08FB77AFFE84173DC02AAC07</string>
 								<string>32C88E010371C26100C91783</string>
 								<string>089C167CFE841241C02AAC07</string>
+								<string>BC31BEDD05AA5070003881B1</string>
 								<string>BCE4F36D05AC471E00A5A030</string>
 								<string>089C1671FE841209C02AAC07</string>
 								<string>1058C7ACFEA557BF11CA2CBB</string>
@@ -304,12 +303,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>65</integer>
-									<integer>64</integer>
+									<integer>54</integer>
+									<integer>31</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 247}, {335, 1011}}</string>
+							<string>{{0, 0}, {335, 1011}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -348,7 +348,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>WOWinSwitchMenuExtra.m</string>
+								<string>WOLogManager.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -356,11 +356,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>WOWinSwitchMenuExtra.m</string>
+										<string>WOLogManager.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>BC7117D409C11D53004FA0B9</string>
+										<string>BC71189609C12697004FA0B9</string>
 										<key>history</key>
 										<array>
 											<string>BC34B73D08190E97004DB8F7</string>
@@ -371,7 +371,6 @@
 											<string>BC4C9CC309C0B9F100195847</string>
 											<string>BC4C9CC409C0B9F100195847</string>
 											<string>BC4C9CC509C0B9F100195847</string>
-											<string>BC4C9CC609C0B9F100195847</string>
 											<string>BC4C9CC709C0B9F100195847</string>
 											<string>BC4C9CC809C0B9F100195847</string>
 											<string>BC4C9CC909C0B9F100195847</string>
@@ -391,7 +390,11 @@
 											<string>BC4C9D3109C0BB7400195847</string>
 											<string>BC4C9D3209C0BB7400195847</string>
 											<string>BC4C9D3309C0BB7400195847</string>
-											<string>BC4C9D4509C0BEB500195847</string>
+											<string>BC71187009C122F1004FA0B9</string>
+											<string>BC71187109C122F1004FA0B9</string>
+											<string>BC71188E09C125F3004FA0B9</string>
+											<string>BC71188F09C125F3004FA0B9</string>
+											<string>BC71189009C125F3004FA0B9</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -424,6 +427,10 @@
 											<string>BC4C9D1109C0B9F100195847</string>
 											<string>BC4C9D1709C0B9F100195847</string>
 											<string>BC4C9D1809C0B9F100195847</string>
+											<string>BC71187309C122F1004FA0B9</string>
+											<string>BC71187409C122F1004FA0B9</string>
+											<string>BC71189209C125F3004FA0B9</string>
+											<string>BC71189309C125F3004FA0B9</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -602,7 +609,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>163650899.818627</real>
+	<real>163653271.24131301</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>2</integer>
 	<key>ToolbarIsVisible</key>
@@ -637,12 +644,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>WOWinSwitchMenuExtraView.m</string>
+								<string>WOLogManager.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -651,7 +660,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1013, 212}}</string>
 								<key>RubberWindowFrame</key>
-								<string>293 182 1013 996 0 0 1920 1178 </string>
+								<string>219 182 1013 996 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -659,8 +668,6 @@
 							<string>212pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXBuildLogShowsTranscriptDefaultKey</key>
@@ -679,7 +686,7 @@
 								<key>Frame</key>
 								<string>{{0, 217}, {1013, 738}}</string>
 								<key>RubberWindowFrame</key>
-								<string>293 182 1013 996 0 0 1920 1178 </string>
+								<string>219 182 1013 996 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -709,7 +716,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.build</string>
 			<key>WindowString</key>
-			<string>293 182 1013 996 0 0 1920 1178 </string>
+			<string>219 182 1013 996 0 0 1920 1178 </string>
 			<key>WindowToolGUID</key>
 			<string>BC34BB1D0819B8D5004DB8F7</string>
 			<key>WindowToolIsVisible</key>
