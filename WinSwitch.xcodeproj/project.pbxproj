@@ -321,6 +321,7 @@
 				8D5B49B3048680CD000E48DA /* Frameworks */,
 				BC3EE01E076498D9009DFA54 /* CopyFiles */,
 				BC31BF6305AA7D06003881B1 /* Run Script (set custom icon) */,
+				BC711C3409C12DF1004FA0B9 /* Run Script (InfoPlist.strings preprocessing) */,
 			);
 			buildRules = (
 			);
@@ -449,6 +450,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\n\n# set custom icon on WinSwitch.menu bundle folder\n\n. ${SRCROOT}/SetFolderIcon ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME} WinSwitch.icns\n\n# set custom icon on activate-winswitch.command (Subversion strips resource forks)\n\n/Developer/Tools/SetFile -a C ${SRCROOT}/activate-winswitch.command\n\n/Developer/Tools/Rez \t${SRCROOT}/activate-winswitch-command-icon.r \\\n\t\t\t\t\t-o ${SRCROOT}/activate-winswitch.command/..namedfork/rsrc";
+		};
+		BC711C3409C12DF1004FA0B9 /* Run Script (InfoPlist.strings preprocessing) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script (InfoPlist.strings preprocessing)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ". \"${BUILDTOOLS_DIR}/PreprocessInfoPlistStrings.sh\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

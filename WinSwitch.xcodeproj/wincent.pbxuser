@@ -132,7 +132,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 163650816;
+			PBXPerProjectTemplateStateSaveDate = 163655143;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -666,7 +666,7 @@
 				};
 				RubberWindowFrame = "0 99 1024 647 0 0 1024 746 ";
 			};
-			PBXWorkspaceStateSaveDate = 163650816;
+			PBXWorkspaceStateSaveDate = 163655143;
 		};
 		perUserProjectItems = {
 			BC34B73D08190E97004DB8F7 /* PBXTextBookmark */ = BC34B73D08190E97004DB8F7 /* PBXTextBookmark */;
@@ -727,14 +727,12 @@
 			BC4C9D3309C0BB7400195847 /* PBXTextBookmark */ = BC4C9D3309C0BB7400195847 /* PBXTextBookmark */;
 			BC71187009C122F1004FA0B9 /* PBXTextBookmark */ = BC71187009C122F1004FA0B9 /* PBXTextBookmark */;
 			BC71187109C122F1004FA0B9 /* PBXTextBookmark */ = BC71187109C122F1004FA0B9 /* PBXTextBookmark */;
-			BC71187309C122F1004FA0B9 /* PBXTextBookmark */ = BC71187309C122F1004FA0B9 /* PBXTextBookmark */;
 			BC71187409C122F1004FA0B9 /* PBXTextBookmark */ = BC71187409C122F1004FA0B9 /* PBXTextBookmark */;
 			BC71188E09C125F3004FA0B9 /* PBXTextBookmark */ = BC71188E09C125F3004FA0B9 /* PBXTextBookmark */;
 			BC71188F09C125F3004FA0B9 /* PBXTextBookmark */ = BC71188F09C125F3004FA0B9 /* PBXTextBookmark */;
-			BC71189009C125F3004FA0B9 /* PBXTextBookmark */ = BC71189009C125F3004FA0B9 /* PBXTextBookmark */;
 			BC71189209C125F3004FA0B9 /* PBXTextBookmark */ = BC71189209C125F3004FA0B9 /* PBXTextBookmark */;
-			BC71189309C125F3004FA0B9 /* PBXTextBookmark */ = BC71189309C125F3004FA0B9 /* PBXTextBookmark */;
-			BC71189609C12697004FA0B9 /* PBXTextBookmark */ = BC71189609C12697004FA0B9 /* PBXTextBookmark */;
+			BC711AFB09C12DCF004FA0B9 /* PBXTextBookmark */ = BC711AFB09C12DCF004FA0B9 /* PBXTextBookmark */;
+			BC711CCB09C12F6D004FA0B9 /* PBXTextBookmark */ = BC711CCB09C12F6D004FA0B9 /* PBXTextBookmark */;
 		};
 		sourceControlManager = BC31BE4505AA2FC2003881B1 /* Source Control */;
 		userBuildSettings = {
@@ -1525,16 +1523,6 @@
 		vrLen = 632;
 		vrLoc = 0;
 	};
-	BC71187309C122F1004FA0B9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 31408C1D055C05C7000B2096 /* WOWinSwitchMenuExtra.m */;
-		name = "WOWinSwitchMenuExtra.m: setAttributedTitle:";
-		rLen = 0;
-		rLoc = 68538;
-		rType = 0;
-		vrLen = 2563;
-		vrLoc = 26165;
-	};
 	BC71187409C122F1004FA0B9 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = BC31BEE205AA5082003881B1 /* Spanish */;
@@ -1565,26 +1553,6 @@
 		vrLen = 785;
 		vrLoc = 0;
 	};
-	BC71189009C125F3004FA0B9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "warning: method definition for '+sharedInstance' not found";
-		fRef = BC71189109C125F3004FA0B9 /* WOLogManager.m */;
-		rLen = 1;
-		rLoc = 491;
-		rType = 1;
-	};
-	BC71189109C125F3004FA0B9 /* WOLogManager.m */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.objc;
-		name = WOLogManager.m;
-		path = /Users/wincent/trabajo/WODebug/trunk/WOLogManager.m;
-		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {896, 6902}}";
-			sepNavSelRange = "{15026, 5}";
-			sepNavVisRect = "{{0, 5975}, {896, 927}}";
-		};
-	};
 	BC71189209C125F3004FA0B9 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = BCC0E3D706B44D3B0020437A /* Danish */;
@@ -1595,27 +1563,34 @@
 		vrLen = 353;
 		vrLoc = 0;
 	};
-	BC71189309C125F3004FA0B9 /* PBXTextBookmark */ = {
+	BC711AFB09C12DCF004FA0B9 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
-		name = "Info.plist: 18";
-		rLen = 0;
-		rLoc = 581;
-		rType = 0;
-		vrLen = 785;
-		vrLoc = 0;
-	};
-	BC71189609C12697004FA0B9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = BC71189709C12697004FA0B9 /* WOLogManager.m */;
+		fRef = BC711AFC09C12DCF004FA0B9 /* WOLogManager.m */;
 		name = "@end";
 		rLen = 5;
 		rLoc = 15026;
 		rType = 0;
-		vrLen = 1133;
-		vrLoc = 13898;
+		vrLen = 1164;
+		vrLoc = 13867;
 	};
-	BC71189709C12697004FA0B9 /* WOLogManager.m */ = {
+	BC711AFC09C12DCF004FA0B9 /* WOLogManager.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = WOLogManager.m;
+		path = /Users/wincent/trabajo/WODebug/trunk/WOLogManager.m;
+		sourceTree = "<absolute>";
+	};
+	BC711CCB09C12F6D004FA0B9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BC711CCC09C12F6D004FA0B9 /* WOLogManager.m */;
+		name = "@end";
+		rLen = 5;
+		rLoc = 15026;
+		rType = 0;
+		vrLen = 1164;
+		vrLoc = 13867;
+	};
+	BC711CCC09C12F6D004FA0B9 /* WOLogManager.m */ = {
 		isa = PBXFileReference;
 		name = WOLogManager.m;
 		path = /Users/wincent/trabajo/WODebug/trunk/WOLogManager.m;
