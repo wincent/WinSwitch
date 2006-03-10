@@ -16,7 +16,7 @@
 
 - (id)initWithFrame:(NSRect)aRect menuExtra:aMenuExtra
 {
-    if (self = [super initWithFrame:aRect])
+    if ((self = [super initWithFrame:aRect]))
         menuExtra = aMenuExtra;
     return self;
 }
