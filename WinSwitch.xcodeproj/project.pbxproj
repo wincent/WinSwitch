@@ -13,6 +13,7 @@
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		BC31BEDF05AA5070003881B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC31BEDD05AA5070003881B1 /* Localizable.strings */; };
 		BC5A9137072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5A9135072D2AD60040ADC4 /* NSString+WOWinSwitchExtensions.m */; };
+		BC98345B09C358380066093F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9833C509C358240066093F /* Carbon.framework */; };
 		BC9A57BB0619CB94004314F6 /* userIconAlt.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BC9A57BA0619CB94004314F6 /* userIconAlt.tiff */; };
 		BCA6A743096C159300FCA1C0 /* WinSwitchHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = BCA6A740096C157800FCA1C0 /* WinSwitchHelper.app */; };
 		BCA80A1106173E5B00B62BEA /* tick.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BC31BFF605AB16BF003881B1 /* tick.tiff */; };
@@ -125,6 +126,7 @@
 		BC7489980621C0CA002E7F0F /* Italian */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Italian; path = Italian.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BC958C4206B2982C006F9C43 /* create-branch.sh */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.script.sh; path = "create-branch.sh"; sourceTree = "<group>"; };
 		BC958C4306B2982C006F9C43 /* tag-release.sh */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.script.sh; path = "tag-release.sh"; sourceTree = "<group>"; };
+		BC9833C509C358240066093F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		BC9A57A20619C08C004314F6 /* German */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BC9A57A30619C0A2004314F6 /* German */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BC9A57BA0619CB94004314F6 /* userIconAlt.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = userIconAlt.tiff; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
 				31264969055C054C00DA5F94 /* SystemUIPlugin.framework in Frameworks */,
 				BCD6902706F4A58E00E651A6 /* ApplicationServices.framework in Frameworks */,
+				BC98345B09C358380066093F /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +226,7 @@
 				31264968055C054C00DA5F94 /* SystemUIPlugin.framework */,
 				BCD6902606F4A58E00E651A6 /* ApplicationServices.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+				BC9833C509C358240066093F /* Carbon.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";

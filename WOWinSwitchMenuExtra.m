@@ -20,6 +20,9 @@
 #import "WOWinSwitchMenuExtraView.h"
 #import "NSString+WOWinSwitchExtensions.h"
 
+// for Apple Event code (logout)
+#import <Carbon/Carbon.h>
+
 // for getuid()
 #import <unistd.h>
 
@@ -308,23 +311,17 @@
             if ((object = [userInfo objectForKey:WO_PREF_MENU_STYLE]))
             {
                 WOSwitchMenuStyle newStyle = [object intValue];
-                if ((newStyle == WOSwitchMenuFirstName) && 
-                    (menuStyle != WOSwitchMenuFirstName))
+                if ((newStyle == WOSwitchMenuFirstName) && (menuStyle != WOSwitchMenuFirstName))
                     [self _showFirstNameInMenuBar];
-                else if ((newStyle == WOSwitchMenuFullUsername) &&
-                         (menuStyle != WOSwitchMenuFullUsername))
+                else if ((newStyle == WOSwitchMenuFullUsername) && (menuStyle != WOSwitchMenuFullUsername))
                     [self _showFullUsernameInMenuBar];
-                else if ((newStyle == WOSwitchMenuIcon) &&
-                         (menuStyle != WOSwitchMenuIcon))
+                else if ((newStyle == WOSwitchMenuIcon) && (menuStyle != WOSwitchMenuIcon))
                     [self _showIconInMenuBar];
-                else if ((newStyle == WOSwitchMenuInitials) &&
-                         (menuStyle != WOSwitchMenuInitials))
+                else if ((newStyle == WOSwitchMenuInitials) && (menuStyle != WOSwitchMenuInitials))
                     [self _showInitialsInMenuBar];
-                else if ((newStyle == WOSwitchMenuShortUsername) &&
-                         (menuStyle != WOSwitchMenuShortUsername))
+                else if ((newStyle == WOSwitchMenuShortUsername) && (menuStyle != WOSwitchMenuShortUsername))
                     [self _showShortUsernameInMenuBar];
-                else if ((newStyle == WOSwitchMenuUserPicture) &&
-                         (menuStyle != WOSwitchMenuUserPicture))
+                else if ((newStyle == WOSwitchMenuUserPicture) && (menuStyle != WOSwitchMenuUserPicture))
                     [self _showUserImageInMenuBar];
             }
             if ((object = [userInfo objectForKey:WO_PREF_SHOW_ROOT_USER]))
@@ -369,13 +366,28 @@
     [NSTask launchedTaskWithLaunchPath:WO_CGSESSION arguments:[NSArray arrayWithObject:@"-suspend"]];
 }
 
+- (void)logout:(id)sender
+{
+    // http://lists.apple.com/archives/carbon-development/2002/Oct/msg00499.html
+    ProcessSerialNumber PSN;
+    PSN.highLongOfPSN   = 0;
+    PSN.lowLongOfPSN    = kSystemProcess;
+    AEAddressDesc address;
+    AppleEvent event, reply;
+    OSErr err = AECreateDesc(typeProcessSerialNumber, &PSN, sizeof(PSN), &address);
+    if (err == noErr)
+        err = AECreateAppleEvent(kCoreEventClass, kAELogOut, &address, kAutoGenerateReturnID, kAnyTransactionID, &event);
+    if (err == noErr)
+        err = AESend(&event, &reply, kAENoReply, kAENormalPriority, kAEDefaultTimeout, NULL, NULL);
+    NSLog(@"WinSwitch.menu: error sending logout Apple Event");
+}
+
 // open Accounts.prefPane
 - (void)accountsPrefPane:(id)sender
 {
-    NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
-    [workspace openFile:@"/System/Library/PreferencePanes/Accounts.prefPane"
-        withApplication:@"System Preferences"
-          andDeactivate:YES];
+    [[NSWorkspace sharedWorkspace] openFile:@"/System/Library/PreferencePanes/Accounts.prefPane" 
+                            withApplication:@"System Preferences" 
+                              andDeactivate:YES];
 }
 
 // open WinSwitch preferences (WinSwitchHelper)
@@ -389,28 +401,22 @@
 
 - (BOOL)helperRunning
 {
-    BOOL returnValue = NO;
-
-    int                 mib[4]      = { CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0 };
-    struct kinfo_proc   *processes  = NULL;
-    size_t              length      = 0;
-    int                 err;
-    
-    err = sysctl(mib, 4, NULL, &length, NULL, 0);   // find out size of buffer
+    BOOL    returnValue = NO;
+    int     mib[4]      = { CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0 };
+    size_t  length      = 0;
+    int     err         = sysctl(mib, 4, NULL, &length, NULL, 0);   // find out size of buffer
     if (err >= 0)
     {
-        processes = (struct kinfo_proc*)malloc(length);
+        struct kinfo_proc *processes = (struct kinfo_proc*)malloc(length);
         if (processes)
         {
             err = sysctl(mib, 4, processes, &length, NULL, 0);
             if (err >= 0)
             {
-                int i;  // search for "WinSwitchHelper" processes
-                int procCount = length / sizeof(struct kinfo_proc);
-                for (i = 0; i < procCount; i++)
+                // search for "WinSwitchHelper" processes
+                for (int i = 0, procCount = length / sizeof(struct kinfo_proc); i < procCount; i++)
                 {
-                    if ((processes[i].kp_proc.p_comm) &&
-                        (strcmp(processes[i].kp_proc.p_comm,"WinSwitchHelper")==0))
+                    if ((processes[i].kp_proc.p_comm) && (strcmp(processes[i].kp_proc.p_comm,"WinSwitchHelper") == 0))
                     {
                         // match found! find out owner
                         if (processes[i].kp_eproc.e_ucred.cr_uid != getuid())
@@ -431,31 +437,28 @@
 
 - (void)launchWinSwitchHelperAndShowPreferencesWindow:(BOOL)show
 {
-    NSString *helper = [[self bundle] pathForResource:@"WinSwitchHelper" 
-                                               ofType:@"app"];
+    NSString *helper = [[self bundle] pathForResource:@"WinSwitchHelper" ofType:@"app"];
+    NSAssert(helper != nil, @"pathForResource (WinSwitchHelper.app) must not be nil");
 
     if (show) // need to pass commandline argument to helper
     {
-        // fork
         pid_t pid = fork();
-        
         if (pid == 0)   // child process successfully created
         {
-            const char *path =
-                [[[[helper stringByAppendingPathComponent:@"Contents"]
+            const char *path = [[[[helper stringByAppendingPathComponent:@"Contents"]
                     stringByAppendingPathComponent:@"MacOS"]
                     stringByAppendingPathComponent:@"WinSwitchHelper"]
                     UTF8String];
             if (execle(path, path, "--preferences", NULL, NULL))
             {
                 NSLog(@"Error trying to launch WinSwitchHelper");
-                _exit(EXIT_SUCCESS);
+                _exit(EXIT_FAILURE);
             }
             else
                 NSLog(@"WinSwitchHelper launched");
         }
         else if (pid == -1) // error trying to fork child process
-            NSLog(@"Error (%d): failed to fork", errno);
+            perror("fork()");
     }
     else
     {
@@ -468,8 +471,7 @@
 
 - (void)switchToUser:(id)sender
 {
-    NSString *UID = 
-        [[[sender representedObject] objectForKey:@"UID"] stringValue];
+    NSString *UID = [[[sender representedObject] objectForKey:@"UID"] stringValue];
     NSArray *args = [NSArray arrayWithObjects:@"-switchToUserID", UID, nil];
     [NSTask launchedTaskWithLaunchPath:WO_CGSESSION arguments:args];
 }
@@ -478,78 +480,41 @@
 {
     NSDictionary *userInfo = nil;
     
-    // Use performSelector:WithObject:AfterDelay: to give Cocoa time to 
-    // unhighlight the menu title before actually performing the action
-    // (changing the view size while the item is still highlighted can result in
-    // visual glitches, such as temporarily clobbering any NSMenuExtras to the
-    // right, whenever the view size is reduced); in the unlikely even that 
-    // the user re-clicks the menu during the interval, we'll still get 
-    // glitches, but they'll be cosmetic only
-    if ((sender == showIconMenuItem) && 
-        (menuStyle != WOSwitchMenuIcon))
+    // Use performSelector:WithObject:AfterDelay: to give Cocoa time to unhighlight the menu title before actually performing the 
+    // action (changing the view size while the item is still highlighted can result in visual glitches, such as temporarily 
+    // clobbering any NSMenuExtras to the right, whenever the view size is reduced); in the unlikely even that the user re-clicks 
+    // the menu during the interval, we'll still get glitches, but they'll be cosmetic only
+#define WO_UNHIGHLIGHT_DELAY 0.5
+    
+    if ((sender == showIconMenuItem) && (menuStyle != WOSwitchMenuIcon))
     {
-        userInfo = 
-            [NSDictionary dictionaryWithObject:
-                [NSNumber numberWithInt:WOSwitchMenuIcon]
-                                        forKey:WO_PREF_MENU_STYLE];
-        [self performSelector:@selector(_showIconInMenuBar) 
-                   withObject:nil 
-                   afterDelay:0.5];
+        userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:WOSwitchMenuIcon] forKey:WO_PREF_MENU_STYLE];
+        [self performSelector:@selector(_showIconInMenuBar) withObject:nil afterDelay:WO_UNHIGHLIGHT_DELAY];
     }
-    else if ((sender == showUserPictureMenuItem) && 
-             (menuStyle != WOSwitchMenuUserPicture))
+    else if ((sender == showUserPictureMenuItem) && (menuStyle != WOSwitchMenuUserPicture))
     {
-        userInfo = 
-            [NSDictionary dictionaryWithObject:
-                [NSNumber numberWithInt:WOSwitchMenuUserPicture]
-                                        forKey:WO_PREF_MENU_STYLE];
-        [self performSelector:@selector(_showUserImageInMenuBar) 
-                   withObject:nil 
-                   afterDelay:0.5];
+        userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:WOSwitchMenuUserPicture] forKey:WO_PREF_MENU_STYLE];
+        [self performSelector:@selector(_showUserImageInMenuBar) withObject:nil afterDelay:WO_UNHIGHLIGHT_DELAY];
     }
-    else if ((sender == showFullUsernameMenuItem) && 
-             (menuStyle != WOSwitchMenuFullUsername)) 
+    else if ((sender == showFullUsernameMenuItem) && (menuStyle != WOSwitchMenuFullUsername)) 
     {
-        userInfo = 
-            [NSDictionary dictionaryWithObject:
-                [NSNumber numberWithInt:WOSwitchMenuFullUsername]
-                                        forKey:WO_PREF_MENU_STYLE];
-        [self performSelector:@selector(_showFullUsernameInMenuBar) 
-                   withObject:nil 
-                   afterDelay:0.5];
+        userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:WOSwitchMenuFullUsername] forKey:WO_PREF_MENU_STYLE];
+        [self performSelector:@selector(_showFullUsernameInMenuBar) withObject:nil afterDelay:WO_UNHIGHLIGHT_DELAY];
     }
-    else if ((sender == showShortUsernameMenuItem) && 
-             (menuStyle != WOSwitchMenuShortUsername))
+    else if ((sender == showShortUsernameMenuItem) && (menuStyle != WOSwitchMenuShortUsername))
     {
-        userInfo = 
-            [NSDictionary dictionaryWithObject:
-                [NSNumber numberWithInt:WOSwitchMenuShortUsername]
-                                        forKey:WO_PREF_MENU_STYLE];
-        [self performSelector:@selector(_showShortUsernameInMenuBar) 
-                   withObject:nil 
-                   afterDelay:0.5];
+        userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:WOSwitchMenuShortUsername] forKey:WO_PREF_MENU_STYLE];
+        [self performSelector:@selector(_showShortUsernameInMenuBar) withObject:nil afterDelay:WO_UNHIGHLIGHT_DELAY];
     }
-    else if ((sender == showFirstNameOnlyMenuItem) &&
-             (menuStyle != WOSwitchMenuFirstName))
+    else if ((sender == showFirstNameOnlyMenuItem) && (menuStyle != WOSwitchMenuFirstName))
     {
-        userInfo = 
-            [NSDictionary dictionaryWithObject:
-                [NSNumber numberWithInt:WOSwitchMenuFirstName]
-                                        forKey:WO_PREF_MENU_STYLE];
-        [self performSelector:@selector(_showFirstNameInMenuBar) 
-                   withObject:nil 
-                   afterDelay:0.5];
+        userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:WOSwitchMenuFirstName] forKey:WO_PREF_MENU_STYLE];
+        [self performSelector:@selector(_showFirstNameInMenuBar) withObject:nil afterDelay:WO_UNHIGHLIGHT_DELAY];
     }
-    else if ((sender == showInitialsOnlyMenuItem) &&
-             (menuStyle != WOSwitchMenuInitials))
+    else if ((sender == showInitialsOnlyMenuItem) && (menuStyle != WOSwitchMenuInitials))
     {
-        userInfo = 
-            [NSDictionary dictionaryWithObject:
-                [NSNumber numberWithInt:WOSwitchMenuInitials]
-                                        forKey:WO_PREF_MENU_STYLE];
-        [self performSelector:@selector(_showInitialsInMenuBar) 
-                   withObject:nil 
-                   afterDelay:0.5];
+        userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:WOSwitchMenuInitials] forKey:WO_PREF_MENU_STYLE];
+        [self performSelector:@selector(_showInitialsInMenuBar) withObject:nil afterDelay:WO_UNHIGHLIGHT_DELAY];
     }
     else if (sender == showRootUserMenuItem)
     {
@@ -563,20 +528,14 @@
             [showRootUserMenuItem setState:NSOnState];
             showRootUser = YES;
         }
-        userInfo = 
-            [NSDictionary dictionaryWithObject:
-                [NSNumber numberWithBool:showRootUser]
-                                        forKey:WO_PREF_SHOW_ROOT_USER];
-                
-        // force rebuild of cache next time user clicks on the menu
-        _refreshAllUsersCache = YES;
+        userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:showRootUser] forKey:WO_PREF_SHOW_ROOT_USER];
+        _refreshAllUsersCache = YES;    // force rebuild of cache next time user clicks on the menu
         [self _flushPrefsToDisk];
     }
     if (userInfo)
-        [[NSDistributedNotificationCenter 
-            defaultCenter] postNotificationName:WS_PREF_CHANGED_NOTIFICATION 
-                                         object:nil 
-                                       userInfo:userInfo];
+        [[NSDistributedNotificationCenter defaultCenter] postNotificationName:WS_PREF_CHANGED_NOTIFICATION 
+                                                                       object:nil 
+                                                                     userInfo:userInfo];
 }
 
 - (void)_flushPrefsToDisk
@@ -590,8 +549,7 @@
         [NSNumber numberWithFloat:menuPictureSize], WO_PREF_MENU_PICTURE_SIZE,
         nil];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setPersistentDomain:preferences
-                          forName:WO_BUNDLE_IDENTIFIER];
+    [defaults setPersistentDomain:preferences forName:WO_BUNDLE_IDENTIFIER];
     
     // synchronize method forces a disk-write
     if ([defaults synchronize] == NO)
@@ -602,35 +560,24 @@
 - (void)_processSwitchItems:(NSString *)folder
 {
     // get path to "Application Support"
-    NSString *applicationSupport = nil;
-    
-    int     domain      = kUserDomain;
-    int     folderType  = kApplicationSupportFolderType;
-    Boolean createFlag  = kDontCreateFolder;
-    FSRef   folderRef;
-    
-    OSErr err = FSFindFolder(domain, folderType, createFlag, &folderRef);
+    NSString    *applicationSupport = nil;    
+    FSRef       folderRef;
+    OSErr       err = FSFindFolder(kUserDomain, kApplicationSupportFolderType, kDontCreateFolder, &folderRef);
     if (err == noErr)
     {
         CFURLRef url = CFURLCreateFromFSRef(kCFAllocatorDefault, &folderRef);
         if (url)
         {   
-            applicationSupport = 
-            [NSString stringWithString:[(NSURL *)url path]];
+            applicationSupport = [NSString stringWithString:[(NSURL *)url path]];
             CFRelease(url);
         }
     }
     
-    NSString *path = 
-        [[applicationSupport stringByAppendingPathComponent:@"WinSwitch"]
-            stringByAppendingPathComponent:folder];
+    NSString *path = [[applicationSupport stringByAppendingPathComponent:@"WinSwitch"] stringByAppendingPathComponent:folder];
     
-    if (path &&
-        (![path pathIsOwnedByCurrentUser] ||
-         ![path pathIsWritableOnlyByCurrentUser]))
+    if (path && (![path pathIsOwnedByCurrentUser] || ![path pathIsWritableOnlyByCurrentUser]))
     {
-        NSLog(@"Warning: no items launched (path \"%@\" must be owned and "
-              @"writable only by the current user)", path);
+        NSLog(@"Warning: no items launched (path \"%@\" must be owned and writable only by the current user)", path);
         return;
     }
              
@@ -645,12 +592,9 @@
         if ([itemName hasPrefix:@"."]) continue;
         NSString *itemPath = [path stringByAppendingPathComponent:itemName];
         
-        if (itemPath &&
-            (![itemPath pathIsOwnedByCurrentUser] ||
-             ![itemPath pathIsWritableOnlyByCurrentUser]))
+        if (itemPath && (![itemPath pathIsOwnedByCurrentUser] || ![itemPath pathIsWritableOnlyByCurrentUser]))
         {
-            NSLog(@"Warning: item \"%@\" not launched (must be owned and "
-                  @"writable only by the current user)", itemPath);            
+            NSLog(@"Warning: item \"%@\" not launched (must be owned and writable only by the current user)", itemPath);            
             continue;
         }                
         
@@ -692,8 +636,7 @@
     // changes if user edits name; use custom method instead (<rdar://3607237/>)
     [self _setMenuTitleWithString:[self _fullUserName]];
     NSSize textSize = [[self attributedTitle] size];
-	[theView setFrameSize:
-        NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];     
+	[theView setFrameSize:NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];     
 	[self setLength:textSize.width + 8.0];
     [theView setNeedsDisplay:YES];              	
     [self _flushPrefsToDisk];
@@ -706,8 +649,7 @@
     [[showSubmenu itemAtIndex:(int)menuStyle] setState:NSOnState];
     [self _setMenuTitleWithString:NSUserName()];
     NSSize textSize = [[self attributedTitle] size];
-	[theView setFrameSize:
-        NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];     
+	[theView setFrameSize:NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];     
 	[self setLength:textSize.width + 8.0];
     [theView setNeedsDisplay:YES];              	
     [self _flushPrefsToDisk];
@@ -726,8 +668,7 @@
     
     [self _setMenuTitleWithString:firstName];
     NSSize textSize = [[self attributedTitle] size];
-    [theView setFrameSize:
-        NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];
+    [theView setFrameSize:NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];
     [self setLength:textSize.width + 8.0];
     [theView setNeedsDisplay:YES];
     [self _flushPrefsToDisk];
@@ -740,8 +681,7 @@
     [[showSubmenu itemAtIndex:(int)menuStyle] setState:NSOnState];
     
     NSMutableString *initials = [NSMutableString string];
-    NSArray *names = 
-        [[self _fullUserName] componentsSeparatedByWhitespace:@" .,"];
+    NSArray *names = [[self _fullUserName] componentsSeparatedByWhitespace:@" .,"];
     NSEnumerator *enumerator = [names objectEnumerator];
     NSString *name;
     
@@ -753,8 +693,7 @@
     
     [self _setMenuTitleWithString:initials];
     NSSize textSize = [[self attributedTitle] size];
-    [theView setFrameSize:
-        NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];
+    [theView setFrameSize:NSMakeSize(textSize.width + 8.0, [theView frame].size.height)];
     [self setLength:textSize.width + 8.0];
     [theView setNeedsDisplay:YES];
     [self _flushPrefsToDisk];
@@ -771,7 +710,7 @@
     else if (_refreshAllUsersCache || _refreshLoggedInUsers) // must re-build
     {
         int i;                                  // erase all items
-        for (i = 0; i < (count - 7); i++)       // except the last seven
+        for (i = 0; i < (count - 8); i++)       // except the last eight
             [theMenu removeItemAtIndex:0];      // "Login window...", "Show" etc
     }
     else
@@ -804,17 +743,14 @@
             continue;   // skip "users" without real shells
            
         NSMenuItem *item = 
-        [[NSMenuItem alloc] initWithTitle:[user objectForKey:@"Username"]
-                                   action:@selector(switchToUser:)
-                            keyEquivalent:@""];
+            [[NSMenuItem alloc] initWithTitle:[user objectForKey:@"Username"] action:@selector(switchToUser:) keyEquivalent:@""];
         [item setRepresentedObject:user];
 
         if (isPanther)
         {
             // check if user is logged in
             if ([loggedInUsers containsObject:user])
-                [item setAttributedTitle:
-                    [user objectForKey:@"UsernamePlusTick"]];
+                [item setAttributedTitle:[user objectForKey:@"UsernamePlusTick"]];
             else
                 [item setAttributedTitle:[user objectForKey:@"UsernameNoTick"]];            
         }
@@ -850,13 +786,10 @@
         // add "Show" submenu
         [theMenu addItem:[NSMenuItem separatorItem]];
         
-        NSString *showSubmenuTitle = NSLocalizedStringFromTableInBundle
-            (@"Show", @"", [self bundle], @"Show");
+        NSString *showSubmenuTitle = NSLocalizedStringFromTableInBundle(@"Show", @"", [self bundle], @"Show");
         
         NSMenuItem *showItem = 
-            [theMenu addItemWithTitle:showSubmenuTitle
-                               action:@selector(_showSubmenuItemSelected:) 
-                        keyEquivalent:@""];
+            [theMenu addItemWithTitle:showSubmenuTitle action:@selector(_showSubmenuItemSelected:) keyEquivalent:@""];
         
         [showItem setTarget:self];
 
@@ -864,12 +797,11 @@
         [theMenu setSubmenu:showSubmenu forItem:showItem];
         [showSubmenu release];
         
-#define WO_ADD_SHOW_SUBMENU_ITEM(menu, text)                                \
-        NSString *menu ## Title = NSLocalizedStringFromTableInBundle        \
-            (text, @"", [self bundle], text);                               \
-        menu = (NSMenuItem *)[showSubmenu addItemWithTitle:menu ## Title    \
-                               action:@selector(_showSubmenuItemSelected:)  \
-                               keyEquivalent:@""];                          \
+#define WO_ADD_SHOW_SUBMENU_ITEM(menu, text)                                                            \
+        NSString *menu ## Title = NSLocalizedStringFromTableInBundle(text, @"", [self bundle], text);   \
+        menu = (NSMenuItem *)[showSubmenu addItemWithTitle:menu ## Title                                \
+                                                    action:@selector(_showSubmenuItemSelected:)         \
+                                             keyEquivalent:@""];                                        \
         [menu setTarget:self]; /* can call macro with or without semicolon */
             
         WO_ADD_SHOW_SUBMENU_ITEM(showIconMenuItem,          @"Standard icon");
@@ -899,28 +831,27 @@
 
         // add "WinSwitch Preferences..." item
         [theMenu addItem:[NSMenuItem separatorItem]];        
-        NSString *winSwitchPreferences = NSLocalizedStringFromTableInBundle
-            (@"WinSwitch Preferences", @"", [self bundle], 
-             @"WinSwitch Preferences");
-        [[theMenu addItemWithTitle:winSwitchPreferences
-                            action:@selector(openPreferences:)
-                     keyEquivalent:@""] setTarget:self];
+        NSString *winSwitchPreferences = 
+            NSLocalizedStringFromTableInBundle(@"WinSwitch Preferences", @"", [self bundle], @"WinSwitch Preferences");
+        [[theMenu addItemWithTitle:winSwitchPreferences action:@selector(openPreferences:) keyEquivalent:@""] setTarget:self];
         
         // add "Open Accounts..." item
-        NSString *openAccounts = NSLocalizedStringFromTableInBundle
-            (@"Open Accounts", @"", [self bundle], @"Open Accounts");
-        [[theMenu addItemWithTitle:openAccounts
-                            action:@selector(accountsPrefPane:)
-                     keyEquivalent:@""] setTarget:self];
+        NSString *openAccounts = NSLocalizedStringFromTableInBundle(@"Open Accounts", @"", [self bundle], @"Open Accounts");
+        [[theMenu addItemWithTitle:openAccounts action:@selector(accountsPrefPane:) keyEquivalent:@""] setTarget:self];
         
         // add "Login Window..." item
         [theMenu addItem:[NSMenuItem separatorItem]];
-        NSString *loginWindow = NSLocalizedStringFromTableInBundle
-            (@"Login Window", @"", [self bundle],
-             @"Login Window");
-        [[theMenu addItemWithTitle:loginWindow 
-                            action:@selector(suspend:) 
-                     keyEquivalent:@""] setTarget:self];
+        NSString *loginWindow = NSLocalizedStringFromTableInBundle(@"Login Window", @"", [self bundle], @"Login Window");
+        NSMenuItem *loginWindowItem = [theMenu addItemWithTitle:loginWindow action:@selector(suspend:) keyEquivalent:@""];
+        [loginWindowItem setKeyEquivalentModifierMask:NSCommandKeyMask];
+        [loginWindowItem setTarget:self];
+        
+        // add "Log out..." item, alternate of previous item
+        NSString *logOut = NSLocalizedStringFromTableInBundle(@"Log out...", @"", [self bundle], @"Log out...");
+        NSMenuItem *logOutItem = [theMenu addItemWithTitle:logOut action:@selector(logout:) keyEquivalent:@""];
+        [logOutItem setKeyEquivalentModifierMask:NSAlternateKeyMask | NSCommandKeyMask];
+        [logOutItem setTarget:self];
+        [logOutItem setAlternate:YES];
     }
     [theMenu setMenuChangedMessagesEnabled:YES];
     return theMenu;
@@ -1391,8 +1322,7 @@
     // check to make sure file exists on disk (NetInfo may be stale)
     if (path)
     {
-        if (![[NSFileManager defaultManager] fileExistsAtPath:path
-                                                  isDirectory:NO])
+        if (![[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:NO])
             path = nil;
     }
     return path;
@@ -1406,8 +1336,7 @@
     NSImage *dimmedImage    = [[NSImage alloc] initWithSize:bounds.size];
     [dimmedImage lockFocus];
     {
-        [image compositeToPoint:NSZeroPoint
-                      operation:NSCompositeSourceOver];
+        [image compositeToPoint:NSZeroPoint operation:NSCompositeSourceOver];
         [[NSColor colorWithDeviceWhite:1.0 alpha:0.5] set];
         NSRectFillUsingOperation(bounds, NSCompositeSourceAtop);
     }

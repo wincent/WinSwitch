@@ -28,9 +28,7 @@
         NSGraphicsContext   *context    = [NSGraphicsContext currentContext];
         [context            setShouldAntialias:YES];
         [context            setImageInterpolation:NSImageInterpolationHigh];        
-        NSMutableAttributedString *title =
-            [[NSMutableAttributedString alloc] initWithAttributedString:
-                [menuExtra attributedTitle]];
+        NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithAttributedString:[menuExtra attributedTitle]];
         if ([menuExtra isMenuDown])
         {
             [menuExtra drawMenuBackground:YES];
@@ -52,11 +50,9 @@
     else                                // no title, draw image
     {
         if ([menuExtra isMenuDown])
-            [[menuExtra alternateImage] compositeToPoint:NSZeroPoint
-                                               operation:NSCompositeSourceOver];
+            [[menuExtra alternateImage] compositeToPoint:NSZeroPoint operation:NSCompositeSourceOver];
         else
-            [[menuExtra image] compositeToPoint:NSZeroPoint
-                                      operation:NSCompositeSourceOver];
+            [[menuExtra image] compositeToPoint:NSZeroPoint operation:NSCompositeSourceOver];
     }
 }
 
