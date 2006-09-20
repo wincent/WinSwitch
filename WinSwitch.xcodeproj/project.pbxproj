@@ -27,33 +27,6 @@
 		BCE4F39205AC61DF00A5A030 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49B7048680CD000E48DA /* Info.plist */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXBuildStyle section */
-		014CEA420018CDE011CA2923 /* Development */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DEBUGGING_SYMBOLS = full;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				OPTIMIZATION_CFLAGS = "-O0";
-				ZERO_LINK = YES;
-			};
-			name = Development;
-		};
-		014CEA430018CDE011CA2923 /* Deployment */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_PREPROCESSOR_DEFINITIONS = "";
-				ZERO_LINK = NO;
-			};
-			name = Deployment;
-		};
-/* End PBXBuildStyle section */
-
 /* Begin PBXContainerItemProxy section */
 		BCA6A73F096C157800FCA1C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -329,36 +302,6 @@
 			);
 			buildRules = (
 			);
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_TRIGRAPHS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WOWinSwitch.pch;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_STYLE = Bundle;
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = WinSwitch;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = menu;
-			};
 			dependencies = (
 				BCA6A742096C158100FCA1C0 /* PBXTargetDependency */,
 			);
@@ -374,12 +317,6 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = BC121E5808814D250062B12B /* Build configuration list for PBXProject "WinSwitch" */;
-			buildSettings = {
-			};
-			buildStyles = (
-				014CEA420018CDE011CA2923 /* Development */,
-				014CEA430018CDE011CA2923 /* Deployment */,
-			);
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,

@@ -6,7 +6,7 @@
 //  Copyright (c) 2003 TheCodingMonkeys. All rights reserved.
 //
 //  Modifications by Wincent Colaiuta <win@wincent.org>
-//  Copyright (c) 2004 Wincent Colaiuta.
+//  Copyright 2004-2006 Wincent Colaiuta.
 //
 //  $Id$
 
